@@ -1,0 +1,16 @@
+procedura per aggiornamento:
+
+copiare questa cartella sul desktop
+La prima volta vanno installati i Drivers:
+cartella Driver-usb; entrare nella cartella Windows-Driver-USB; doppio clic su CDM20814_Setup. Una volta terminato, riavviare il PC
+
+per aggiornare l'ECHO S, accedere alla presa usb interna svitando la scatola, accendere l'ECHO S tenendo premuto il tasto accensione e viste (il display si accende senza mostrare nulla ed è acceso il backlight). Dal PROGRAMMATORE scegliere il file .hex presente nella cartella ed eseguire l'aggiornamento)
+
+
+update instructions:
+
+Copy this folder on your desktop
+The first time you have to install the drivers:
+Driver-usb folder; enter the Windows-Driver-USB folder; double click CDM20814_Setup. When finished, restart the PC
+
+to update the ECHO S, access to the internal USB socket by unscrewing the box, turn on the ECHO S holding the "view" key (The display lights up without showing anything and the backlight is turned on). With PROGRAMMATORE choose the .hex file in the folder and start the update)
