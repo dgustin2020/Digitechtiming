@@ -1,0 +1,476 @@
+****************************************
+File che viene copiato nelle varie sotto_directory, quando si crea un nu nuovo progetto
+
+NON CANCELLARE
+****************************************
+
+/****/
+3v03-beta01  febbraio 2022
+  BUG calcolo costanti in modo automatico
+  Corretti alcuni bug in caso di un calcolo che produce un valore inferiore a 1000
+  In caso di conferma, veniva impostata solo la prima costante. Le altre venivano saltate.
+  Introdotti dalla versione 3v02beta12
+
+
+/****/
+3v02-beta01  agosto 2021
+
+  MOFIFICA
+  aggiunto nella scherata iniziale il testo "by Gustin Diego"
+  Compilata con librerie 2020-CRONO
+
+ /****/
+3v01-beta12  maggio 2021
+
+  MODIFICA
+  Permesso il salvataggio in "Calculated Set" di una costante inferiore a 1000
+  Chiedo il permesso e salvo se confermato
+
+/****/
+3v01-beta11  febbraio 2019
+
+  BUG
+  In "Test Clock", le sdoppiate non corrispondono al tempo visualizzato
+  Corretto. Problema dovuto aluso di AVG_Lclk al posto di Main_Lclk nella
+  visualizzazione delle sdoppiate.
+  BUG
+  In calibrazione Xtal, si blocca. 
+  Corretto. Problema dovuto al blocco del capture del timer2 che non termina correttamenet
+  dop 10 cicli di misure
+
+/****/
+3v01-beta10  febbraio 2019
+
+  BUG
+  Modificata la gestione e il calcolo dell "Adj Constan"
+  Per uqalche oscuro motivo, hi creati un algoritmo errato.
+  Adesso impostando la nuova base, calcoll correttamenet la nuova costante in uso
+
+/****/
+3v01-beta09f  ottobre 2018
+
+  MODIFICA
+  Aggiunto un timer al form di informazioni che comare all'accensio ne o quando colleghi
+  il box INTERFACE-S. Dopo 1 secondo, esce in automatico. Se chiamo il form da menu, il timer
+  Ë disattivato.
+
+  BUG
+  In collegamento con BORA-S. Se invio la distanza dal BORA-S, il parziale funziona correttamente
+  partendo da 0.000, Dopo il primo RESTART, il parziale "flicchera" tra il valore UP e un valore DOWN
+  Problema dovuto ad un calcolo fatto in "Zephyr_Run.c->zephyr_run_displ_dist_run". Ho tolto questo
+  calcolo e il problema sembra risolto. Ovviamente se trono sul BORA-S alla prova precedente,
+  ricalcolo il totale down ma il parziale parte da 0.000 e non dal valore precedente.
+
+/****/
+3v01-beta09e  agosto 2018
+
+  BUG
+  In fase di azzeramento dei contatori (comando da BORA-S) non azzero il contatore della media dei sensori
+  questo provoca un problema sul contatore parziale che genera una distanza negativa
+  Corretto
+
+/****/
+3v01-beta09d  agosto 2018
+
+  BUG
+  nella versione precedente, avevo disabilitato l gestione dei comandi in arrivo dal BORA-S
+  Ripristinato
+
+/****/
+3v01-beta09c  agosto 2018
+
+  MODIFICA
+  migliorata la gestione del salvataggio delle costanti nel box INTERFACE-S
+  Adesso, dopo la scrittura, ricarico i paramentri e faccio una comparazione
+  Se uguali, non faccio nulla, altrimenti rifaccio la procedura per altre due volte
+  Se continua a non funzionare, sgnalo la cosa
+
+
+/****/
+3v01-beta08  giugno 2018
+
+  MODIFICA
+  migliorata la gestione del collegamento con BORA-S e BORINO-S
+
+/****/
+3v01-beta06  febbraio 2018
+
+  MODIFICA
+  In TRIPrun, ho messo la possibilit‡ di congelare i contatori anche quando aziono il RESTART.
+  Questa opzione Ë programmabile nel menu "SETUP / INPUT / RESTART+SPLIT".
+
+  MODIFICA
+  Introdotta la scelta del tipo di calcolo della media totale (AVG Tot) nella vita TRIP.
+  Si hanno due scelte:
+  Continuos: ( simbolo ">" )la media viene calcolata usando il conteggio del tempo che parte al momento 
+    del passaggio dal modo STOP al modo RUNtrip dopo il reset dei contatori.
+    Se la vettura Ë ferma oppure lo strumento Ë in modo STOP, il tempo non viene fermato
+    Ë il calcolo della media continua.
+  Only moving: ( Simbolo "||" )la media viene calcolata usando il tempo che viene misurato quando la vettura Ë
+    in movimento. Se la vettura Ë ferma oppure lo strumnto Ë in modo STOP, il tempo
+    viene fermato e la media non viene calcolata, rimandeno congelata.
+  La scelta del tipo di calcolo viene fatta nel menu "SETUP / Trip Set / AVG Tot:"
+
+/****/
+3v01-beta05
+agosto 2016
+
+  MODIFICA
+  in collegamento con BORA, quando ricevo il comando lunghezza 0
+  azzero i trip e passo in modo trip sempre, anche se vengo da una prova di media
+
+/****/
+3v01-beta03
+agosto 2016
+
+  BUG
+  corretti alcuni bug nel funzionamento con BORA-S in modalita AVG
+
+/****/
+3v01-beta02
+luglio 2016
+
+  BUG
+  Miglirata la gestione delle distanza in modo BORA-S
+  Adesso in qualche modo, quando torno indietro sulla prova precedente
+  nel BORA-S, torna anche il contametri giusto, almeno credo.
+  ATTENZIONE: questo non funzione se ho anche una media programmata nel BORA-S
+  Tornare indietro √® impossibile, se non ripartendo dai valori programmati.
+
+/****/
+3v01-beta01
+luglio 2016
+
+  versioni tutte le modifiche/correzioni delle precedenti 
+
+/****/
+3v00-beta05
+luglio 2016
+
+  MODIFICA
+  Quando arriva dal BORA-S l'impostazione della lunghezza. passa in automatico
+  in visualizzazione "TRIP distanza", modo "RUNtrip" .
+  Quando arriva l'impostazione anche della Media, passa in automatico in visualizzazione
+  "Media testo" in modo RUN.
+
+/****/
+3v00-beta04
+luglio 2016
+
+  BUG
+  corretti alcuni bug inerenti alla formattazione della memoria
+  
+  MODIFICA
+  aggiunta la gestione che permette di inviare da parte del BORA-S
+  una lunghezza di prova e visualizzare da parte del AVE-S un countdown
+  al posto della distanza totale. La distanza parziale viene azzerata
+  e funziona nel modo classico.
+  Se invio il comando con lunghezza diversad 0, passo in modo BORA-CD
+  Se invio il comando con lunghezza uguale a 0, torno in modo TRIP, solo se sono in modo BORA-CD
+
+/****/
+3v00-beta03
+luglio 2016
+
+  ABILITATA LA FUNZIONE DUAL_PROG
+
+  MODIFICA
+  librerie set_clock
+  adesso ho la possibilita di azzera l'impostazione di un singolo blocco in 
+  caso di errore. Premendo una volta ESC, azzero il blocco. Premendo di
+  nuovo esco senza salvare, mantenendo il valore del blocco
+
+  MODIFICA
+  Adesso, ho una nuova opzione per la tipologia Start, la voce Begin
+  In caso di passaggio da una prova precedente, o in automatico o manuale,
+  permette di abiltare il modo RUN  o il modo STOP della prova.
+  Questa opzione ha una variabile globale do default da cui prelevare la
+  selezione.
+
+  MODIFICA
+  Migliorato il recupero dei dati di calibrazione e di setup della macchina
+  Gestito meglio l'eventuale errore di checksum e corrette le posizioni e lunghezze
+  dei blocchi, sia in ram che in eeprom
+
+  MODIFICA
+  introdotto il concetto di modo in caso di raggiunta distanza impostata
+  Adesso ho il modo auto o il modo manuale
+  Nel primo, passo automaticam,ente alla priva succesiva, nel secondo aspetto
+  l'azione manuale.
+
+  MODIFICA
+  In modo sectorial il tipo di medie e il modo dello split hanno 
+  un default programmabile. Questa programmazione avvine nel menu relativo alla
+  programmazione (vista lista)
+  In questo modo posso ridurre i tempi di programmazione se le prove sono
+  tutte dello stesso tipo
+  In modo_pgn continue, i valori di default sono sempre tipo reset e modo automatico
+
+  MODIFICA
+  in form avg text, non mostro la distanza programmata e il tipo di split
+  se non ho un valore programmato
+
+  MODIFICA
+  Con UP E DOWN, se sono in vista AVG e in STOP, posso cambiare prova
+  Se non in STOP, errore
+
+  MODIFICA
+  In modo Sectorial, quando aziono Restart in una prova, ho i seguneti risultati
+  se la successiva √® di tipo Change, cambio media e rimango in run.
+  se la successiva √® di tipo Start,  cambio media e vado in Stop e azzero il trip totale
+  Se la successiva √® di tipo Break,  rimango sempre sulla stessa prova.
+
+  MODIFICA
+  In sectorial, il reset azzera anche il trip totale.
+  Dopo il reset vado in Stop sempre.
+
+/****/
+3v00-beta02
+maggio 2016
+  ABILITATA LA FUNZIONE DUAL_PROG
+
+  MODIFICA
+  In fase di impostazione di una variabile, premendo una prima volta il tasto ESC,
+  si azzera il valore. Premendo una seconda, si esce lasciando il valore precedente.
+  Modifica in libreria comune a BORA-S
+
+  MODIFICA
+  Se ho una media imposta uguale a 0.000, non la visualizzo nel form text
+  Se ho una lunghezza uguale a 0.000, non la visualizzo in form text
+
+/****/
+3v00-beta01
+maggio 2016
+
+  NUOVA FUNZIONE
+  nuova gestione delle medie di tipo settoriale
+  tentative
+  La gestione del settoriale deve essere abilitata impostando una preprocessor
+  define . Se definita abilito la scelta e la gestione
+  IN QUESTA VERSIONE, NON E' ABILITATA LA FUNZIONE
+
+  MODIFICA
+  Con connessione a ECHO-S, in caso di mancata risposta da parte di ECHO-S
+  rimendo 3 volte la stringa prima di resettare il tutto. 
+  Come nel BORA-S
+
+  MODIFICA
+  Qunado entro in "Set_Avg", mostro sempre la prima finestra, quella con il valore di AVG
+  Prima, a seconda del modo (TRIP / AVG) mostravo finestre diverse
+  Sembra si generi casino per gli utenti.
+
+  MODIFICA
+  In lista delle media, azionando ENTER si rende attiva la media selezionata
+  e si esce immediatamente tornando in modo gara.
+
+  MODIFICA
+  Modificata l'accensione. Adesso, per entrare in calibrazione, bisogna
+  premere il tasto VISTE durante la visualizzazioe della versione
+  Ho una normale gestione di tastiera e non verifica singolo filo
+
+  MODIFICA
+  Corretti alcuni testi che avevano ancora la scritta INTERFACE3IN
+  al posto di INTERFACE_S
+  Corretti alcuni testi che riportavano il numero di media inferiroe
+  di un unita (AVG1 --> AVG0)
+
+/****/
+2v00-beta10
+febbraio 2016
+  BUG
+  Corretti alcuni bug introdotti nelle precedenti versioni con il non reset del
+  trip_totale quando in modo AVG.
+  Rimanevano impulsi spuri che producevano un trip_parziale maggiorato
+   
+/****/
+2v00-beta09
+febbraio 2016
+  Il numero delle AVG parte da 1 (e non da 0) ed arriva a 00;
+  Anche il msg verso l'ECHO viene modificato, incrementando il numero di AVG
+  Purtroppo per motivi tecno, l'attuale versione del ECHO (1v01-b04), 
+  con AVG == 100, non visualizza "00" ma solo "0"
+
+  BUG
+  Corretto un bug relativo al trip totale dopo il reset in modo AVG
+  Il contatore ripartiva da 0 invece dal valore stoppato dal reset.
+  Inoltre veniva creato un gran casino della media totale perchË non
+  salvavo il tempo di stop dopo il suddetto reset.
+
+  BUG
+  In modo AVG, azionando il pulsante esterno con modalilta impostata a RESTART
+  il contatore virtuale non riparte d 0 ma da un valore tutto suo
+  Manca il giusto caricamento del evento da Avg_Lclk e non da Main_Lclk
+  Corretto. 
+
+  BUG
+  In imposta ora di partenza di una media, il tasto ESCAPE non funziona
+  Corretto
+
+/****/
+2v00-beta08
+febbraio 2016
+  Miglirato il calcolo della velocit‡†media del trip totale
+  Adesso, se supero una certa distanza, non scrivo boiate
+
+  Migliorato il reset con fase successiva di stop
+  Mancava uno stop al interface in modo che non contasse impulsi
+  dopo il reset.
+
+/****/
+2v00-beta07 
+febbraio 2016
+  Introdotta la possibilit√† di scegliere il modo di funzionamento dello strumento
+  dopo un reset. Nel menu "setup / trip_set", la voce "RESET -->" permette di scegliere
+  lo stato in si mette lo strumento dopo l'azione di Reset.
+  Sono disponibili due modalit√†: 
+  "RUN TRIP" come adesso, lo strumento continua il conteggio degli impulsi
+  "STOP" lo strumento rimane in attesa dello start.
+
+
+/****/
+2v00-beta06 
+febbraio 2016
+
+  Aggiunta la visualizzazione della media del del trip totale.
+  Il calcolo viene fatto sulla distanza totale e sul tempo in cui lo strumento non Ë
+  in modo STOP.
+  Se non arrivano impulsi a nessun sensore collegato, la media scende perch√® il tempo 
+  viene incrementato.
+  Azzerando il contatore, si azzera la media.
+  In modo STOP, la media non cambia.
+  La precisione √® relativa perch√® il calcolo del tempo in relazione agli impulsi
+  ricevuti non √® perfetto..
+
+  Corretto il bug del mancaoto checksum di ee_utente_1 nelle macchine in cui viene
+  viene installato il software la prima volta.
+
+/****/
+2v00-beta05 dicembre 2015
+
+  Corretta il mancao caricamento dei puntatori al contaimpulsi, che produceva
+  un calcolo errato quando non avevo INTERFACCIA-S collegata.
+
+  Corretto l'errore del check_sun quando accendo per la prima volta lo strumento
+  Adesso, uscendo da Calibrazione, imposto ee_utente1 con valore default;
+
+/****/
+2v00-beta04 dicembre 2015
+
+  Fatta verifica del firmware del INTERFACE_S collegato.
+  Se minore o uguale della 2v02, carico la seuqenza salvata nella eeprom
+  dello strumento. Questo perchË nel INTERFACE-S_2v02 viene sempre cqricata la seuqenza defaukt
+  che attiva i quanttro ingressi-
+
+  Inrodotta la possibilita di scegliere il conta-distanza che viene modificato quando si
+  aziona il sync.
+  In MENU-Sensori si trova la voce "Sycns.Trip" dove posso scegliere se Totale o PArziale
+  Se impostato parziale, funziona come adesso.
+  Se impostato totale, il sync modifica il conta-distanza totlae solo se sono
+  in modo TRIP. Se sono in modo AVG, modifco sempre il conta-distanza parziale, che Ë quello
+  che viene usato per il calcolo dell'errore.
+
+  Fatti alcuni aggiustamenti sui dati memorizzati in eeprom
+  Ho aggiunto un utente1 che contiene la sequenza degli ingressi
+  in modo da usarla inc caso di utilizzo di un boc interfaccia con firmware 
+  inferiore alla 2v02.
+  Questo dovrebbe risolvere i problemi dei primo apparecchi venduti
+  In eeprom ho fatto un alcuni test e sembra che se salvo pi√π di 32 byte
+  quelli che suoperaro vebgono scritti e/o letti in modo errato generando 
+  casino. 
+  Non capisco come funziona il sancataggio delle medie, visto che salvo a botte
+  di 64 byte.
+
+  Azionando il Reset ( [STOP] x 2 Secondi oppure [Shift] + [STOP] ), a seconda
+  della vista principale azzero il parziale e il totale se in vista TRIp altrimenti
+  azzero solo il Parziale se sono in AVG
+  In entrambi i casi passo al modo (RUN only trip)
+
+  Azionabdo lo STOP in vista AVG, la prima volta passa in modo STOP fermando il conteggio
+   virtuale e il rilevamnento della distanza. Premendo un aseconda volta, si abilita
+   il modo "Run only trip" che abilita il solo rilevamento della distanza.
+   In vista Trip, rimane come prima, fermando il rilevamento di entrambi i contatori.
+
+/****/
+2v00-beta03 dicembre 2015
+
+  In fase di carcamento dati utente, la verifica del valore impostato per
+  la risoluzione viene fatta con !000 e non con 2. Questo comporta che in
+  caso di valore alterato (maggiore di 2), il sistema esploda quando
+  visualizza i conta_distanza.
+  Corretto, fatta verifica con valore giusto.
+
+  Bug calcolo
+  La procedura che converte la distanza in tempo sembra sbagliata
+  Rifatta con un altro modo di calcolo
+  Funziona correttamente.
+
+  Migliarata la connessione con ECHO
+  Aggiunti nuovi campi al record_dista.
+
+  Scoperta bug nel firmware del INTERFACE-S
+  Ad ogni accensione, viene ricaricata la sequenza di default che abilita 
+  tutti i sensori.
+  Per ovviare, solo con firmware interafce-s_2v01penso. di tenere nel AVE 
+  la seuqenza, buttando alle ortiche quella carica dal interface.
+  Quindi, la prima volta (sequenza_locale == 0xFF) carico la sequenza da
+  INterface-S, poi, le successive modiche, oppure allo spegnimento, salvo
+  la sequenza in modo da recuperarla alla prossima accensione.
+
+  Migliorate alcune visualizzazioni
+
+  Introdotta, nella gestione della scrittuta a display, la possibilit√† di non 
+  scrivere nella zona della status_bar
+  Per adesso funziona con il font_03 e font_04. Con il font_00 solo tipo DOPPIO
+  e tipo DOPPIO_NARROW
+
+/****/
+2v00-beta02 novembre 2015
+
+	Correzione di alcuni bug in test sensori
+	prima x vendita
+
+/****/
+2v00-beta00 ottobre 2015
+
+	Versione quasi ufficiale per commecializzazione
+
+	Uleriori miglioramenti dei menu
+
+	Correzioni di alcuni bug in qualche visualizzazione
+
+	Preparto il terreno per l'uso con modulo BLUEtooth
+	ma non attivo
+
+/****/
+1v00-beta02 ottobre 2015
+
+  Fatti alcuni aggiustaemnti dei menu
+
+  In set AVG, Introdotta la possibilita di passare alla media successiva o precedente
+  mediante SHIFT + UP o SHIFT + DOWN
+
+  Uscendo da calibrazione con salva, vengono messi i valori di default sia per l'utente
+  che per le medie.
+
+  In vista List medie, con il tasto VISTE, si toggla tra due form, il secondo form
+  visualizza la lunghezza (length).
+
+  MigÚiorata la scansione della tastiera. Qualche volta (spesso), premendo il tasto 1
+  in fase impostazione valori, si produceva la generazione del tasto 7.
+  Sembra ci sia qualche interferenza con la seriale del intefaccia.
+  Ho messo la gestione dei tasti nel itr1000
+  Sembra funzionare.
+
+  Ho introdotto la funzione di formatta i record quando installo una nuova versione beta
+  Se trovo il beta diverso dalla preceedente, formatto i record
+  Problema: se cambio versione principale??????
+  Da vedere
+
+  Ho messo il checksum su ee_base e ee_utente.
+  Se in fase di load, i checksum non corrispondono con quelli salvati in eeprom
+  genero un BOOP di segnalazione.
+
+/****/
+1v00-beta01 ottobre 2015
+
+  Prima versione di test.
