@@ -1,0 +1,16 @@
+procedura per aggiornamento:
+
+copiare questa cartella sul desktop
+La prima volta vanno installati i Drivers:
+cartella Driver-usb; entrare nella cartella Windows-Driver-USB; doppio clic su CDM20814_Setup. Una volta terminato, riavviare il PC
+
+per aggiornare il BORA S², collegarlo con il cavo USB, aprire il programma DIGI UPDATER, accendere il BORA S², ed entrare nella voce 9 Firmware UpGrade. Da DIGI UPDATER scegliere il file .dig presente nella cartella ed eseguire l'aggiornamento)
+
+update instructions:
+
+Copy this folder on your desktop
+The first time you have to install the drivers:
+Driver-usb folder; enter the Windows-Driver-USB folder; double click CDM20814_Setup. When finished, restart the PC
+
+to update the BORA S², connect it with the USB cable, open the DIGI UPDATER program, turn on the BORA S² and choose 9 Firmware UpGrade. From the DIGI UPDATER program choose the .dig file in the folder and start the update
+
