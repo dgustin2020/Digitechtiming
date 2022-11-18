@@ -1,0 +1,27 @@
+procedura per aggiornamento:
+
+copiare questa cartella sul desktop
+La prima volta vanno installati i Drivers:
+cartella Driver-usb; entrare nella cartella Windows-Driver-USB; doppio clic su CDM20814_Setup. Una volta terminato, riavviare il PC
+
+per aggiornare il BORINO S, collegarlo con il cavo USB, aprire il programma DIGI UPDATER, accendere il BORINO S, ed entrare nella voce 9 Firmware UpGrade. 
+Se la voce non è disponibile nel menu, entrare in "Test Orologio", tenere premuto il tasto "Bandiera" e il tasto "On" finchè il display non si spegne.
+Da questo momento lo strumento è in modalità aggiornamento.
+
+Da DIGI UPDATER scegliere il file .dig presente nella cartella ed eseguire l'aggiornamento.
+Il programma DIGI UPDATER può programmare lo strrumento anche usando i vecchi files .hex
+
+
+update instructions:
+
+Copy this folder on your desktop
+The first time you have to install the drivers:
+Driver-usb folder; enter the Windows-Driver-USB folder; double click CDM20814_Setup. When finished, restart the PC
+
+to update the BORINO S, connect it with the USB cable, open the DIGI UPDATER program, turn on the BORINO S and choose 9 Firmware UpGrade. 
+If the item is not available in the menu, enter "Clock Test", press and hold the "Flag" key and the "On" key until the display switches off.
+From now on the instrument is in update mode.
+
+From the DIGI UPDATER program choose the .dig file in the folder and start the update
+
+DIGI UPDATER is able to update your device also with the old .hex files
