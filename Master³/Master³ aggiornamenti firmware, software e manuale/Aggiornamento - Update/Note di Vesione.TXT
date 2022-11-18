@@ -1,0 +1,3297 @@
+/*********************
+  19-05-beta03			  (22/11/2019)
+**********************/
+  SCI
+    -bug
+    in edit, annullando il numero di un concorrente, si esce dal programma
+    Corretto
+    
+    -modifica
+    in fondo staffetta, modificato il calcolo dei tempi giro dei singoli staffettisti
+    Adesso si tronca il tempo alla risoluzione desiderata e poi si fa la differenza, sopperendo al problema dell'arrotondamento,
+    e quindi il tempo totale corrisponde alla somma dei singoli giri
+    
+    NUOTO
+      -modifica
+      introdotto il comando seriale +UC che invia sulla seriale il tempo a correre della batteria
+      con +U si elimina la trasmissione
+      
+/*********************
+  19-04			  (15/4/2019)
+**********************/
+  Versione pubblica che contiene le beta precedenti
+
+/*********************
+  18-11-beta10		  (4/4/2019)
+**********************/
+  START COUNTDOWN
+    -bug
+      se il prossimo a partire veniva messo NP i tabelloni non
+      venivano aggiornati
+      (segnalazione crono Como)
+
+/*********************
+  18-11-beta9		  (1/4/2019)
+**********************/ 
+  START COUNTDOWN
+    -aggiunta
+      aggiunta possibilità di eliminare o aggiungere
+      un concorrente in una lista di partenza caricata
+
+/*********************
+  18-11-beta8		  (28/3/2019)
+**********************/
+  SCI
+    -bug
+      la risposta al comando +T aveva un errore
+      nell'ultimo campo
+      (segnalazione Microplus)
+
+/*********************
+  18-11-beta7a		  (25/3/2019)
+**********************/
+  START COUNTDOWN
+    -modifica
+      i tempi nei file con la start list vengono considerati
+      sempre ascendenti
+
+/*********************
+  18-11-beta7		  (18/3/2019)
+**********************/
+  START COUNTDOWN
+    -aggiunta
+      aggiunta possibilità di importare una lista di partenza
+      (richiesta crono Como)
+
+/*********************
+  18-11-beta6		  (11/3/2019)
+**********************/
+  NUOTO
+    -bug
+      nelle stringhe inviate sulla seriale con il protocollo nuovo,
+      nel campo del numero di corsia c'erano anche il numero di batteria 
+      e di fase shiftati di 8 e 16 bit rispettivamente
+
+/*********************
+  18-11-beta5		  (1/3/2019)
+**********************/
+  SCI
+    -bug
+      il tempo a correre sulla seriale in certi casi "tornava indietro"
+      all'arrivo del concorrente
+      (segnalazione Microplus)
+
+/*********************
+  18-11-beta4		  (25/2/2019)
+**********************/
+  NUOTO
+    -bug
+      nelle stringhe inviate sulla seriale con il protocollo vecchio,
+      nel campo del numero di corsia c'erano anche il numero di batteria 
+      e di fase shiftati di 8 e 16 bit rispettivamente
+      
+  SCI
+    -bug
+      in edit start, se si assegnava il numero messo in attesa
+      dello start, non veniva cancellato dal numero atteso.
+      (segnalazione crono Como)
+      
+    -modifica
+      in edit start, se gli automatismi sono attivi e si assiegna
+      ad un tempo il numero messo in attesa, viene messo in attesa
+      il prossimo
+      (richiesta crono Como)
+      
+  TUTTI
+    -modifica
+      ora per calcolare la velocità media si può impostare
+      una distanza fino a 999999.9m
+      (richiesta crono Aquila)
+
+/*********************
+  18-11-beta3		  (16/1/2019)
+**********************/
+  SCI
+    -bug
+      copiando un tempo su un unico numero,
+      il programma si chiudeva
+      (segnalazione crono Como)
+
+/*********************
+  18-11-beta2		  (15/1/2019)
+**********************/
+  TUTTI
+    -modifica
+      il led rosso si accende anche mentre la temporizzazione
+      della linea è attiva
+
+/*********************
+  18-11-beta1		  (30/11/2018)
+**********************/
+  SCI
+    -aggiunta
+      se i gruppi sono attivi, da edit posso copiare
+      su un gruppo
+      (richiesta crono Como)
+
+/*********************
+  18-11		  (29/11/2018)
+**********************/
+  SCI
+    -bug
+      mettendo NA un concorente neanche partito,
+      gli veniva assegnata la categoria 0
+      (segnalazione crono Como)
+
+/*********************
+  18-04-beta12			  (28/11/2018)
+**********************/
+  EQUITAZIONE
+    -bug
+      con la visualizzazione microgate compatta, sul
+      tabellone 0 il conto alla rovescia partiva
+      dal numero sbagliato
+      (segnalazione crono Trapani)
+
+/*********************
+  18-04-beta11			  (26/11/2018)
+**********************/
+  SINCRONIZZAZIONE
+    -aggiunta
+      premendo "sincronizza" il cronometro si sincronizza
+      appena possibile
+
+/*********************
+  18-04-beta10			  (23/11/2018)
+**********************/
+  TUTTI
+    -bug
+      i comandi della seriale +R e +L venivano azionati
+      anche se le stringhe inviate solo iniziavano per
+      +R o +L (es. +READY)
+      (segnalazione M. Barilari)
+
+/*********************
+  18-04-beta9			  (16/11/2018)
+**********************/
+  SINCRONIZZAZIONE
+    -aggiunta
+      aggiunta la possibilità di spostare l'ora dello strumento
+      (richiesta Moris)
+
+/*********************
+  18-04-beta8			  (5/11/2018)
+**********************/
+  SINCRONIZZAZIONE
+    -modifica
+      velocizzata la sincronizzazione se si accende spesso lo strumento
+
+
+/*********************
+  18-04-beta5			  (21/9/2018)
+**********************/
+  MENU PREFERENZE
+    -aggiunta
+      aggiunta visualizzazione info GPS
+
+/*********************
+  18-04-beta4			  (4/9/2018)
+**********************/
+  SCI
+    -aggiunta
+      nella finestra per calcolare gli start teorici, sono stati
+      aggiunti i tasti funzione "+ passo" e "-passo" per modificare
+      l'ora di partenza del primo del passo impostato.
+      (richiesta crono Cusa)
+      
+    -aggiunta
+      nella finestra per calcolare gli start teorici, i tasti
+      freccia permettono di passare da un campo all'altro.
+      
+    -aggiunta
+      dalla finestra edit è possibile copiare un tempo.
+      Bisogna digitare il nuovo numero e confermare con "copia"
+
+/*********************
+  18-04-beta3			  (21/8/2018)
+**********************/
+  SCI
+    -bug
+      la modalità expert non funzionava nell'edit e per lo start
+      del fondo
+      (segnalazione crono Como)
+      
+    -bug
+      con le partenze a gruppi attive, impostando in partenza
+      un numero già partito e confermando l'eliminazione, veniva 
+      fatto partire un numero che non c'entrava niente
+      (segnalazione crono Como)
+  
+  SINCRONIZZAZIONE GPS
+    -aggiunta
+      quando sono sicuro di aver ricevuto l'ora giusta,
+      mentre il menu di sicronizzazione dal GPS è aperto,
+      emetto un avviso sonoro
+
+/*********************
+  18-04-beta2			  (24/7/2018)
+**********************/
+  SCI
+    -bug
+      se i tempi venivano ricevuti via radio, dopo un centinaio di 
+      passaggi il numero non veniva più abbinato
+
+/*********************
+  18-04-beta1			  (29/6/2018)
+**********************/
+  EQUITAZIONE
+    -bug
+      non era possibile recuperare i tempi dalle radio
+      o dai connettori S e F.
+      (segnalazione crono Udine)
+
+/*********************
+  18-04			  (24/4/2018)
+**********************/
+  CONTASECONDI
+    -modifica
+      nella modalità tempo solare il primo tempo giro ora viene
+      calcolato dalla mezzanotte del giorno corrente e
+      non viene più mostrata l'indicazione "+ n giorni"
+      (suggerimento crono Messina)
+  
+  TUTTI
+    -bug
+      nella ristampa non venivano visualizzate le righe con
+      il calcolo della velocità
+
+/*********************
+  18-02-beta5		  (17/4/2018)
+**********************/
+  TUTTI
+    -modifica
+      non è più possibile impostare 0 come durata
+      dello sdoppiamento dei tabelloni
+      (segnalazione crono Alessandria)
+  
+  EQUITAZIONE
+    -bug
+      annullando un tempo di arrivo sui tabelloni non riappariva
+      il tempo a correre
+
+/*********************
+  18-02-beta4		  (13/4/2018)
+**********************/
+  EQUITAZIONE
+    -aggiunta
+      aggiunta visualizzazione delle penalità imposte
+      e dovute al superamento del tempo massimo
+      
+    -modifica
+      modificati i tabelloni per mostrare anche le penalità
+      imposte e dovute al superamento del tempo massimo
+      come sul vecchio Master.
+      Sul tabellone 5 con il protocollo ALGE vengono mostrate
+      le penalità totali nello spazio della posizione
+      Il nome del concorrente è stato spostato all'indirizzo 6
+      e il nome del cavallo all'indirizzo 7
+      (richieste varie)
+
+/*********************
+  18-02-beta3		  (05/4/2018)
+**********************/
+  EQUITAZIONE
+     -bug
+       sui tabelloni ALGE non venivano visualizzati tempi maggiori
+       di 99s
+       (segnalazione crono Alessandria)
+
+/*********************
+  18-02-beta2		  (08/3/2018)
+**********************/
+  SCI
+    -modifica
+      ora si possono creare gruppi di partenza con concorrenti
+      appartenenti a categorie diverse
+      (richiesta Moris)
+
+/*********************
+  18-02-beta1		  (05/3/2018)
+**********************/
+  NUOTO
+    -bug
+      se uno dei tempi di arrivo aveva la frazione dei secondi a zero
+      allora l'ordine di arrivo non veniva stampato e visualizzato correttamente
+      (segnalazione crono Milano)
+
+/*********************
+  18-02			  (21/2/2018)
+**********************/
+  START COUNTDOWN
+    -aggiunta
+      modificando l'intervallo tra le partenze il nuovo
+      valore viene stampato
+
+/*********************
+  17-06a-beta8		  (15/2/2018)
+**********************/
+  EQUITAZIONE
+    -modifica
+      ora attivando le linee non viene più chiesto ogni volta se recuperare
+      il tempo ma viene sempre salvato e reso disponibile per un eventuale
+      recupero premendo SHIFT + F o SHIFT + S.
+      (segnalazione crono Udine)
+
+  SINCRONIZZAZIONE
+    -aggiunta
+      ora è possibile sincronizzare il cronometro applicando l'offset
+      del sistema DCF (-74ms)
+      (richieste varie)
+      
+    -aggiunta
+      ora facendo la sincronizzazione manuale la data proposta inizialmente
+      è quella corretta, se disponibile.
+      (richiesto durante l'incontro a Ravenna nov. 2017)
+      
+  SCI
+    -aggiunta
+      aggiunta l'indicazione di quando la modalità expert o il
+      line keeper è attivo
+      (richiesto durante l'incontro a Ravenna nov.2017)
+
+/*********************
+  17-06a-beta7		  (8/2/2018)
+**********************/
+  NUOTO
+    -aggiunta
+      aggiunta intestazione con dati gara (stile, distanza, batteria e fase)
+      alla stampa dell'ordine d'arrivo
+      (richieste varie)
+
+   -aggiunta
+      aggiunta possibilità di avere il reset automatico alla ricezione di un
+      impulso di start
+      (richiesta crono Milano)
+
+  SCI
+    -bug
+      se il concorrente impostato come NA è quello pronto a partire
+      viene eliminato dal numero atteso anche sullo strumento eventualmente
+      collegato in rete.
+
+
+/*********************
+  17-06a-beta6		  (2/2/2018)
+**********************/
+  SCI
+    -bug
+      avendo due strumenti collegati in rete e impostando un gruppo in partenza su un master, 
+      se veniva fatto partire sull'altro allora veniva messo in partenza il numero 99999
+      e il programma Sci terminava
+      (segnalazione crono Pordenone)
+
+
+/*********************
+  17-06a-beta5		  (29/1/2018)
+**********************/
+  SCI	
+    -bug
+      con la rete attiva le stringhe di testo avevano altezza doppia
+      sulla stampa del master che le riceveva.
+      (segnalazione crono Modena)
+    
+
+/*********************
+  17-06a-beta4		  (30/10/2017)
+**********************/
+  TUTTI
+    -modifica
+      ora ogni volta che si sincronizza l'almanacco parte da 15:00,
+      ma si azzera appena sicuro di aver ricevuto l'ora corretta.
+
+
+/*********************
+  17-06a-beta3         	  (26/10/2017)
+**********************/ 
+  Sci
+    -bug
+      nel fondo a staffetta, il tempo sul tabellone non si fermava mai
+
+/*********************
+  17-06a-beta2         	  (19/09/2017)
+**********************/ 
+  Equitazione
+    -bug
+      se era aperto il menu del programma non venivano più aggiornate
+      le penalità sui tabelloni
+    
+    -bug
+      sistemati alcuni bug legati alla visualizzazione delle informazioni
+      
+    -aggiunta
+      aggiunta scansione sonora degli ultimi 5 secondi del countdown
+      e del raggiungimento del tempo massimo e del tempo limite
+      
+
+/*********************
+  17-06a-beta1         	  (29/06/2017)
+**********************/ 
+  Nuoto
+    -aggiunta
+      dal menu preferenze si possono importare le composizioni delle
+      batterie in modo da poter mostrare i nomi dei concorrenti sui
+      tabelloni
+      
+
+/*********************
+  17-06a          	  (09/06/2017)
+**********************/ 
+  Versione pubblica che contiene le beta precedenti
+
+/*********************
+  17-06-beta1          	  (07/06/2017)
+**********************/
+  Sci
+    -aggiunta
+      dal menu preferenze si può attivare la stampa dei tempi 
+      solo in secondi oltre che nel solito formato hh:mm:ss.0000
+      (richiesta Moris)
+      
+/*********************
+  17-06          	  (05/06/2017)
+**********************/ 
+  Versione non pubblicata
+	
+/*********************
+  16-12-beta5          	  (07/03/2017)
+**********************/
+  NUOTO
+    -bug
+      in alcuni casi si generavano una serie infinita di "RESET"
+      (segnalazione crono Ravenna)
+      
+  SCI
+    -aggiunta
+      nel parallelo è stata aggiunta la possibilità di annullare un tempo
+      sulle linee I e II usando i tasti di assegnazione
+      (richiesta crono Avezzano)
+
+/*********************
+
+  16-12-beta4          	  (31/01/2017)
+**********************/
+  NUOTO
+    -modifica
+      il rilevamento viene troncato al centesimo come da regolamento 
+      tecnico FIN art. NI 11
+      
+    -modifica
+      quando si aggiunge un passaggio viene proposto il primo passaggio 
+      senza tempi invece dell'ultimo
+      (segnalazione crono Firenze)
+
+/*********************
+  16-12-beta3          	  (27/01/2017)
+**********************/
+  SCI
+    -bug
+      la categoria impostata per i partenti veniva modificata anche assegnando un numero
+      con categoria su una linea diversa dallo start.
+      (segnalazione crono Sondrio)
+      
+    -aggiunta
+      se l'automatismo su start è attivo, si può scegliere se anche la categoria 0 resta
+      impostata fino al prossimo inserimento.
+      (richiesta crono Como)
+
+/*********************
+  16-12-beta1          	  (03/12/2016)
+**********************/
+  SCI
+    -aggiunta
+      nel parallelo aggiunta la possibilità di stampare la classifica dei tempi
+      
+    -aggiunta
+      nel parallelo aggiunta la possibilità di editare i tempi
+
+      
+    -aggiunta
+      nel parallelo aggiunta la possibilità di indicare un concorrente come NA
+
+/*********************
+  16-12            	  (06/12/2016)
+**********************/
+  TUTTI
+    -aggiunta
+      con shift + 1 si spegne lo schermo per risparmiare batteria
+      e quando è spento il led standby lampeggia
+      
+  SCI
+    -bug
+      nella finestra per l'inserimento manuale dopo aver modificato
+      la categoria non funzionavano i tasti funzione
+      (segnalazione crono Como)
+
+/*********************
+  16-07-beta15            (30/11/2016)
+**********************/
+  TUTTI
+    -bug
+      all'avvio certe volte veniva stampata solo la scritta Master 3
+      
+  NUOTO
+    -bug
+      impostando i tabelloni ALGE il monotabellone non mostrava i tempi dei
+      concorrenti ma semplicemente si fermava
+   
+  SCI
+    -modifica
+      il riordino dei concorrenti al cambio manche ora tiene conto di
+      eventuali parimerito
+      (segnalazione crono Como)
+
+  TABELLONI
+    -bug
+      sul tabellone col nome del concorrente se mancava la nazione non
+      veniva scritto l'ultimo carattere
+      (segnalazione crono Como)
+
+/*********************
+  16-07-beta14            (23/11/2016)
+**********************/
+  EQUITAZIONE
+    -modifica
+      il file con i nomi dei cavalli non deve più avere le doppie virgolette
+
+  START COUNTDOWN
+    -aggiunta
+      aggiunta la scelta della risoluzione all'avvio del programma
+    
+    -bug
+      nella visualizzazione dei tabelloni sullo schermo, il tabellone
+      10 mostrava una stringa generata malamente se c'era un anticipo
+      (segnalazione crono Como)
+      
+  SCI
+    -bug
+      facendo il cambio manche un tabellone non veniva azzerato
+      (segnalazioni varie)
+
+/*********************
+  16-07-beta13            (21/11/2016)
+**********************/
+  NUOTO
+    -aggiunta
+      aggiunta stampa "RESET" e relativa battuta
+  
+  START COUNTDOWN
+    -aggiunta
+      aggiunta la posssibilità di scegliere la risoluzione
+      dal menu preferenze.
+      (richiesta crono Como)
+
+/*********************
+  16-07-beta12            (18/11/2016)
+**********************/
+  NUOTO
+    -bug
+      eliminando un tempo la battuta generata con il protocollo
+      nuovo era un messaggio NETTM invece di DELTM
+     
+  TUTTI
+    -bug
+      inviando il comando +D/?D certe volte non c'era alcuna risposta dal cronometro
+      dalla porta COM PC
+  
+  CONTASECONDI
+    -bug
+      nelle partenze da zero, impostando la linea I o II su split
+      il tabellone mostrava l'ora solare sdoppiata e non il tempo
+      dallo start
+  
+  EQUITAZIONE, START COUNTDOWN, SCI
+    -modifica
+      il nome della nazione è stato spostato dal tabellone con il
+      nome del cavallo alla fine del tabellone con il nome
+      del concorrente.
+      Se il file con i nomi non contiene la nazione viene scritto
+      solo il nome usando tutto lo spazio disponibile
+      (richiesta Moris)
+
+/*********************
+  16-07-beta11            (16/11/2016)
+**********************/
+  TUTTI
+    -modifica
+      migliorata velocità di aggiornamento dei tabelloni usando velocità
+      più elevate
+      (richieste varie)
+  
+  CONTASECONDI
+    -bug
+      all'avvio del cronometraggio a ora solare non appariva il tempo
+      a correre sul tabellone
+      (segnalazione crono Como)
+      
+    -bug
+      nelle partenze da zero, il tasto "#" non sdoppiava il tabellone
+      (segnalazione crono Como)
+
+/*********************
+  16-07-beta10            (14/11/2016)
+**********************/
+  SCI
+    -modifica
+      se la finestra per l'inserimento degli start automatici è stata
+      aperta direttamente dalla finestra principale allora confermando
+      si torna alla finestra principale
+      (richiesta crono Como)
+
+/*********************
+  16-07-beta9             (9/11/2016)
+**********************/
+  TUTTI
+    -modifica
+      nuovo test sincronizzazione
+
+
+/*********************
+
+  16-07-beta8             (16/9/2016)
+**********************/
+  SCI
+    -modifica
+      nel fondo, impostando uno start automatico con N + F5 si aggiorna
+      anche il numero di categoria attuale. Se si chiama la funzione senza
+      specificare la categoria, resta la categoria precedente.
+      (richiesta crono Como)
+
+/*********************
+  16-07-beta7             (16/9/2016)
+**********************/
+  SCI
+    -modifica
+      aggiunto il campo con il numero al messaggio $INFOT
+      
+    -modifica
+      nel fondo, aprendo la finestra per gli start teorici
+      con F5 non viene azzerata più l'ora precedente
+
+      e l'intervallo tra le partenze. Ora è come sul Master vecchio
+
+/*********************
+  16-07-beta6             (15/9/2016)
+**********************/
+  SCI
+    -aggiunta
+      aggiunto risposta $INFOT al comando ?T (protocollo nuovo)
+      
+  EQUITAZIONE
+    -aggiunta
+      aggiunti tabelloni con nome del cavaliere (tab 3)
+      e con la nazionalità e il nome del cavallo (tab 4)
+    
+
+/*********************
+  16-07-beta5             (9/9/2016)
+**********************/
+  SCI
+   -modifica
+     eliminate le battute 254 del protocollo vecchio inviate durante la gara
+     (richiesta Moris)
+   
+   -modifica
+     ora le battute 030, 042, 061 e 129 contengono l'ora come sul master vecchio.
+     Il protocollo del vecchio non indicava questa informazione che usciva per caso sul Master,
+     ma qualche programma la usava comunque.
+     (richiesta Moris)
+     
+  TUTTI
+    -bug
+      inviando il comando +D/?D certe volte non c'era alcuna risposta dal cronometro
+
+/*********************
+  16-07-beta4             (9/9/2016)
+**********************/
+  TUTTI
+    -bug
+      se per qualche motivo la stampa si fermava a metà riga la carta veniva
+      mandata fuori e la seconda parte della riga di stampa era nella posizione
+      sbagliata.
+      Questo poteva succedere ad esempio generando migliaia di partenze automatiche
+      con la trasmissione automatica attiva su tutte le seriali.
+      
+    -aggiunta
+      aggiunto il campo con il numero di pettorale nel messaggio SSRTM
+
+/*********************
+  16-07-beta3             (30/8/2016)
+**********************/
+  TUTTI
+    -modifica
+      quando si riempiva anche solo 1 dei buffer della com 2, 3 o della stampante
+      si fermava la trasmissione dei dati anche ai canali liberi, dando l'idea che
+      sia bloccato. Ora gli altri canali continuano a funzionare normalmente in
+      caso di riempimento di un buffer.
+      
+  SCI
+    -bug
+      cancellando un numero atteso si avviava l'emissione del tempo a correre
+      del num 0 su tutte le seriali e questo poteva causare il riempimento
+      dei vari buffer.
+      
+    -bug
+      con il vecchio protocollo le battute relative all'edit non limitavano a 99
+      il numero di battuta.
+      
+    -bug
+      corretto l'allineamento nella stampa del tempo netto se la posizione calcolata 
+      era di 4 cifre
+
+/*********************
+  16-07-beta2             (25/7/2016)
+**********************/
+  CONTASECONDI
+    -bug
+      nella partenza da zero, tempi su F successivi al primo tempo su F
+      modificavano il tabellone
+      (segnalazione Moris)
+
+/*********************
+  16-07-beta1             (22/7/2016)
+**********************/
+  START COUNTDOWN
+    -bug
+      se il modulo gps si spegneva lentamente poteva accadere che il
+      semaforo venisse pilotato in maniera non corretta.
+      (segnalazione crono Como)
+      
+  CONTASECONDI
+    -modifica
+      sistemato il protocollo compatibile con il Master in modo che il
+      reset del contasecondi partenza da zero invii pure le battute 106 e 009 (o 010)
+      e le battute degli intermedi siano 018 se non c'è il numero di concorrente
+      (segnalazione Moris)
+      
+    -bug
+      nelle partenze da zero, in certi casi si vedeva per un attimo
+      sul tabellone il tempo 0.0. Ora resettando il tempo 0.0 resta
+      fino a che il tempo non riparte
+      (segnalazione Moris)
+      
+    -modifica
+      ora se il tempo sul tabellone viene fermato da una battuta su F
+      non viene più fatto ripartire da una battuta su I o II
+      (richiesta Moris)
+
+
+/*********************
+  16-07                   (5/7/2016)
+**********************/
+  CONTASECONDI
+    -modifica
+      ora nella partenza da zero un tempo su F ferma il tabellone
+      senza far riprendere il tempo a correre
+      (richiesta crono l'Aquila)
+      
+  NUOTO
+    -modifica
+      ora è possibile acquisire i tempi dal programma Nuoto di Perugia
+      usato dalla FICr    
+  
+  TUTTI
+    -aggiunta
+      dal menu Preferenze -> Impostazioni radio Microgate è possibile
+      testare la qualità della ricezione
+      (richiesta crono l'Acquila)
+
+
+/*********************
+  16-05-beta9             (21/6/2016)
+**********************/
+  START COUNTDOWN
+    -bug
+      ora non viene più generato un tempo teorico quando si
+      edita qualcosa
+      (segnalazione crono Como)
+  
+  TABELLONI
+    -modifica
+      ora la velocità di default del tabellone THS è 9600
+      (richieste varie)
+  
+  SCI
+    -bug
+      se non c'era nessun numero atteso in F e arrivava un
+      tempo su un intermedio, sul tabellone compariva un tempo
+      a correre con il numero sbagliato
+      (segnalazione crono Como)
+
+/*********************
+  16-05-beta8             (17/6/2016)
+**********************/
+  SCI
+    -bug
+      se venivano usati gli intermedi, nella seconda manche poteva
+      accadere che sul monotabellone venisse visualizzato l'ultimo
+      tempo intermedio invece del tempo di manche
+      (segnalazione crono Como)
+
+/*********************
+  16-05-beta7             (16/6/2016)
+**********************/
+  SCI, CONTASECONDI
+    -modifica
+      sistemato allineamento tabelloni THS a 16 caratteri
+      (segnalazione crono Como)
+      
+  NUOTO
+    -modifica
+      se si resettava la gara quando c'era ancora qualche linea temporizzata
+      si vedeva l'indicatore rosso della gara precedente
+
+/*********************
+  16-05-beta6             (14/6/2016)
+**********************/
+  RISTAMPA, CONTASECONDI
+    -bug
+      se nella finestra di ristampa veniva visualizzata una riga con la
+      sincronizzazione, il programma si chiudeva. Lo stesso capitava
+      nel programma Contasecondi
+
+/*********************
+  16-05-beta5             (6/6/2016)
+**********************/
+  NUOTO
+    -bug
+      se, ultimato il percorso, continuavano ad arrivare impulsi, i tabelloni
+      venivano modificati comunque
+      (segnalazione Moris)
+
+/*********************
+
+  16-05-beta4             (3/6/2016)
+**********************/
+  NUOTO
+    -aggiunta
+      aggiunti dei campi al messaggio SSRTM contenenti la lunghezza della
+      vasca, la lunghezza della gara, il numero di fase e il numero di batteria
+      (richieste varie)
+      
+    -aggiunta
+      aggiunta battuta 162 all'avvio della batteria. I campi D ed E contengono il
+      numero di fase e il numero di batteria.
+      
+
+    -aggiunta
+      nella finestra di impostazione della gara ora ci sono i tasti funzione
+      per incrementare e decrementare il numero di batteria
+
+/*********************
+  16-05-beta3             (31/5/2016)
+**********************/
+  EQUITAZIONE
+    -aggiunta
+      quando è disattivata l'eliminazione automatica dei concorrenti
+      nelle gare a più fasi, la stampa del riepilogo specifica le
+      penalità per ogni fase
+      (richiesta crono Ivrea)
+      
+    -modifica
+      sistemata visualizzazione sui tabelloni THS
+      (segnalazione Moris)
+
+  START COUNTDOWN
+    -modifica
+      sistemata visualizzazione sui tabelloni THS
+      (segnalazione Moris)
+      
+/*********************
+  16-05-beta2             (25/5/2016)
+**********************/
+  TUTTI
+    -modifica
+      le finestre che chiedono se recuperare o meno il tempo non
+      vengono più chiuse con il tasto esc
+      (su segnalazione crono Ivrea)
+  
+  EQUITAZIONE
+    -bug
+      continuando una gara precedente non veniva caricata la risoluzione
+      e i tempi netti venivano stampati al secondo
+      (segnalazione crono Ivrea)
+    
+    -bug
+      nella configurazione "barrage consecutivi", il programma usciva se
+      veniva superato il tempo massimo nella seconda fase
+      (segnalazione crono Ivrea)
+
+/*********************
+  16-05-beta1             (19/5/2016)
+**********************/
+  SCI
+    -modifica
+      nella modalità fondo, nella finestra principale è stato aggiunto
+      il pulsante funzione "Start teorico" che permette di inserire
+      più velocemente le partenze automatiche
+      (richiesta crono Como)
+
+/*********************
+  16-05                   (10/5/2016)
+**********************/
+  EQUITAZIONE
+    -modifica
+      aggiunto monotabellone che, all'arrivo, mostra alternativamente
+      tempo e penalità accumulate.
+      (richiesta crono Grosseto)
+
+/*********************
+  16-03-beta6             (3/5/2016)
+**********************/
+
+  NUOTO
+    -modifica
+      aggiunta temporizzazione anche su linee manuali.
+      (richiesta crono Como)
+    
+    -modifica
+      nella finestra di setup della gara, nascosto il tasto "Conferma"
+      mentre è aperta una finestra di input per evitare la possibilità
+      di confusione
+
+/*********************
+  16-03-beta5             (13/4/2016)
+**********************/
+  STAMPANTE
+    -bug
+      in certi rarissimi casi poteva succedere che la stampante ristampasse
+      gli ultimi circa 30000 caratteri ricevuti.
+      (segnalazione crono Como)
+
+/*********************
+  16-03-beta4             (5/4/2016)
+**********************/
+  NUOTO
+    -modifica
+      sul monotabellone viene sdoppiato il tempo del primo nei passaggi intermedi
+      e all'arrivo vengono ciclati i tempi dei concorrenti arrivati
+
+/*********************
+  16-03-beta3             (1/4/2016)
+**********************/
+  TUTTI
+    -modifica
+      ora la stringa che si può inviare con +P o ?P arriva a 500 caratteri
+      
+  NUOTO
+    -aggiunta
+      vengono emesse le battute di start e dei passaggi anche con
+      il protocollo vecchio
+
+/*********************
+  16-03-beta2             (25/3/2016)
+**********************/
+  TUTTI
+    -modifica
+      modificato il filtro sw anti rumore sulle linee
+
+
+/*********************
+  16-03-beta1             (23/3/2016)
+**********************/
+  SERIALI
+    -modifica
+      ripristinata battuta 254 con il protocollo vecchio per testare
+      acquisizione con PSPlus
+      (richiesta Moris, segnalazione crono Como)
+
+/*********************
+  16-03                   (23/3/2016)
+**********************/
+  SCI
+    -bug
+      usando +/- per cancellare un numero da una linea fermava il tempo a correre
+      sul tabellone anche se veniva cancellato da una linea diversa da F
+      (segnalazione crono Como)
+
+/*********************
+  15-12b-beta22           (22/3/2016)
+**********************/
+  START COUNTDOWN
+    -modifica
+      in modalità manuale, premendo il tasto off ora si aggiorna
+
+
+      anche il numero sul tabellone
+      (segnalazione Moris)
+      
+  SCI
+    -modifica
+      se edito un tempo su una linea, verifico se quel numero è in
+      attesa su una linea precedente ed eventualmente lo elimino.
+
+/*********************
+  15-12b-beta21           (17/3/2016)
+**********************/
+  TUTTI
+    -bug
+      se il tabellone impostato era ALGE e caricare una gara precedente
+      impiegava più di 5 secondi il monotabellone non veniva più scritto
+      (segnalazioni varie)
+
+    -bug
+      dal menu di sistema del display e della seriale, sparivano le scritte
+      dei tasti funzione se si premeva il tasto on/off e poi si chiudeva la
+      finestra con il messaggio
+      
+  SCI
+    -modifica
+      mandando un tempo con il comando +k, se c'è già un tempo uguale
+      questo non viene cancellato e reinserito
+      (richiesta Barilari)
+      
+    -bug
+      se c'era un intermedio si fermava l'aggiornamento della classifica dinamica
+    
+    -modifica
+      se non c'è un numero atteso e arriva un tempo, non viene messo il prossimo
+      in lista
+      
+
+  TABELLONI
+    -modifica
+      tolto lo spostamendo di 1 dei tabelloni ALGE
+      (richiesta Moris)
+      
+
+/*********************
+  15-12b-beta20           (15/3/2016)
+**********************/
+  SCI
+    -modifica
+      ora il nome del concorrente sul tabellone viene aggiornato in
+      maniera più veloce anche con la velocità 1200
+      (segnalazione Moris)
+
+/*********************
+  15-12b-beta19           (14/3/2016)
+**********************/
+  SCI
+    -bug
+      in una gara a staffetta, editando un tempo che aveva già un numero
+      usciva dal programma
+      (segnalazione Moris)
+
+/*********************
+  15-12b-beta18           (11/3/2016)
+**********************/
+
+  SCI
+    -aggiunta
+      i tempi netti e giro vengono stampati anche sugli intermedi anche
+      aggiungendo un tempo manualmente
+
+/*********************
+  15-12b-beta17           (11/3/2016)
+**********************/
+  SCI
+    -bug
+      abbinando un numero ad un tempo su start, veniva stampato un tempo giro
+      anche se non c'erano tempi intermedi
+      (segnalazione Moris)
+
+/*********************
+  15-12b-beta16           (11/3/2016)
+**********************/
+  SCI
+    -modifica
+      editando un tempo sull'intermedio si stampa il tempo netto
+      e, nelle gare a staffetta, il tempo giro.
+
+/*********************
+  15-12b-beta15           (10/3/2016)
+**********************/
+  SCI
+    -bug
+      nelle gare a staffetta, editando i tempi giro si cancellavano i
+      tempi precedenti
+      (segnalazione Moris)
+      
+    -aggiunta
+      nelle gare a staffetta, dalla finestra inserimento manuale è
+      possibile vedere e modificare tutti i tempi intermedi
+      (suggerimento Moris)
+
+/*********************
+  15-12b-beta14           (3/3/2016)
+**********************/
+  SERIALI
+    -bug
+      in certi casi sulle com 2 e 3 pareva che venissero ricevuti
+      comandi vecchi
+      (segnalazioni varie)
+
+/*********************
+  15-12b-beta13           (1/3/2016)
+**********************/
+  SCI
+    -bug
+      con la configurazione staffetta, quando veniva ricevuto un tempo
+      intermedio di un concorrente che non aveva lo start, il programma
+      si chiudeva
+      (segnalazione Moris)
+
+/*********************
+  15-12b-beta12           (11/2/2016)
+
+**********************/
+  TUTTI
+    -bug
+      il tasto di accensione veniva ignorato su alcuni cronometri.
+      (segnalazione crono Como)
+
+/*********************
+  15-12b-beta11           (10/2/2016)
+**********************/
+  TUTTI
+    -bug
+      continuando una gara con nessun tempo o con un multiplo esatto di
+      35 tempi dopo alcuni tempi stampava un netto uguale all'ora solare
+      di arrivo e con la dicitura +nn giorni
+      (segnalazione crono Aosta)
+      
+  SCI
+    -modifica
+      nella finestra rinumera e riordina concorrenti mentre è aperta la
+      finestra per l'input del numero nascondo il tasto funzione "CONFERMA"
+      perché poteva creare confusione
+      (segnalazione crono Aosta)
+
+/*********************
+  15-12b-beta10           (05/2/2016)
+**********************/
+  SERIALI
+
+    -modifica
+      eliminata battuta 254 con il protocollo vecchio
+      
+    -modifica
+      eliminati alcuni messaggi di debug che uscivano dalla com2
+
+  SCI    
+    -aggiunta
+      aggiunta stampa ritardo nel parallelo (tra tempi manche)
+
+/*********************
+  15-12b-beta9           (03/2/2016)
+**********************/
+  SCI
+    -aggiunta
+      aggiunta la gestione del parallelo.
+      Per ora funziona come sul 1210
+      (richieste varie)
+
+/*********************
+  15-12b-beta8           (29/1/2016)
+
+**********************/
+  SCI
+    -bug
+      nella seconda manche se si apriva l'edit prima di ricevere
+      dei tempi si vedeva l'ultimo tempo selezionato nella manche
+      precedente.
+    
+    -bug
+      se di un numero di eliminavano tutti i tempi tra cui almeno un
+      intermedio, al cambio manche veniva indicato come avente tempi
+      mancanti e l'eliminazione automatica non funzionava
+      (segnalazione crono Como & Moris)
+      
+    -bug
+      in certi casi entrando in edit restavano i tasti funzione
+      della finestra principale
+      (segnalazione crono Como)
+
+/*********************
+  15-12b-beta7           (20/1/2016)
+**********************/
+  TUTTI
+    -bug
+      se i punti automatici (inserimento date e tempi) era attivo e aprivo la
+      finestra di inserimento premendo direttamente la prima cifra,
+      la posizione dei numeri era scombinata
+      (segnalazione crono Como)
+
+/*********************
+  15-12b-beta6           (20/1/2016)
+**********************/
+  SCI
+    -bug
+      se durante la seconda manche si aggiungeva un tempo della prima
+      manche ad un concorrente che era stato dichiarato NA il programma
+      si chiudeva
+      (segnalazione crono Como)
+      
+    -bug
+      con il protocollo vecchio la battuta 24 aveva nel campo E la
+      posizione e non il numero di battuta
+      (segnalazione Moris)
+      
+    -aggiunta
+      aggiunta battuta 060 sul protocollo vecchio
+      (richiesta Moris)
+      
+  TABELLONI
+    -bug
+      il nome del concorrente veniva visualizzato solo all'arrivo
+      (segnalazione Moris)
+  
+  SERIALI
+    -bug
+      se l'emissione automatica dei tempi era attiva il comando +R
+      non funzionava
+      (segnalazione Moris)
+  
+
+/*********************
+  15-12b-beta5           (19/1/2016)
+**********************/
+  SCI
+    -bug
+      se si chiedeva il tempo a correre sulla seriale con +UNNN
+      veniva emessa la stringa come se fosse richiesta da +S
+      (segnalazione crono Udine)
+
+/*********************
+  15-12b-beta4           (18/1/2016)
+**********************/
+  SCI
+    -bug
+      se di un concorrente c'era lo start e il tempo intermedio e veniva
+      messo NA, riammettendolo in gara il programma si chiudeva
+      (segnalazione crono Udine)
+
+/*********************
+  15-12b-beta3           (12/1/2016)
+**********************/
+  LOADER
+    -bug
+      certe volte, all'avvio si bloccava
+
+      (segnalazione crono Como)
+
+
+/*********************
+  15-12b-beta2           (8/1/2016)
+**********************/
+  TABELLONI
+    -bug
+      se veniva ricevuto un tempo mentre veniva generata una stringa con
+      il tempo a correre allora da quel momento in poi non veniva più mostrato
+      il tempo a correre per nessun concorrente.
+      
+
+/*********************
+  15-12b-beta1           (28/12/2015)
+**********************/
+  versione interna
+
+/*********************
+  15-12b           (16/12/2015)
+**********************/
+  SERIALE
+    -modifica
+      inviando un nome via seriale con opzione 0 o senza opzione
+      ora vengono cancellati tutti gli altri campi.
+      (segnalazione Moris)
+
+/*********************
+  15-12            (15/12/2015)
+**********************/
+  Versione pubblica che contiene tutte le beta precedenti
+  
+  SCI
+    -bug
+      con due master in rete se il master che riceve i tempi è
+      su edit e viene impostato un numero sull'altro, il tempo
+      veniva stampato senza numero assegnato.
+      Il numero veniva assegnato uscendo dalla finestra di edit.
+      (segnalazione crono Como)
+      
+  TABELLONI
+    -modifica
+      ripristinata terminazione tabelloni ALGE con solo CR
+      
+
+/*********************
+  15-08-beta18     (11/12/2015)
+**********************/
+  TUTTI
+    -aggiunta
+      aggiunta possibilità di inserire tempi e date senza dover premere
+      il punto per passare da un campo all'altro.
+      (richiesta crono Como)
+      
+
+/*********************
+  15-08-beta17     (9/12/2015)
+**********************/
+  TABELLONI
+    -bug
+      cancellando un tempo a correre non veniva eliminato il nome
+      
+/*********************
+  15-08-beta16     (7/12/2015)
+**********************/
+  TUTTI
+    -modifica
+      modificato il modo in cui vengono caricate le stringhe 
+      così si riducono un po' i tempi di avvio dei programmi
+      
+  SCI
+    -bug
+      con due Master in rete l'arrivo di un concorrente su uno cambiava
+      la categoria del concorrente in partenza sull'altro. La categoria
+      veniva impostata a quella del concorrente arrivato.
+      (segnalazione crono Como)
+
+/*********************
+  15-08-beta15     (30/11/2015)
+**********************/
+  TABELLONI
+    -modifica
+      con il protocollo Microgate, selezionando µTabPix con un elemento,
+      la vista compatta mostra numero (le tre cifre meno significative) e
+      tempo
+      (richiesta crono Aosta)
+      
+    -bug
+      la finestra "visualizza tabelloni" non mostrava il tabellone con i
+      nomi
+      (segnalazione crono Como)
+
+
+/*********************
+  15-08-beta14     (27/11/2015)
+**********************/
+  SCI
+    -bug
+      togliendo un numero dall'arrivo con +/- [F] il tabellone
+      continuava a mostrare il tempo a correre
+      (segnalazione crono Aosta)
+      
+    -modifica
+      si può scegliere l'automatismo di ogni linea in maniera indipendente.
+      Sulle linee I, II e F può essere disattivo, attivo solo se non 
+      c'è nessuno in pista, oppure sempre attivo.
+      L'impostazine è stata spostata in un sottomenu raggiungibile
+      tramite la voce "Automatismi" dal menu preferenze sci
+      (richiesta crono Aosta)
+
+/*********************
+
+  15-08-beta13     (24/11/2015)
+**********************/
+  TABELLONI ALGE
+    -modifica
+      modificata terminazione riga in LF CR
+
+/*********************
+  15-08-beta12     (23/11/2015)
+**********************/
+  TUTTI
+    -aggiunta
+      aggiunta la possibilità di importare i nomi dei concorrenti
+      da visualizzare sui tabelloni.
+      I nomi possono essere importati:
+        - da un file presente su una penna USB
+          con la lista dei nomi in formato Microgate:
+          Prima riga $STARTL\r
+          Righe dati: <num>\t<nazione>\t<cognome>\t<nome>\r
+          Ultima riga: $STOPL\r
+        - attraverso le porte seriali del cronometro usando il
+
+          comando +N o ?N
+          uso: +N<numero>[,opzione]=<nome>
+            dove opzione indica a cosa si riferisce il nome inviato:
+            0 o senza: in cognome
+            1: in categoria
+            2: in nome cavallo
+            3: in nome
+            4: in nome nazione
+      I nomi vengono visualizzati con il programma Sci sul tabellone
+      12 e con il programma Start Countdown sul tabellone 3
+      
+  SCI
+    -bug
+      recuperando la gara l'ultimo concorrente arrivato veniva
+      messo in attesa in arrivo
+    
+
+/*********************
+  15-08-beta11     (20/11/2015)
+**********************/
+  TABELLONI ALGE
+    -modifica
+      modificata terminazione riga per funzionare con i tabelloni
+      di Capanni
+
+/*********************
+  15-08-beta10     ( /11/2015)
+**********************/
+  versione di prova mai distribuita
+/*********************
+  15-08-beta9     ( /11/2015)
+**********************/
+  versione di prova mai distribuita
+/*********************
+  15-08-beta8     ( /11/2015)
+**********************/
+  versione di prova mai distribuita
+
+/*********************
+  15-08-beta7     ( 2/11/2015)
+**********************/
+  NUOTO
+    -modifica
+      i tabelloni OMEGA vengono scritti solo con indirizzi validi (0-9)
+      
+    -bug
+      i tabelloni ALGE non mostravano il tempo del primo arrivato
+    
+    -modifica
+      il tempo a correre appare anche sul primo tabellone libero
+
+/*********************
+  15-08-beta6     (21/10/2015)
+**********************/
+  TUTTI
+    -bug
+      se si collegava il caricabatterie e si spegneva il cronometro,
+      in certe occasioni la carica delle batterie si interrompeva
+
+/*********************
+  15-08-beta5     (9/09/2015)
+**********************/
+  CONTASECONDI, SCI, EQUITAZIONE
+    -bug
+      non era possibile ricevere un tempo dalle radio Microgate
+      se il canale impostato era superiore al 79
+      (segnalazione Moris)
+
+/*********************
+  15-08-beta4     (9/09/2015)
+**********************/
+  START COUNTDOWN
+
+    -bug
+      collegando il semaforo nuovo questo mostrava l'ora in maniera errata
+      (segnalazione crono Firenze)
+      
+
+/*********************
+  15-08-beta3     (8/09/2015)
+**********************/
+  SCI
+    -aggiunta
+      aggiunta la possibilità di stampare anche il tempo netto
+      dalla linea precedente oltre che dallo start.
+      Nel protocollo del M3, il campo tipoNetto del messaggio NETTM
+      può assumere valore 2 ad indicare il tempo netto calcolato
+      in questo modo
+      (richiesta NASC)
+
+/*********************
+  15-08-beta2     (17/09/2015)
+**********************/
+  PROTOCOLLO MASTER3
+    -modifica
+      aggiunto un campo al messaggio NETTM che contiene i numeri
+      di giorni da sommare al tempo netto in modo da poter gestire
+      gare che durano più di 24 ore.
+      Il campo è stato aggiunto alla fine così i programmi già esistenti
+      non dovrebbero avere problemi.
+
+/*********************
+  15-08-beta1     (16/09/2015)
+**********************/
+  CONTASECONDI, SCI, EQUITAZIONE
+    -aggiunta
+      aggiunta gestione tempo radio microgate e velocità radio
+      
+  SCI
+    -aggiunta
+      aggiunto calcolo velocità media tra S, I, II e F
+      
+    -aggiunta
+      aggiunta indicazione per gare che durano più di 24 ore.
+      Nell'inserimento manuale dei tempi ora è possibile indicare
+      anche la data
+      (richiesta Vallecamonica)
+
+    
+
+/*********************
+  15-08           (27/08/2015)
+**********************/
+  versione pubblica che contiene tutte le beta precedenti
+
+  SCELTA PROGRAMMI
+    -bug
+      in certi casi, se il cronometro era sincronizzato, 
+      dopo aver premuto il tasto di spegnimento 
+      il cronometro si spegneva premendo solo il tasto F4
+
+/*********************
+  15-05a-beta25   (12/08/2015)
+**********************/
+  RETE
+    -bug
+      stampando le classifiche dello sci su uno dei cronometri in rete,
+      gli altri stampavano caratteri in più sull'intestazione.
+      (segnalazione crono Como)
+      
+    -modifica
+      la stampa delle classifiche viene fatta solo sul cronometro
+      dove è stata richiesta
+      
+    -bug
+      uscendo dal programma sci mentre si è collegati e scegliendo
+      di eliminare i concorrenti non arrivati, questi venivano eliminati
+      anche sul server (segnalazione crono Como)
+      
+  SCI
+    -bug
+      se nella finestra di edit si premeva il tasto cancella quando
+      non c'era nessun tempo il programma si chiudeva
+
+  
+  START COUNTDOWN
+    -bug
+      se nella finestra di edit si premeva il tasto cancella quando
+      non c'era nessun tempo il programma si chiudeva 
+      (segnalazione crono Como)
+
+/*********************
+  15-05a-beta24   (11/08/2015)
+**********************/
+  START COUNTDOWN
+    -aggiunta
+      aggiunto tasto funzione "Prossimo minuto" quando si imposta l'ora
+      della prossima partenza
+      
+    -bug
+      testLin non funzionava se mancavano più di due minuti
+      all'ora del prossimo tempo 0 (segnalazione crono Como)
+    
+    -bug
+      l'ora del prossimo start non veniva emessa se impostata a mano
+      (segnalazione crono Como)
+    
+    -bug
+      quando era scelta la sequenza manuale, accendendo il colore verde
+      il numero impostato veniva incrementato innumerevoli volte causando
+      anche il blocco del programma (segnalazione crono Como)
+      
+    -bug
+      facendo ripartire la sequenza automatica (con il tasto start/stop)
+      viene emessa la nuova ora di partenza (segnalazione crono Como)
+
+/*********************
+  15-05a-beta23   (7/08/2015)
+**********************/
+  TUTTI
+    -aggiunta
+      aggiunto messaggio di errore se provo ad attivare la rete
+      quando non è gestita dal programma (quindi al di fuori dello sci)
+  
+  INSEGUIMENTO
+    -aggiunta
+      aggiunta richiesta di conferma quando si esce dal programma
+
+
+/*********************
+  15-05a-beta22   (6/08/2015)
+**********************/
+  SCI
+    -bug
+      cambiando categoria non venivano aggiornate le classifiche temporanee 
+      e quindi la posizione stampata e sui tabelloni era errata
+      (segnalazione Moris)
+  
+  START COUNTDOWN
+    -aggiunta
+      se nella sequenza del semaforo è impostato testLin
+      gli impulsi ricevuti in quel momento non vengono stampati
+      e sul semaforo SL-306 si accendono tutti i pallini del conto
+      alla rovescia
+
+
+/*********************
+
+  15-05a-beta21   (4/08/2015)
+**********************/
+  START COUNTDOWN
+    -bug
+      premendo esc nella finestra principale si apriva la finestra
+      per l'input dell'intervallo tra le partenze
+      
+    -bug
+      se la sequenza ricominciava mentre un tempo era sdoppiato
+      sul tabellone, i tempi sul tabellone erano in ritardo e
+      pure le stampe dei tempi arrivavano in ritardo
+      
+  SCI
+    -bug
+      stampando il dettaglio dei cronologici, sui tabelloni venivano
+      mostrate le ore dei vari passaggi (segnalazione Moris)
+    
+  GENERALE
+    -bug
+      passando dal protocollo Microgate al protocollo THS, il tasto
+      funzione diventava THSrogate (segnalazione Moris)
+      
+    -bug
+      anche se "salva eventi" era impostato su "no" attivando
+      la linea chiedeva di recuperare i tempi ricevuti mentre
+      la linea era disattiva (segnalazione crono Varese)
+
+
+
+/*********************
+  15-05a-beta20   (31/07/2015)
+**********************/
+  SERIALI
+    -bug
+      le com 2 e 3 per funzionare avevano bisogno in ingresso
+      di stringhe terminate con CR LF o LF e non funzionavano con
+      il solo CR (segnalazione Moris)
+
+
+/*********************
+  15-05a-beta19   (30/07/2015)
+**********************/
+  GENERALE
+    -bug
+      ogni tanto i programmi si chiudevano poco dopo l'avvio
+      (segnalazione crono Como)
+
+
+/*********************
+  15-05a-beta18   (28/07/2015)
+**********************/
+  TABELLONI
+    -modifica
+      modificato modo in cui vengono aggiornati i tabelloni con il tempo
+      a correre nel caso si stato scelto il protocollo ALGE
+      Migliora beta precedente.
+      
+      
+/*********************
+  15-05a-beta17   (27/07/2015)
+**********************/
+
+  TABELLONI
+    -bug
+      il tempo a correre sul tabellone ALGE veniva aggiornato in ritardo,
+      soprattutto nel programma contasecondi
+      (segnalazione crono Como)
+
+
+/*********************
+  15-05a-beta16   (23/07/2015)
+**********************/
+  RETE
+    -bug
+      quando veniva scaricata una gara dall'altro Master³ in rete se 
+      c'erano tanti tempi una volta finito per qualche tempo non 
+      venivano stampati nuovi tempi.
+  
+  GENERALE
+    -aggiunta
+      aggiunto indicazione batteria scarica con led e avviso sonoro
+
+
+/*********************
+  15-05a-beta15   (23/07/2015)
+**********************/
+  RETE
+    -bug
+      è stata modificata la configurazione della porta ethernet perché
+      in certi casi la connessione veniva resettata e quindi per qualche
+      tempo non c'era collegamento (segnalazione Moris)
+
+
+/*********************
+  15-05a-beta14   (21/07/2015)
+**********************/
+  RETE
+    -modifica
+      ridotto il tempo in cui lo schermo sembra bloccato mentre ricevo
+      tanti dati.
+
+
+/*********************
+  15-05a-beta13   (20/07/2015)
+**********************/
+
+  TABELLONI
+    -aggiunta
+      aggiunta finestra di impostazione dei tabelloni THS dove
+      è possibile impostare di visualizzare 9, 16 o 18 caratteri 
+
+      (richiesta Moris)
+      
+
+/*********************
+  15-05a-beta12   (17/07/2015)
+**********************/
+  RETE
+    -aggiunta
+      quando la connessione viene stabilita, sul cient chiedo se voglio
+      clonare il server o fondere i tempi di server e client.
+      Se clono il server allora il client elimina i propri tempi
+      
+    -bug
+      in caso di edit su un Master³ di un tempo che non era
+      nello stesso ordine nella lista dei tempi dell'altro Master³
+      poteva venire preso il tempo sbagliato
+
+      
+    -aggiunta
+      aggiunti messaggi informativi e di errore operando sui controlli
+
+      della rete nel menu di sistema (SHIFT + 4)
+
+
+/*********************
+  15-05a-beta11-newNet   (13/07/2015)
+**********************/
+  GPS
+    -modifica
+      ora il firmware va bene anche per i moduli GPS nuovi
+
+
+/*********************
+  15-05a-beta10-newNet   (10/07/2015)
+**********************/
+  TABELLONI
+    -bug
+      in alcuni casi potevano essere scritti sulla seriale del tabellone
+      più dati in un secondo di quanti ne potevano uscire.
+      Questo causava un blocco della scrittura anche sulle altre seriali
+      compresa quella verso la stampante che così stampava
+      con un notevole ritardo (segnalazioni varie)
+      
+      
+  RETE
+    -modifica
+      modificato il tipo di connessione
+
+
+/*********************
+  15-05a-beta9           (29/06/2015)
+**********************/
+  SINCRONIZZAZIONE
+    -aggiunta
+      se c'è da attendere per lo scaricamento dell'almanacco ora il
+      messaggio di avviso lo dice esplicitamente
+      
+      
+/*********************
+  15-05a-beta8           (29/06/2015)
+**********************/
+  TABELLONI
+    -bug
+      nel menu "Visualizza tabelloni" non c'erano le righe con la classifica
+      statica (segnalazione Moris)
+
+/*********************
+  15-05a-beta7           (26/06/2015)
+**********************/
+  SCI
+    -bug
+      in edit, quando si assegnava un numero ad un tempo il tabellone
+      mostrava l'ora solare del tempo editato
+      
+    -aggiunta
+      dal menu preferenze è possibile scegliere fino a che posizione mostrare 
+      le classifiche sui tabelloni
+      
+    -bug
+      ora impostando un concorrente in arrivo il tempo del primo e la classifica
+      è quella della categoria del concorrente impostato
+
+/*********************
+  15-05a-beta6           (26/06/2015)
+**********************/
+  TABELLONI
+    -aggiunta
+      aggiunto tabellone ZSD (microgate a 16 caratteri)
+      
+  SCI
+    -aggiunta
+      aggiunta classifica statica. Sui tabelloni 7, 8, 9 e 11
+      viene visualizzata la classifica della categoria corrente.
+
+      il tempo sul tabellone 7 è il tempo del primo e resta sempre fisso
+      mentre il tempo sugli altri tabelloni viene fatto ruotare per mostrare
+      i tempi successivi al quarto.
+      All'arrivo di un concorrente la sua posizione viene centrata.
+      
+  TUTTI
+    -modifica
+      i tempi che hanno un segno + o meno, ora hanno il segno posizionato
+      subito prima della prima cifra, mentre prima poteva esserci o non esserci
+      uno spazio.
+      
+/*********************
+  15-05a-beta5           (23/06/2015)
+**********************/
+  NUOTO
+    -modifica
+      alla partenza sono temporizzate pure le piastre sul lato lontano
+      (suggerimento crono Trieste)
+    
+    -bug
+      gli indicatori della temporizzazione delle linee sulle piastre
+      del lato lontano erano sovradimensionati
+      (segnalazione crono Trieste)
+      
+    -modifica
+      invece di "Inserire l'ora" viene chiesto "Inserire il tempo"
+
+      
+    -bug
+      impostando il rilevamento su due lati, e cronometrando una gara che 
+      prevede il rilevamento su un lato solo, ad esempio i 50m, se 
+      veniva dato un impulso sulla CN del lato lontano il programma
+      crashava
+      (segnalazione crono Trieste)
+      
+    -bug
+      nel menu e nelle preferenze non era possibile usare i numeri
+      per selezionare una riga del menu
+      (segnalazione crono Trieste)
+      
+    -bug
+      cambiando la risoluzione nel menu preferenze cambiava la risoluzione
+      dei tempi sullo schermo ma non sulla banda
+      (segnalazione crono Trieste)
+      
+    -bug
+      nel menu preferenze modificando la risoluzione invece di "1 s"
+      mostrava "(null) s" e mostrava due volte 1/100
+      (segnalazione crono Trieste)
+      
+  PROGRAMMA TEST BATTERIE
+    -aggiunta
+      facendo partire il test aspetta prima che la carica finisca
+
+/*********************
+  15-05a-beta4           (16/06/2015)
+**********************/
+  SCI
+    -aggiunta
+      dopo aver calcolato un gruppo di start teorici, l'ora del primo non viene
+      resettata ma impostata all'ora successiva all'ultimo del gruppo precedente
+      (richiesta crono Torino)
+  
+  INSEGUIMENTO
+    -aggiunta
+      ora è possibile ritirare un concorrente per fare arrivare  solo l'altro senza
+      usare continuamente "Scambia". In più si può mettere il tempo a correre
+      sul tabellone
+      
+/*********************
+  15-05a-beta3           (12/06/2015)
+**********************/
+  LOADER
+    -bug
+      se il nome del file d'aggiornamento conteneva " (n)" allora durante l'aggiornamento
+      crashava. Questa modifica al nome del file può essere fatta dal browser scaricando
+      il file più volte.
+      
+  INSEGUIMENTO
+    -modifica
+      se viene aggiunto un passaggio il tabellone mostra 0.00
+      
+    -bug
+      annullando un passaggio nella configurazione slalom parallelo
+      si finiva per avere due concorrenti per corsia
+      (segnalazione crono Trieste)
+      
+    -bug
+      era possibile inserire un pettorale negativo
+      
+    -aggiunta
+      aggiunto test per impedire di inserire in partenza due volte lo stesso numero
+      (segnalazione crono Trieste)
+      
+    -modifica
+      ora non chiedo più conferma quando elimino un passaggio, come sul Master
+
+      vecchio
+      
+    -aggiunta
+      ora aggiungendo un passaggio recupero il tempo del passaggio cancellato, se presente
+      
+    -aggiunta
+      ora è possibile fare una nuova partenza in seguito di una falsa partenza
+      (suggerimento crono Trieste)
+  
+  CONTASECONDI
+    -bug
+      se linee I o II in modalità "Split" allora sui tabelloni il tempo
+      non mostrava le frazioni di secondo
+      (segnalazione crono Trieste)
+
+/*********************
+  15-05a-beta2           (10/06/2015)
+**********************/
+  EQUITAZIONE
+    -modifica
+      le battute "START ANNULLATO", "STOP ANNULLATO" e "COUNTDOWN TERMINATO"
+      ora indicano pure il numero del binomio
+      
+    -bug
+      impostando il numero i tabelloni non venivano aggiornati
+      (segnalazione crono Trieste)
+  
+  START COUNTDOWN
+    -bug
+      quando la finestra di input dell'intervallo tra le partenze
+      era aperto da un menu e non dalla finestra principale, se
+      si aspettava più di un certo tempo il cronometro si bloccava
+
+      (segnalazione crono Trieste)
+      
+    -bug
+      se si apriva il menu mentre era aperta la finestra per l'inserimento
+      del periodo o della prossima ora di partenza poi non riappariva
+      più la finestra di input per il numero
+      
+    -bug
+      la prima volta che si avviava il programma non c'erano le sequenze
+      preimpostate
+      (segnalazione crono Trieste)
+
+/*********************
+  15-05a-beta1           (01/06/2015)
+**********************/
+  EQUITAZIONE
+    -aggiunta
+      aggiunta gestione portalinee per dare i comandi 
+      START, STOP ed ELIMINA ai giudici.
+      Linea 1: START,
+      linea 2: STOP,
+      linea 3: ELIMINA,
+      linea 4: START-STOP
+      
+
+
+  NUOTO
+    -bug
+      Nella finestra dell'ordine d'arrivo, con i tempi ordinati per tempo
+      non funzionava lo scambio di tempo, l'eliminazione e l'inserimento
+      (segnalazione crono Torino)
+
+/*********************
+
+  15-05a                 (28/05/2015)
+**********************/
+  versione pubblica che contiene tutte le beta precedenti
+  
+
+  TUTTI
+    -bug
+      nel menu di sistema dei tabelloni, se si selezionava la durata dello
+      sdoppiamento e si confermava senza digitare un numero veniva inserito
+      un valore molto alto.
+  
+  SCI
+    -bug
+      durante il calcolo delle ore di partenza nel fondo ad inseguimento il
+
+      cronometro si bloccava se c'erano più di una categoria in pista.
+      
+    -bug
+      nella stampa del "dettaglio cronologici" non veniva stampato il tempo
+      netto dei concorrenti inseriti a mano
+      (segnalazione crono Trieste)
+      
+    -bug
+      nella finestra "insermento manuale tempi" se si selezionava l'inserimento
+      del numero di categoria e si confermava senza digitare un numero
+      veniva inserito un numero molto alto. Questo causava un crash calcolando
+      il cambio di manche
+  
+  CONTASECONDI
+    -bug
+      modo "Progressivi da zero": se il tempo veniva fermato con STOP 
+      nel periodo di sdoppiamento del tabellone, finito lo sdoppiamento
+      il tab0 mostrava brevemente il tempo fermo e poi 0.00
+      
+    -bug
+      modo "Progressivi da zero": se il tempo veniva fermato con STOP e
+      fatto ripartire, il tempo giro veniva calcolato male
+      
+    -bug
+      selezionando "split/lap Start" sul tabellone non veniva mostrato
+      il tempo giro se la configurazione del prossimo numero era 
+      qualcosa di diverso da "invariato"
+
+      (segnalazione crono Trieste)
+  
+  EQUITAZIONE
+    -bug
+      se si faceva una correzione con un valore negativo, questo non 
+      veniva conteggiato correttamente dai tabelloni
+      
+    -bug
+      se si annullava lo start della prima fase, sul tabellone il
+      tempo non tornava al countdown
+      
+    -modifica
+      ora finito il percorso non viene stampato automaticamente
+      il riepilogo per dare la possibilità di effettuare correzioni
+
+      di penalità, tempo o numero
+      (suggerimento crono Trieste)
+      
+    -modifica
+      ora la stampa degli eventi START e FINISH mostra la linea
+      che l'ha originato
+      
+    -modifica
+      modificata scritta ID in Input nella finestra di input
+    
+    -bug
+      premendo Enter senza aver digitato un numero veniva inserito
+      un numero molto alto
+      (segnalazione crono Trieste)
+
+/*********************
+  15-03a-beta8           (22/05/2015)
+
+**********************/
+  TABELLONI
+    -modifica
+      sul tabellone microgate a 18 caratteri c'erano due spazi
+      dopo la posizione. Tolto uno spazio per avere il numero
+      di pettorale a 4 cifre
+
+/*********************
+  15-03a-beta7           (19/05/2015)
+**********************/
+  TABELLONI
+    -aggiunta
+      ora le impostazioni dei tabelloni vengono salvate
+  
+  SINCRONIZZAZIONE
+    -bug
+      mentre veniva emesso l'impulso di sincronizzazione non venivano
+      rilevati impulsi su nessuna linea
+
+/*********************
+  15-03a-beta6           (27/04/2015)
+
+
+**********************/
+  NUOTO
+    -aggiunta
+      la finestra per editare l'ordine di arrivo ora permette di scegliere
+      se visualizzare la lista di tempi ordinata per corsie o per tempi
+      (richiesta crono Trieste)
+
+/*********************
+  15-03a-beta5           (22/04/2015)
+**********************/
+  TUTTI
+    -bug
+      un'improbabile sequenza di operazioni all'avvio in certi casi causava
+      il blocco del sistema poco dopo
+      (segnalazione crono Novara)
+  
+  NUOTO
+    -bug
+      nella finestra di impostazione della batteria, usando i numeri
+      era possibile selezionare una riga inesistente
+      
+    -bug
+      il tempo a correre sui tabelloni non veniva mostrato
+
+      Causato dalla modifica introdotta con 15-03a-beta2
+  
+  TABELLONI
+    -aggiunta
+      aggiunto il protocollo OMEGA per il tabellone così come generato
+      dall'ARES
+
+/*********************
+  15-03a-beta4           (02/04/2015)
+**********************/
+  SCI
+    -bug
+      stampando la classifica con i ritardi modificavo il tabellone
+      con il ritardo
+      (segnalazione Moris)
+      
+    -bug
+      avendo una coda di tempi da visualizzare, dopo il primo tempo la 
+      classifica dinamica mostrava il precedente e il successivo 
+      dell'ultimo concorrente in coda e non del concorrente visualizzato
+
+/*********************
+  15-03a-beta3           (01/04/2015)
+**********************/
+  SCI
+    -bug
+      la classifica dinamica mostrava i tempi della prima manche
+      anche nelle manche successive
+      
+    -bug
+      con gli arrivi automatici, nella seconda manche il tempo manche
+      restava sul tabellone un tempo troppo breve
+      (segnalazione crono Como)
+      
+
+/*********************
+  15-03a-beta2           (01/04/2015)
+**********************/
+  SCI
+    -modifica
+      ora la precedenza viene data ai tabelloni con il tempo a correre
+      (prima riga e monotabellone)
+      (richiesta crono Como)
+      
+    -bug
+      sul tabellone del tempo del primo, il numero era quello del concorrente
+      in pista. Causato da modifica per mostrare sempre il numero
+      (segnalazione Moris)
+      
+    -modifica
+      sul tabellone con il tempo del primo, quando mostro il distacco
+      non mostro la posizione
+      (richiesta Moris)
+
+/*********************
+
+  15-03a-beta1           (27/03/2015)
+**********************/
+  SCI
+    -modifica
+      modificato il modo in cui vengono aggiornati i tabelloni
+      in modo che non vengano persi secondi mentre aggiorno
+      la classifica dinamica
+      (segnalazione crono Como)
+      
+    -modifica
+      sul tabellone che mostra il tempo del primo e il distacco dal
+      primo è stato aggiunto il numero e la posizione del primo mentre 
+      mostro il distacco
+
+      (richiesta Moris)
+
+    -bug
+      la classifica dinamica non aggiornava la posizione del concorrente
+      successivo all'arrivo del concorrente in pista
+      (segnalazione Moris)
+  
+  SINCRONIZZAZIONE
+    -bug
+      l'impulso di sincronizzazione veniva dato anche dalle linee disattivate
+      (segnalazione crono Como e Sondrio)
+  
+  START COUNTDOWN
+    -bug
+      se si sincronizzava all'interno del programma e l'ora veniva spostata
+      in avanti, il sistema cercava di calcolare tutte le ore di partenza
+      dall'ora vecchia all'ora nuova
+
+/*********************
+  15-03a           (24/03/2015)
+**********************/
+  SCI
+    -bug
+      "Stampa l'ordine di partenza" non stampava nulla.
+      Ora nelle manche successive alla prima stampa i concorrenti
+      nella lista di partenza
+      
+  TUTTI
+    -modifica
+      i tempi nella finestra di impostazione delle linee
+      sono visualizzati in ms
+      
+/*********************
+  15-02a-beta8     (23/03/2015)
+**********************/
+  LOADER
+    -modifica
+      modificata procedura di aggiornamento: il pulsante
+      "Continua" o la lista dei file di aggiornamento appare solo 
+      dopo che la penna è stata riconosciuta e contiene
+      un file d'aggiornamento valido
+
+/*********************
+  15-02a-beta7     (18/03/2015)
+**********************/
+  SCI
+    -aggiunta
+      cancellando un numero atteso in arrivo con il tasto "+/-"
+      pulisco i tabelloni
+      (richieste varie)
+      
+      
+  SINCRONIZZAZIONE
+    -modifica
+      quando il Master3 si sincronizzava da GPS, alla riapertura
+      della finestra "Sincronizzazione" il contenuto veniva disegnato
+      più volte causando un fastidioso rallentamento e sfarfallio
+
+/*********************
+  15-02a-beta6     (17/03/2015)
+**********************/
+  START COUNTDOWN
+    -aggiunta
+      aggiunto campo con nota a stringa semaforo
+      
+  SCI
+    -aggiunta
+      aggiunto tabellone con tempo precedente nella classifica temporanea (riga 5)
+      e tabellone con tempo successivo nella classifica temporanea (riga 6)
+      (richieste varie)
+      
+/*********************
+
+  15-02a-beta5     (13/03/2015)
+**********************/
+  SCI
+    -modifica
+      nel menu di stampa delle classifiche, se si seleziona la
+      stampa per categoria utilizzando il numero, ora appare
+
+      un messaggio di avviso che chiede di quale categoria si vuole
+      stampare la classifica.
+      Se si seleziona la riga usando le frecce bisogna usare i
+      tasti funzione per selezionare la categoria. Ora però
+      appena si conferma il numero parte la stampa.
+      (richiesta Moris)
+  
+  START COUNTDOWN
+    -aggiunta
+      aggiunto campo con strip a stringa semaforo
+      
+  TUTTI
+    -bug
+      impostando per una linea un valore della durata minima 
+      dell'impulso maggiore 24ms, veniva stampato sempre lo stesso 
+      tempo ad ogni impulso ricevuto su quella linea
+      (segnalazione crono Sondrio)
+
+/*********************
+
+  15-02a-beta4     (05/03/2015)
+**********************/
+  TABELLONI
+
+    -aggiunta
+      ora quando un tabellone Microgate è configurato con un elemento
+      è possibile scegliere la visualizzazione compatta che elimina
+      la punteggiatura ma mostra numero e tempo in 9 caratteri
+      (richieste varie)
+
+      
+  MENU SISTEMA
+    -bug
+      se da uno dei sotto menu dei tabelloni si passava ad un altro
+      menu di sistema e poi si usciva, il sottomenu non veniva chiuso
+      completamente e non veniva ricaricata la finestra del programma
+
+/*********************
+  15-02a-beta3     (03/03/2015)
+
+**********************/
+  START COUNTDOWN
+    -aggiunta
+      ora è possibile scegliere una sequenza e farla partire manualmente.
+      La sequenza ha inizio con l'attivazione della linea FINISH e parte
+      dal secondo intero successivo
+      (richieste varie)
+
+
+/*********************
+  15-02a-beta2     (17/02/2015)
+
+**********************/
+  SINCRONIZZAZIONE
+    -bug
+      da dentro il programma non era possibile sincronizzare con il GPS
+      perché si aveva sempre l'errore "attendere fix GPS"
+      
+  SCI
+    -bug
+      con l'autostart decrescente, se il concorrente in partenza
+      diventa NP il numero successivo impostato dall'autostart era sbagliato
+      (segnalazione crono Como)
+      
+/*********************
+  15-02a-beta1     (17/02/2015)
+**********************/
+  START COUNTDOWN
+    -bug
+      tra 0:00:00 e 0:01:00 parte del cronometro si bloccava.
+      questo era stato già risolto, ma è stato reintrodotto in un altro
+      modo con la versione 14-12b-beta3
+      (segnalazione Moris)
+
+  SINCRONIZZAZIONE
+    -modifica
+      l'impulso di sincronizzazione ora dura 200ms, mentre prima
+      era troppo breve e alcuni cronometri non lo rilevavano.
+      (segnalazione Moris)
+
+
+/*********************
+  15-02a           (10/02/2015)
+**********************/
+  versione pubblica che contiene tutte le beta precedenti
+  
+  TUTTI
+    -aggiunta
+      aggiunto protocollo tabellone Telecron
+
+
+/*********************
+  14-12b-beta5     (05/02/2015)
+**********************/
+
+  SINCRONIZZAZIONE
+    -aggiunta
+      aggiutan scritta che indica l'emissione dell'impulso
+      di sincronizzazione
+
+  SCI
+
+    -bug
+
+      se il tabellone stava visualizzando un tempo di arrivo, c'era un numero
+      impostato in arrivo e successivamente quel numero veniva impostato NA,
+
+      il tabellone veniva cancellato e veniva mostrato il tempo a correre
+      del concorrente messo NA.
+      (segnalazione crono Como)
+
+  TUTTI
+    -bug
+      se si caricava un programma con le linee disattivate, i led rossi
+      continuavano a lampeggiare ma la linea era in realtà attiva.
+      (segnalazione crono Como)
+
+  CONTASECONDI
+    -aggiunta
+      aggiunta modalità Split/Lap Start sugli intermedi così come
+      sul vecchio Master. Questa modalità oltre a stampare il tempo 
+      lap e split fa ripartire da zero il conteggio del tempo sui tabelloni
+      (richiesto durante incontro con FICr a Ferrara)
+
+    -aggiunta
+      aggiunti tabelloni con tempo giro e tempo totale.
+
+  START COUNTDOWN
+    -aggiunta
+      ora sui tabelloni si vede l'ora attuale, l'ora teorica di partenza 
+      e il conto alla rovescia. Ad ogni impulso viene sdoppiata l'ora
+      di passaggio e l'anticipo o ritardo
+
+    -aggiunta
+      ora si può incrementare o decrementare il numero impostato
+      utilizzando il tasto freccia giù o freccia su
+
+
+/*********************
+  14-12b-beta4     (20/01/2015)
+**********************/
+  SCI
+    -bug
+      quando un concorrente con categoria 0 partiva, veniva visualizzato
+      il suo tempo a correre sul tabellone.
+      (segnalazione crono Como)
+
+    -bug
+      se c'erano più concorrenti in pista e veniva annullato lo start
+      dell'ultimo partito, sul tabellone veniva visualizzato l'ora
+      dello start annullato.
+
+      (segnalazione crono Como)
+
+    -bug
+      se c'era in arrivo il numero di un concorrente non ancora partito,
+      alla partenza di quel numero non veniva cancellato il '*' e il suo
+      tempo a correre non appariva sul tabellone
+      (segnalazione crono Como)
+
+
+/*********************
+  14-12b-beta3     (19/01/2015)
+**********************/
+
+  START COUNTDOWN
+    -modifica
+      modificata la stringa inviata al semaforo per ridurre al minimo 
+      il ritardo tra la scrittura dei numeri e l'accensione dei colori
+      Questa modifica funziona solo se la versione del firmware del semaforo è 
+      almeno la 2.0
+      
+  SCI
+    -bug
+      nelle manche successive alla prima, il monotabellone mostrava prima
+      il tempo netto di manche e poi il tempo somma. Lo stesso faceva il 
+      il tabellone 0. 
+      Ora il tabellone 0 mostra solo il tempo somma e il monotabellone 
+      mostra correttamente prima il tempo somma e poi il tempo della manche
+      (segnalazioni varie)
+      
+    -bug
+      nelle manche successive alla prima, il tempo da battere visualizzato
+      sul tabellone era il tempo della seconda manche e non la somma.
+      
+
+/*********************
+  14-12b-beta2     (07/01/2015)
+**********************/
+  TUTTI
+    -aggiunta
+      ora si può sincronizzare dal menu preferenze di sistema (SHIFT + 3)
+      anche dopo aver avviato un programma
+      
+    -aggiunta
+      quando è aperta la finestra sincronizzazione viene emesso l'impulso 
+      di sincronizzazione ogni minuto
+
+/*********************
+  14-12b-beta1     (23/12/2014)
+**********************/
+  TUTTI
+    -aggiunta
+      il menu di sistema del GPS (shift + 8) ora mostra l'ora
+      emessa dal modulo GPS
+      utile per diagnosticare problemi di comunicazione con modulo GPS
+
+
+/*********************
+  14-12b           (16/12/2014)
+
+
+**********************/
+
+  versione pubblica che gestisce una variazione hardware su nuovi circuiti stampati.
+  nessuna nuova funzionalità introdotta
+
+/*********************
+  14-12a-beta1     (12/12/2014)
+**********************/
+  versione interna per test stampante
+
+/*********************
+  14-12a           (11/12/2014)
+**********************/
+  versione pubblica che contiene tutte le beta precedenti
+  
+  TUTTI
+    -modifica
+      modificata sequenza di avvio della stampante
+      modificata gestione della pausa della stampante in caso di coda piena
+
+/*********************
+  14-11b-beta9     (05/12/2014)
+**********************/
+  INSEGUIMENTO
+    -modifica
+      ripristinato un solo tempo a correre:
+      tab 0 e tab 1 mostrano il tempo totale del primo e del secondo, tempo a correre totale su tab 0
+      tab 2 mostra distacco
+      tab 3 e tab 4 mostrano il tempo giro del primo e del secondo transitato
+
+/*********************
+  14-11b-beta8     (04/12/2014)
+**********************/
+  NUOTO
+    -bug
+      se arrivava un tempo sulle linee I e II
+      dopo aver completato la distanza prestabilita, questo tempo
+      sostituiva il tempo di arrivo originale
+      (segnalazione Moris)
+      
+  INSEGUIMENTO
+    -aggiunta
+      aggiunta la possibilità di ricominciare la gara senza
+      azzerare il numero dei concorrenti
+      (richiesta Moris)
+      
+    -aggiunta
+      aggiunta la possibilità di modificare la risoluzione
+      da menu
+      (richiesta Moris)
+      
+
+    -modifica
+      ora sui tabelloni ci sono due tempi a correre:
+      sul primo della coppia che mostra i tempi giro c'è il tempo giro
+      sul primo della coppia che mostra i tempi totali c'è il tempo totale
+
+/*********************
+  14-11b-beta7     (02/12/2014)
+**********************/
+  INSEGUIMENTO
+    -aggiunta
+      aggiunta visualizzazione sui tabelloni
+      
+    -aggiunta
+      aggiunto protocollo vecchio
+
+/*********************
+  14-11b-beta6     (28/11/2014)
+**********************/
+  INSEGUIMENTO
+    -aggiunta
+      si possono aggiungere passaggi con [shift + I] o [shift + II]
+
+    -aggiunta
+      si può eliminare l'ultimo passaggio su una certa linea
+      con i tasti [I] o [II]
+      
+
+    -aggiunta
+      vengono gestite le partenze anticipate nel modo scelto dal menu
+      
+      
+  NUOTO
+    -bug
+      se arrivava un tempo dopo aver completato la distanza prestabilita,
+      questo tempo sostituiva il tempo di arrivo originale
+      (segnalazione crono Trieste)
+
+
+/*********************
+  14-11b-beta5     (24/11/2014)
+**********************/
+  TUTTI
+    -modifica
+      le input window non usano più il carattere '-' per indicare
+      quante cifre si possono inserire
+      
+  INSEGUIMENTO
+    -aggiunta
+      le stampe vengono alla risoluzione scelta
+      
+
+/*********************
+  14-11b-beta4     (23/11/2014)
+**********************/
+  TUTTI
+    -bug
+      non si riusciva impostare una temporizzazione su nessuna linea
+      perché indipendentemente dal numero digitato il sistema lo sostituiva
+      con 5ms
+      (segnalazione Carpita)
+
+/*********************
+  14-11b-beta3     (21/11/2014)
+**********************/
+  Modificati alcuni testi
+
+/*********************
+  14-11b-beta2     (20/11/2014)
+**********************/
+  -aggiunta prima versione programma "Inseguimento"
+  
+  SCI
+    -bug
+      disattivando una linea dal menu accessibilità linee non venivano
+      gestiti i tempi ricevuti via rete.
+      ora non vengono gestiti solo i tempi rilevati dal master3 dove sono
+      stati disattivati
+      (segnalazione crono Como)
+      
+    -modifica
+      modificando in edit il numero assegnato ad un tempo start, se quel numero è
+      in attesa anche su qualche linea, viene sostituito pure là
+      (richiesta Moris)
+      
+    -bug
+      con la configurazione "fondo ad inseguimento", se si cambiava manche e si
+      decideva di non rinumerare i concorrenti, le ore di partenza con i distacchi non 
+      venivano calcolati
+      (segnalazione crono Como)
+      
+  TUTTI
+    -bug
+      nei valori dei timer di spegnimento e di abbassamento della luminosità era
+      possibile impostare valori non validi
+      (segnalazione crono Como)
+
+/*********************
+  14-11b-beta1     (14/11/2014)
+
+**********************/
+  SCI
+
+    -aggiunta
+      aggiunta la possibilità di collegare in rete due cronometri
+
+
+/*********************
+  14-11b           (07/11/2014)
+**********************/
+  SCI
+    -bug
+      nella finestra di inserimento manuale dei tempi,
+      se si cercava di inserire un tempo il programma usciva
+      bug introdotto da una modifica nella effettuata nella versione
+      14-09a-beta1 (segnalazione crono Como)
+
+
+/*********************
+  14-11a           (06/11/2014)
+**********************/
+  versione pubblica che contiene tutte le beta precedenti
+  
+  TUTTI
+    -aggiunta
+      si può scegliere il protocollo da seriale usando il comando ?V o +V
+
+/*********************
+  14-09a-beta5     (04/11/2014)
+**********************/
+  EQUITAZIONE
+
+    -bug
+      una modifica effettuata per la visualizzazione sul tabellone faceva sì
+      che le penalità e le correzioni venissero stampate sbagliate
+      (segnalazione Moris)
+      
+    -bug
+      modificando la durata del countdown iniziale, se la gara non era
+      iniziata, il tempo non veniva aggiornato
+      (segnalazione Moris)
+      
+    -aggiunta
+      una volta finito il percorso, si può ristampare il dettaglio
+      della gara usando un tasto funzione
+      (segnalazione Moris)
+      
+  START COUNTDOWN
+    -modifica
+      quando è impostata la sequenza manuale l'automatismo sul numero
+      viene applicato quando si spegne il semaforo (Off su tasto funzione)
+
+/*********************
+  14-09a-beta4     (04/11/2014)
+**********************/
+  START COUNTDOWN
+    -bug
+      inserendo un numero a mano non veniva emessa la
+      battuta con l'ora teorica (segnalazione crono Como & Moris)
+    
+    -bug
+      modificando un numero in edit non veniva emessa col protocollo
+      vecchio la stessa sequenza di battute del Master vecchio
+      (segnalazione crono Como & Moris)
+      
+    -modifica
+      eliminata battua 010 trasmessa assieme a battuta 152
+
+
+/*********************
+  14-09a-beta3     (31/10/2014)
+**********************/
+  PROTOCOLLO MASTER3
+    -aggiunta
+      aggiunto campo con il tipo di gara nel messaggio JMPTM
+
+      
+    -aggiunta
+      aggiunto campo con il tipo di tabella penalità nel messaggio JMPTM
+      
+    -aggiunta
+      aggiunto campo con il numero di consolle che ha generato l'evento
+      
+  EQUITAZIONE
+    -aggiunta
+      aggiunta generazione stringhe per i tabelloni
+      
+    -aggiunta
+
+      aggiunta possibilità di eliminare l'ultimo tempo
+      
+    -aggiunta
+      aggiunta possibilità di recuperare l'ultimo tempo ricevuto con
+      la linea disattiva
+      
+    -aggiunta
+      finita la prova, mancava il pulsante per iniziarne una nuova
+      senza dover eliminare il concorrente
+
+    -aggiunta
+      aggiunta visualizzazione sui tabelloni
+      
+  START COUNTDOWN
+    -bug
+      se si selezionava il programma nel primo minuto dopo la mezzanotte, 
+      il rilevamento dei tempi si bloccava e il sistema rispondeva lentamente
+      (segnalazione crono Como)
+      
+    -modifica
+      assieme alla battura 152 con l'ora teorica ora viene trasmessa pure
+      la battuta 10 col numero da impostare sul tabellone. Questo può servire
+      a qualche programma che per qualche motivo non usa il valore del numero
+      presente nella battuta 152
+      
+
+
+/*********************
+  14-09a-beta2     (27/10/2014)
+**********************/
+  -aggiunta prima versione programma "Equitazione"
+  
+  PROTOCOLLO MASTER3
+    -aggiunta
+      aggiunto messaggio JMPTM per l'equitazione
+      
+    -aggiunta
+      aggiunto campo con la linea logica ai messaggi che contengono la linea
+      Questo è stato chiesto insistentemente perché così, a detta loro, avrebbero 
+
+      i dati disponibili più velocemente, ma la realtà è che il tempo di trasmissione 
+      del campo è migliaia di volte più lungo del tempo che impiegherebbe 
+      qualunque pc o palmare per la conversione.
+      (richiesto da CTF della FICr)
+      
+  START COUNTDOWN
+    -bug
+      in caso di anticipo non veniva stampata la dicitura "Anticipo"
+      (segnalazione crono Como)
+
+/*********************
+  14-09a-beta1     (10/09/2014)
+**********************/
+  NUOTO
+    -bug
+      la visualizzazione tabelloni nel menu tabelloni restava bianca (segnalazione Moris)
+      
+  SCI
+    -bug
+      nella finestra di inserimento manuale dei tempi, se si selezionava un tempo
+      e premeva invio la input window si apriva inizializzata a 00:00:00.0000.
+
+      Ora propone il tempo già presente (segnalazione Moris)
+  
+  START COUNTDOWN
+    -bug
+      nella modalità manuale l'accensione del verde non emetteva una stringa
+      sulla seriale con l'ora di accensione (segnalazione Moris)
+
+
+/*********************
+  14-09a     (10/09/2014)
+**********************/
+  Versione pubblica che contiene tutte le beta precedenti
+  
+  NUOTO
+    -modifica
+      i vari parametri per impostare una nuova batteria ora si trovano
+      in un'unica schermata e non vengono chiesti uno per volta. 
+      In questo modo il cambio di batteria è più veloce
+      
+  START COUNTDOWN
+    -aggiunta
+      scegliendo la sequenza manuale, l'ora teorica è quella di accensione del verde
+
+
+/*********************
+  14-03b-beta14     (05/09/2014)
+**********************/
+  START COUNTDOWN
+    -aggiunta comunicazione con semaforo SL206L
+  
+  SCI
+    -aggiunta
+      calcolo dei tempi netti portando le ore alla risoluzione voluta
+      prima di fare la differenza (automobilismo)
+      
+     -aggiunta
+      modalità line keeper per il test del rilevamento dei tempi sulle ruote anteriori
+      
+
+      
+  PROTOCOLLO MASTER3
+    -modifica
+      il messaggio TIMOD ora contiene un campo per indicare 
+      se il tempo è del line keeper e se è valido o meno
+
+/*********************
+  14-03b-beta13     (22/08/2014)
+**********************/
+  PROTOCOLLO MASTER3
+    -modifica 
+      aggiunto e spostato qualche campo
+      aggiunto checksum fatto con XOR
+
+/*********************
+  14-03b-beta12     (21/08/2014)
+**********************/
+  -aggiunta prima versione programma "Start Countdown"
+
+  
+  NUOTO
+    -aggiunta
+     prima di usire dal programma chiede conferma
+     
+    -aggiunta
+     nella schermata principale vengono mostrate informazioni sulla gara
+     
+
+/*********************
+
+  14-03b-beta11     (30/07/2014)
+**********************/
+  LOADER
+    -bug
+     premendo il num 5 veniva caricato il nuoto invece dello sci
+     premendo il num 2 non succedeva nulla (segnalazione crono Como)
+     
+    -bug
+     impostando la data di sincronizzazione era possibile impostare 
+     una data tale da bloccare il cronometro.
+     ora si possono mettere solo date valide
+     
+    -bug
+     se sulla penna usb per l'aggiornamento c'erano più di 12 file aggiornamento
+     il menu di scelta multipla non mostrava la riga evidenziata e non era possibile
+     scorrere la lista
+     
+
+/*********************
+  14-03b-beta10     (24/07/2014)
+**********************/
+
+  TUTTI
+    -aggiunta
+     aggiunta ristampa dal menu stampante (shift + 6)
+  
+  PROGRAMMA NUOTO
+    -aggiunta 
+     aggiunta visualizzazione per tabellone ALGE
+     
+    -aggiunta
+     aggiunta possibilità di scegliere se visualizzare i tempi sui tabelloni
+     per corsia o per posizione
+    
+/*********************
+  14-03b-beta9      (22/07/2014)
+**********************/
+  PROGRAMMA NUOTO
+    -aggiunta
+     ora è possibile utilizzare le linee I e II del Master
+     quando la gara è configurata per il rilevamento manuale su 1 lato
+     (richiesta Moris)
+
+/*********************
+  14-03b-beta8      (16/07/2014)
+**********************/
+  PROGRAMMA NUOTO
+    -bug
+     aggiungendo un tempo quando la gara era configurata per
+     il rilevamento su due lati non veniva aggiornato il contabattute
+     sul lato lontano (segnalazione crono Trieste)
+
+/*********************
+  14-03b-beta7      
+**********************/
+  PROGRAMMA NUOTO
+    -aggiunta
+     è stata aggiunta la possibilità di gestire le piastre
+
+/*********************
+  14-03b-beta6     
+
+**********************/
+  -aggiunto programma "Nuoto"
+  
+  PROGRAMMA CONTASECONDI
+    -aggiunta
+     il contasecondi ora gestisce pure le linee dei portalinee
+  
+
+/*********************
+  14-03b-beta5      
+**********************/
+  TUTTI
+    -aggiunta
+      aggiunta la gestione della comunicazione con l'espansione delle linee
+    
+    -aggiunta
+     è stato aggiunto l'indicatore dell'espansione delle linee sulla status bar
+     
+    -bug
+     nel caso di un evento tipo START/STOP (es.: contasecondi, partenza da zero)
+     veniva sempre stampato il '#' indicante un tempo manuale
+
+/*********************
+  14-03b-beta4      
+**********************/
+  versione di test, mai distribuita
+
+
+
+/*********************
+  14-03b-beta3      (09/04/14)
+**********************/
+  TUTTI
+    -modifica
+     impostando il tabellone come uTabPix vengono visualizzate alcune cifre in più
+
+     (richiesta Gino Bianco)
+     
+    -modifica
+     scegliendo il protocollo ALGE la velocità viene impostata automaticamente a 2400
+     scegliendo il protocollo Microgate la velocità viene impostata automaticamente a 1200
+     (richiesta crono Como)
+     
+     
+  PROGRAMMA SCI
+    -bug
+     finestra inserimento manuale: aggiungendo un tempo ad un concorrente che non ne aveva
+     veniva impostata una categoria errata e non era possibile modificarla.
+     Ora viene impostata la categoria corretta e può essere modificata
+
+  PROGRAMMA CONTASECONDI
+    -bug
+     con l'arrotondamento IAAF e la risoluzione al 1/100, se un tempo aveva 999 come frazione
+     di secondo veniva arrotondato male: 12.9999 diventava 12.00 invece di 13.00
+     (segnalazione crono Lecco)
+
+/*********************
+  14-03b-beta2      (20/03/14)
+**********************/
+  PROGRAMMA SCI
+    -bug
+     non era possibile cambiare la categoria di un concorrente dalla
+     finestra dell'inserimento manuale (segnalazioni multiple)
+    
+    
+    -bug
+
+     annullando lo start di un concorrente in arrivo o mettendolo NA,
+     sul tabellone restava il tempo a correre
+     corretto fermando il tempo a correre e cancellando il tabellone
+     (segnalazione crono Trieste)
+
+/*********************
+  14-03b-beta1      (14/03/14)
+**********************/
+  TUTTI
+    -aggiunta la possibilità di impostare la durata minima
+
+     che deve avere l'impulso per essere valido.
+
+/*********************
+* 14-03a            (12/03/14)
+**********************
+  versione pubblica che raccoglie le beta precedenti
+  
+  TUTTI
+    -modifica
+     ora il numero di riga del tabellone ALGE è allineato
+     col selettore sul tabellone (richiesta Moris)
+  
+  PROGRAMMA SCI
+    -bug
+     se nella finestra principale dello sci si premeva '.'
+     seguito da un tasto di assegnazione alla linea, il programma
+     sci si chiudeva (segnalazione crono Como)
+     
+    -bug
+     con le partenze automatiche attive, se non c'è nessun
+     numero in partenza e arrivava un tempo, viene messo in partenza
+     il primo numero disponibile
+     modificato in modo che se non c'è nessun numero in partenza
+     l'autostart non fa niente (segnalazione crono Como)
+     
+
+
+/*********************
+* 14-02c-beta8      (11/03/14)
+
+**********************
+  TUTTI
+    -aggiunto tabellone Microgate largo 9 caratteri (formato esteso)
+    
+    -sistemata visualizzazione tabellone ALGE
+
+/*********************
+* 14-02c-beta7      (07/03/14)
+**********************
+  TUTTI
+    -aggiunto monotabellone nello sci
+  
+  PROGRAMMA SCI
+    -bug
+     mettendo un concorrente NA, con arrivi automatici, eliminava il numero
+     dai numeri attesi, ma non metteva il prossimo negli intermedi
+
+
+/*********************
+* 14-02c-beta6      (06/03/14)
+**********************
+  TUTTI
+    -nuova funzione
+     introdotta la possibilità di modificare la lingua del
+     cronometro (ITA, ENG)
+     
+    -nuova funzione
+     introdotto nuovo protocollo
+     
+    -nuova funzione
+     aggiunta opzione "TX Auto" nel menu delle seriali
+     serve ad attivare l'emissione automatica degli eventi
+     senza dover inviare niente sulla seriale
+     
+    -nuova funzione
+     aggiunto messaggio che, all'apertura di un programma, avvisa
+     se c'è una gara in memoria
+  
+  PROGRAMMA SCI
+    -modifica
+     se seleziono una disciplina dello sci nordico
+     la risoluzione proposta è al 1/10s
+     
+    -nuova funzione
+     aggiunto messaggio che all'uscita del programma
+     chiede se si vogliono eliminare i concorrenti con
+     tempi incompleti
+     
+    -bug
+     nella seconda manche, se si cambiava lo stato del concorrente
+     in NP veniva mostrato un messaggio di errore e il numero restava
+     in partenza
+     
+    -bug
+     nella seconda manche, se si modificava un tempo di arrivo
+     o di partenza stampava solo il tempo di manche e non il tempo somma
+     
+    -bug
+     il menu "Stampa classifiche" non era utilizzabile digitando i numeri,
+     bisognava usare le frecce ed invio
+
+
+
+/*********************
+* 14-02c-beta5      (28/02/14)
+**********************
+  PROGRAMMA SCI
+
+    -nuova funzione
+     num + Enter mostra il dettaglio del concorrente
+     
+    -nuova funzione
+     è possibile impostare partenze automatiche "S-"
+     che decrementa il numero in partenza
+     
+    -bug
+     nella finestra "Dettaglio cronologici" c'era un %i al posto
+     del numero della manche
+
+     
+
+/*********************
+* 14-02c-beta4      (27/02/14)
+**********************
+  PROGRAMMA CONTASECONDI
+    -modifica
+     reintrodotto il tasto funzione STOP e #
+     nelle partenze da zero e nel countdown
+     la linea S non diventa più uno STOP quanto il tempo
+     cammina  (richiesta CTF crono)
+
+/*********************
+* 14-02c-beta3      (26/02/14)
+**********************
+  TUTTI
+    -nuova funzione
+     aggiunta la possibilità di continuare la gara precedente
+     
+    -bug
+
+     nella visualizzazione tabelloni, se si andava oltre la riga
+     più bassa il cursore spariva.
+     in più si vedeva il refresh
+  
+  PROGRAMMA SCI
+    -modifica
+     quando metto in arrivo un concorrente a cui manca lo start
+     visualzzo 0.0 al posto del tempo a correre
+     
+    -bug
+     corretto bug nel calcolo del distacco alla partenza
+     nelle gare ad inseguimento
+     
+    -bug
+     dalla seconda manche, quando modificavo un tempo di una manche
+     precedente veniva eliminato anche il tempo nella manche attuale
+     
+    -bug
+     con le partenze e gli arrivi automatici mettendo lo stato NP o NA
+     non aggiornavo il numero atteso
+     ora se è attiva la partenza automatica e metto NP il numero che è
+     in partenza, questo viene sostituito con il prossimo
+     se sono attivi gli arrivi automatici e metto NA il numero che è
+     in arrivo, questo viene sostituito con il prossimo
+     
+    -bug
+     NP venivano stampati con la categoria 0
+
+
+/*********************
+* 14-02c-beta2      (19/02/14)
+**********************
+  PROGRAMMA SCI
+    -bug
+     nella seconda manche, quando eliminavo un tempo il calcolo delle
+     classifiche temporanee con i tempi somma non veniva aggiornato
+     
+    -bug
+     con le partenze a gruppi, se c'era un gruppo in partenza
+     e ricevevo un tempo su un'altra linea quel tempo era assegnato
+     a tutti i numeri del gruppo (segnalazione crono Torino)
+  
+  FIRMWARE UNCE
+    -bug
+     ogni tanto stampava la 'v' o in formati strani
+     se l'handshake vorrebbe fermare la trasmissione continuo se sto
+     trasmettendo un dato di controllo e se sì lo completo
+     i dati di controllo non vengono mai interrotti (sennò stampa cose strane)
+  
+     
+     
+/*********************
+* 14-02c-beta1
+**********************  
+  PROGRAMMA SCI
+    -bug
+     con le partenze automatiche il numero di partenza superava il
+     valore 9999, causando un crash in breve tempo.
+     ora dopo il 9999 tolgo il numero in partenza
+    
+    -bug
+     nella seconda manche, quando partiva un concorrente il 
+     programma crashava
+
+     bug causato da una modifica alle classifiche temporanee
+     (segnalazione crono Torino)
+  
+  LIBRERIA TEMPI
+    -modifica
+     i tempi vengono salvati sequenzialmente in un array
+     gestito dalla libreria (ma in grado comunque di restituire i 
+     puntatori ai tempi, se necessario)
+   
+  LIBRERIA EVENTI
+    -modifica
+     gli eventi vengono salvati sequenzialmente in un array
+     gestito dalla libreria
+     
+    -modifica
+     i puntatori dei testi da stampare negli eventi stampa testo
+     sono salvati in un array
+
+     
+    -bug
+     i tempi inseriti a mano, via seriale o calcolati avevano un
+     flag sbagliato (stampava sempre "c")
+     
+
+  
+  PROGRAMMA TEST BATTERIE
+    -avvisa libreria grafica che è un programma, così non si spegne
+    -sistemato rilevamento fine scarica-inizio carica, così 
+     non stampa più quando inizia la carica
+  
+  PROGRAMMA TARATURA BATTERIE
+    -avvisa libreria grafica che è un programma, così non si spegne
+  
+  PROGRAMMA CALIBRAZIONE OSCILLATORE
+    -avvisa libreria grafica che è un programma, così non si spegne
+
+/*********************
+* 14-02b      (08/02/14)
+**********************
+  FUNZIONI GENERICHE
+
+    -aggiunto uscita e rientro carta
+    -sistemato indicatore carica della batteria nel caso in cui il
+     caricabatterie è collegato e la carica terminata
+    -aggiunte opzioni salva eventi (tutti, no, primi 10, primo, ultimi 10
+     ultimo)
+    -la carta esce e rientra in modo tale da mostrare l'ultima stampa
+    -aggiunto impostazione click tasti
+
+    -ora "shift" resta attivo fino a quando non viene premuto un altro tasto
+   
+  
+  PROGRAMMA CONTASECONDI
+    -corretto bug tasto esc in contasecondi (chiedeva recupero tempi)
+    -corretto stampa tempi negativi arrotondati IAAF in contasecondi
+     countdown
+  
+  PROGRAMMA SCI
+    -start teorici chiede se cancellare l'ora S dei concorrenti che 
+     hanno già un'ora (suggerimento cronometristi Como)
+    -aggiunta opzione "in simultanea" in start teorici
+    -edit apre sull'ultimo tempo
+    -aggiunta la possibilità di calcolare gli start teorici
+     dal numero più alto al numero più basso
+    -nell'edit, passando da una riga all'altra apro la finestra
+
+     sull'ultimo tempo
+    -le posizioni provvisorie sulla carta e sul tabellone
+     ora sono riferite alla categoria del concorrente
+  
+
+/*********************
+* 14-02a      (03/02/14)
+**********************
+  -corretto bug aggiornamento in caso di solo 1 file sulla
+   penna usb
+
+**********************
+
+* 14-01l      (31/01/14)
+**********************
+  -aggiunto programma "Contasecondi"
+
+  
+  FUNZIONI GENERICHE
+    -aggiunta temporizzazione visualizzazione tabelloni
+    -aggiunta richiesta conferma prima di uscire dai programmi
+
+  PROGRAMMA SCI
+    -aggiunta possibilità di stampare la classifica di tutte
+     le categorie presenti
+     
+
+
+**********************
+* 14-01k
+**********************
+ -aggiunta possibilità di scegliere se disegnare 
+   o meno il bordo delle textBox
+ 
+
+***********************
+* 14-01i
+* prima versione disponibile al pubblico
+***********************
+ presente solo il programma di sci
+
