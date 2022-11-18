@@ -1,0 +1,1756 @@
+    --------------------------------------------------------------------
+      File "Leggimi" dell'aggiornamento 2010.004 del cronometro Master
+                                settembre 2010
+    --------------------------------------------------------------------
+                 (c) Copyright Digitech s.r.l., 1998-2010
+		  ultima verifica: agosto 2006 by Moris, crono Torino
+
+*******************************************************************************************
+Versione 2013.001 (gennaio 2015)
+-----------------
+LineKepeer:
+		reso disponibile a tutti, senza blocchi
+
+		tutte le beta precedenti.
+
+
+Versione 2013.001-beta02 (maggio 2013)
+-----------------
+rs232:
+		comando +K:
+		adesso, in caso di inserimento di un tempo uguale a quello esistente,
+		oppure l'annullamento di un tempo gia annullato,
+		il master non stampa la variazione.		
+		(richiesta Marco Barilari)
+
+Versione 2013.001-beta01 (marzo 2013)
+-----------------
+Tabelloni:	
+		- Tabellone Micragate, aggiunto un protocollo adatto a pilotare
+		il MicroGraph.
+		- La scelta viene fatta nei settaggi del tabellone alla voce "Larghezza"
+		Bisogna scegliere "MicroGraph"
+		- Purtroppo, viste l'esiguo numero di cifre, i tempi non sono complweti
+		e dipendono dalla risoluzione scelta.
+		Risoluzione al Secondo
+			tempo completo
+		Risoluzione al decimo
+			tempo fino a 9:59:59.9
+			la parte eccdente viene persa
+		Risoluzione al Centesimi
+			tempo fino a 59:59.99
+		Risoluzione al Millesimo
+			tempo fino a 9:59.999
+		Questo permette di avere il numero di Concorrente e la posizione
+		in classifica (un carattere) senza il simbolo
+		- I parametri da impostare sul tabellone sono:
+		- BAUDT:	1200
+		- FONT: 	Medium
+		- COL: 		0
+		- ROW: dipende dal tabellone che si vuole visualizzare
+		  ATTENZIONE: Ogni Tabellone mostra 2 righe (2 tabelloni),
+		  ROW 0 -> Tab 0 -1
+		  ROW 1 -> Tab 2 -3
+		  ROW 2 -> Tab 4 -5
+		  ROW 3 -> Tab 6 -7
+		  ROW 4 -> Tab 8 -9
+		  Visualizzazione tipo Tab 1-2 non sono possibili.
+
+Versione 2012.004
+-----------------
+StartCountdown:	
+		Bug
+		Le battute #167 e #168 non contengono più il numero di concorrente.
+		Problema dovuto ad una modifica fatta precedentemente che sporcava
+		il buffer del numero di concorrente.
+		Corretto
+		Adesso, editando un rilevamento, le battute contengono il numero di concorrente modificato.
+		(segnalazione Marco Barilari Crono Pesaro)
+		
+		Bug
+		Corretta anche la battuta #166 su carta.
+		Accanto alla scritta START non viene scritta correttamente la linea S tra quadre,
+		ma solo una quadra.
+		Corretto, adesso funziona correttamente.
+
+		Modifica
+		La battuta #166, in caso di inserimento manuale di un tempo, contiene il valore 255 
+		nel quarto campo della stringa. Questo permette di discriminare il tipo di tempo ricevuto.
+		Nel normale funzionamento, questo campo rimane sempre a 000.
+		
+Versione 2012.003
+-----------------
+Tutte:
+		Tolta la stampa dei disegni bitmap per accelerare le stampe e
+		ridurre i consumi
+
+StartCountdown:	
+		Bug
+		Corrette alcune visualizzazioni che contenevano scritte di videate precedenti
+		
+		Bug:
+		Corretto il verifica superamento della capacità del buffer di EDIT
+		Nella precedente versione non veniva stampato il messaggio di segnalazione di Buffer Pieno
+		a causa di un errore nella lunghezza di un buffer temporaneo
+		Corretta la lunghezza del buffer, adesso funziona correttamente. Suparate le 100 righe di
+		buffer, viene stampata la segnalazione di "Buffer edit pieno"
+		
+Versione 2012.002
+-----------------
+StartCountdown:	Bug
+		Entrando in "SetUp" (SHIFT + 3) del cronometro, al momento del riarmo del contteggio e 
+		relativo cambio concorrente, lo strumento inizia a stampare di continuo senza possibilità
+		di bloccare la stampa se non uscendo dalla gara. 
+		Problema dovuto ad un errore di compilazione del firmware: il blocco "setup" veniva sovrascritto
+		dal blocco "sys_print".
+		Riposizionati correttamente i vari blocchi del programma e rifatta la compilazione, il problema si è risolto.
+		(Segnalazione Crono Como)
+
+Ippica, Barrage Consecutivi	
+		Bug:
+ 		Se un concorrente viene eliminato nella seconda manche, il cronometro ritorna in fase di Start
+		della seconda manche e non della prima.
+		Problema dovuto ad un mancato azzeramento di alcuni flag relativi al Batìrrage.
+		Azzerando correttamente, il Master, dopo l'eliminazione, torna in fase di Start della prima manche.
+		(Segnalazione Crono Alessandria)
+ 
+Versione 2012.001
+-----------------
+StartCountdown:	Modifica
+		introdotta la possibilità di scegliere di salvare nel buffer di edit, 
+		al momento dell'azionamento della linea il tempo rilevato oppure il tempo teorico.
+		La selezione avviene nel "Menu Preferenze".
+		Il valore default iniziando una nuova gara è Tempi Reali.
+		(richiesta Moris)
+
+RS232:		Modifica
+		Introdotaa la possibilità di abilitare da tastiera l'autoemissione delle stringhe
+		da parte del Master sulla porta RS232
+		L'abilitazione viene fatta nel "Setup della porta" (SHIFT 2) sotto la voce "TXauto"
+		Impostando "Si" si ottiene l'autoemissione.
+ 
+Versione 2011.002
+-----------------
+		Versione definitiva che comprende le precedenti beta.
+
+Versione 2011.002-beta06
+-----------------
+StartCountdown:	Bug
+		Abilitanto la stampa del teorico di patenza, viene usata la battuta 175 al posto della battuta 152
+		Questo rende inefficaci gli aggiustamenti prodotti nelle precedenti versioni.
+		Per risolvere il problema quando abilito la stampa del teorico, oltre alla battuta 175 genero la battuta 152
+		in modo da gestire il tutto in maniera corretta.
+		
+Versione 2011.002-beta05
+-----------------
+StartCountdown:	Bug
+		Bug introdotto nella precedente versione.
+		La riga generata con "Edit-Insert" non veniva salvata nella lista di editazione ma al
+		suo posto veniva messo un teroico di start , l'ultimo calcolato dal cronometro.
+		Corretto.
+
+Versione 2011.002-beta04
+-----------------
+StartCountdown:	Modifica
+		Generata una battuta 152 con il valore della precedente 152 generata in automatico dal cronometro,
+		quando in "Edit" si modifica un numero di concorrenet.
+		Questo per rendere la gestione dela seriale simile a quella del "Insert" 
+
+Versione 2011.002-beta03
+-----------------
+StartCountdown:	Modifica
+		invertita l'emissione delle battute 166 e 152 quando si inserisce un concorrente con relativo tempo
+		
+		Generata una battuta 152 con il valore della precedente 152 generata in automatico dal cronometro,
+		quando in "Edit" si inserisce un concorrente
+		
+		
+Versione 2011.002-beta02
+-----------------
+StartCountdown:	Modifica
+		Aggiunta l'emissione anche della battuta 152 quando viene generata 
+		la battuta 166 in fase di EDIT
+		(Richiesta Maury)
+		Per risolvere questa richiesta, ho dovuto aggiungere 2 battute (233-234)
+		che servono solamente per pilotare correttamente i tabellono.
+		Infatti, sia la battuta 166 che al 152  modifcano i tabelloni con dati
+		contenuti. Per evitare che in fase di EDIT si modifichino i tabelloni,
+		ho deciso che le battute 166 e 152 non producono nessun dato per i tabelloni
+		ma vengono sostituitte dalla 234 e 233 rispettivamente.
+		In questo modo, in fase di edit, non modifico i tabelloni.  
+
+
+Versione 2011.002-beta01
+-----------------
+StartCountdown:
+		Bug:
+		Inserendo un concorrente a mano, al momento di confermare il tempo imposto,
+		in alcuni casi il numero di concorrente veniva modificato dal programma.
+		Problema introdotto nella precedente versione dalla generazione dei colori del semaforo su una
+		riga di tabellone per pilotare SL206L
+		Corretto.
+		(problema trovato da FiCr Como)
+		
+Versione 2011.001
+-----------------
+		Versione definitiva, resa pubblica
+		
+Versione 2011.001-beta05
+-----------------
+Tabellone ALGE:
+		Da questa versione, la posizione in classifica maggiore di 99 non viene visualizzata.
+		In questo modo si ritorna alla caompatibilità con ALGE4000
+		Nelle precedenti versioni, invece venivano messi le decine e unita della posizione
+		ad esempio: 101 -> 01
+		(richiesta Cedrani)
+		
+Versione 2011.001-beta04
+-----------------
+Sci:	Battuta 061: 
+		adesso viene messo il tempo che viene annullato
+		prima si aveva un tempo indefinito
+
+Versione 2011.001-beta03
+-----------------
+RS-232:
+		In caso di un tempo non disponibile, con le ore maggiori di 0x80,
+		viene impostato un orario 999999999 per rendere la cosa più evidente.
+		
+Versione 2011.001-beta02
+-----------------
+Sci:
+		Dati da RS232.
+		RiModificata la battuta 045:
+		Il funzionamento è il seguente:
+		Campo B:
+	   	  tolgo il #conc. ad un tempo con #conc.:
+      	  	    il campo B riporta il numero cancellato
+    		  modifico il #conc. ad un tempo con #conc.:
+      	  	    il campo B riporta il numero sostituito. Non compare il nuovo numero assegnato
+    		  assegno il #conc. ad un tempo senza #conc.:
+      	  	    il campo B riporta il numero 32768, che indica un non numero. Non compare il numero assegnato.
+		Campo C:
+    		  contiene il tempo della battuta che viene modificata.
+		Campo D:
+    		  contiene 000
+		Campo E:
+    		  contiene il numero di battuta modificata
+. 
+
+Versione 2011.001-beta01
+-----------------
+Sci:
+		Dati da RS232.
+		Modificata la battuta 045. 
+		Campo B 	contiene il numero di concorrente che viene inserito nella battuta modificata
+					Se si toglie in  concorrente viene messo il valore 32768.
+		Campo C	tutto 0
+		Campo D	tutto 0
+		Campo E	numero battuta nodificata
+
+
+Versione 2010.004
+-----------------
+		Versione completa comprendente le precedenti release Beta, non pubblicata
+	
+Versione 2010.004-beta04
+-----------------
+Start_Countdown
+		- Nuova battuta: p232, che contiene il colore da mostrare sul semaforo
+		Questo colore viene visualizzato sul tabellone 8, come numero di concorrente
+		#0    = Nessun colore
+		#1    = VERDE
+		#2    = GIALLO
+		#4    = ROSSO
+		Questo mi permette l'uso del nuovo semaforo di partenza che  mostra anche l'ora solare
+
+Out_Tabelloni:	Bug interno
+		aggiunta le battuta tab_227, tab_229, tab230 e tab_231 nella tabella codici abilitati.
+		Prima mancavano,,la tabella si fermnava a tab_226
+
+Out_Print	Bug Interno
+		Messa la battuta p209 che prima mancava.
+		
+Versione 2010.004-beta03
+-----------------,
+Start_Countdown
+		- Modificata la battuta prodotta dall'inseriemnto di un cronologico manuale
+		Adesso uso la battuta 166 al posto della 232
+		- Il tempo inserito viene messo nel buffer di "Edit", ma senza ritardo o anticipo
+		In questo modo diventa un tempo come quelli elettrici, con la differenza che ad ogni
+		modifica, viene generata la sola battuta del cronologico solare ma non l'anticipo/ritardo
+		(solo la battuta 166)
+		
+Versione 2010.004-beta02
+-----------------,
+Start_Countdown
+		- Aggiunta la possibilità di inserire un tempo di partenza.
+		Nella Fase di "Edit", tramite la funzione "Insert", è possibile inserire un #concorrente
+		con il relativo cronologico di partenza.
+		Questo produce una stampa su carta e la battuta 232 sulla seriale.
+		
+Versione 2010.004-beta01
+-----------------,
+Contasecondi-Countdown:
+		- Messo blocco all'impostazione della durata. Adesso la masima durata è di 11:59:59.000
+		Questo risolve il bug che produce un conteggio errato del tempo.
+		- Inibita l'impostazione delle frazioni di secondo visto che la programmazione
+		è limitata ai secondi
+		(segnalazione crono Pesaro)
+
+Versione 2010.003 ####
+-----------------,
+		Correzzione del bug che bloccava il cronometro quando si sceglieva la gara "LineKeeper"
+		Ricompilazione dei sorgenti
+
+Versione 2010.002 ####
+-----------------,
+		Versione completa comprendente le precedenti release Beta, pubblicata
+
+Versione 2010.002-beta10
+-----------------,
+Ippica:
+		Barrage Consecutivi: Bug
+		Nella seconda manche, le penalità per superamento tempo massimo erano sempre una ogni 4 secondi
+		anche se la programmazione era diversa.
+		Corretto
+		
+Versione 2010.002-beta10
+-----------------,
+Syncro-GPS
+		In fase di resync, verifico anche dei secondi e dei centesimi
+		per determinare se il clock interno è fuori calibrazione.
+		
+Versione 2010.002-beta09
+-----------------,
+Ippica:
+		Salva_EVENTI
+		Impostando la funzione di "blocco automatico delle linee", viene
+		messo in automatico il salva_eventi in "Ultimo"
+		
+		Recupero Tempi
+		Se abilitata la funzione di blocco automatico, abilitando una linea chiusa con il tasto
+		"On" relativo, tutti i rilevamenti effettuati precedentemente vengono eliminati. 
+		
+		Il primo rilevamento successivo viene abbinato al concorrente in attesa e poi la linea viene rimess in "blocco".
+		
+		Per recuperare l'ultimo tempo nel caso di linea "bloccata", è necessario premere
+		SHIFT + S (di destra) nel caso di "start" del concorrente e SHIFT + F(di destra) 
+		nel caso dei passaggi successivi.
+		In entrambi i casi non viene chiesto nulla all'operatore, se il tempo esiste, 
+		viene assegnato al concorrente in gara.
+		La linea rimane comunque blocccata
+		
+Versione 2010.002-beta08
+-----------------,
+Tutte:
+	:	In caso di recuopero del primo o ultimo tempo rilevati con linea
+		chiusa, adesso viene richiesto cosa fare.
+		Questo permette all'operatore di usare o meno il tempo memorizzato.
+
+Versione 2010.002-beta07
+-----------------,
+Ippica:
+		Aggiunta la funzione di inserire 4 punti di penalità azionando la
+		linea 5 del portalinee
+		(richiesta Bruschi Pier Antonio)
+
+Versione 2010.002-beta06
+-----------------,
+Sci:
+		Introdotta la possibilità di abbinare il primo o l'ultimo temnpo
+		rilevato mentre la linea è disabilitata.
+		La scelta viene fatta in "Menu - Preferenze_Sci".
+		Alla voce "Abbina", si può scegliere tra "Primo" e "Ultimo".
+		Con "Primo", il funzionamento è il solito.
+		Se con linea spenta arrivano alcuni impulsi, alla sua abilitazione
+		viene abbinata al numero di concorrente atteso il primo tempo rilevato.
+		Con "Ultimo", invece viene abbinato l'ultimo tempo rilevato prima
+		della riabiltazione.
+		(richiesta Maury).
+		
+Versione 2010.002-beta05
+-----------------
+Start-Countdown
+		Corretto un bug che lo bloccava
+
+Start-Countdown
+		Trovato bug che sporcava il buffer dei nomi dei concorrenti. 
+		In questo modo, entrando in sci dopo l'uscita da Start-Contdown
+		si otteneva la domanda di eliminare i nomi dalla memoria.
+		Corretto.
+ 
+Versione 2010.002-beta04
+-----------------
+Salva Eventi
+		Corretto un bug e migliorato il funzionamento con l'aggiunta di un ulteriore possibilità
+		Primo		Abilitando la linea, viene recuparato in automatico il rilevamto fatto
+					dal cronometro, senza nessuna richiesta.
+		(richiesta Maury)
+		
+Versione 2010.002-beta03
+-----------------
+Salva Eventi
+		Introdotta la possibilità di abilitare il solo recupero dell'ultimo rilevamento
+		effettuato con la linee in OFF.
+		La selezione avviene in Preferenze del cronometro alla voce "SalvaEv".
+		Sono possibili tre selezioni:
+		No: 		I rilevamenti fatti con linea OFF sono eliminati
+		Tutti		I rilevamenti fatti con linea OFF vengo salvati ed all'abililtazione della linea
+					il cronomewtro chiede cosa fare.
+		Ultimo	Abilitando la linea, viene recuparato in automatico l'ultimo rilevamto fatto
+					dal cronometro, senza nessuna richiesta.
+		(richiesta Maury)
+		
+Versione 2010.002-beta02
+-----------------
+Coutdown: 
+		Introdotta la possibiità di abilitare il conteggio in modo UP dopo l'arrivo a 0.000
+		del conteggio.
+		La selezione avviene in Menu-Preferenze del Countdown.
+		(richiesta Ficr Udine)
+		
+Versione 2010.002-beta01
+-----------------		
+Ippica:	
+		Blocco automatico delle linee
+		Tuute le quattro linee principali sono in blocco
+		Lo sblocco deve essere manuale.
+		Le linee tornano tutte in blocco, in modo automatico, dopo l'azionameto di una linea
+		(richiesta Maury)
+
+
+Versione 2010.001 ####
+-----------------		
+		Versione completa delle precedenti modifiche, pubblicabile
+
+Versione 2010.001-beta07
+-----------------		
+Sincronizzazione con MASTER-GPS:
+		Inibite le linee quando si entra nel menu del SYNCRO-GPS
+		Vengono spenti anche i led rossi lampegguanti
+
+-----------------		
+Sincronizzazione con MASTER-GPS:
+		Modificato itr_1000 con disabilitazione degli itr in fase di incremento main_clock
+		e verifica delle linee (vedi TimeLink2010-01)
+		(ripristinata la vecchia posizione di CLI, dopo aggiusta clock)
+				
+		In Lan232\driver, modificato ricezione comando di sincronizzazione
+		Vengono copiati i secondi,centesi e millesimi in mck_sync per avere un idea
+		dell'errore dell'oescillatore interno.
+		Vengono azzerati i centesimi e millesimi di mck e non viene più modificato il timer
+		che genera l'itr1000.
+		
+		- Nel comando #D (Chiedi_Data) al master-gps, ho aggiunto l'offset dell'ora locale
+		  in questo modo se scollego e ricollego in corsa, l'ora inviata dal master-gps 
+		  è addizionata con il valore di offset programmato nel master
+		
+		- Modificata scritta nome videata syncro-gps con scritta MASTER-GPS
+		- nella stessa videata, aggiunto accanto alla versione anche il numero di serie
+			Messo nella gestione del comando leggi versione anche la lettura del numero di serie
+
+		- Modificate le scritte in fase di Stampa del Resync 
+		- Modifica delle scritte su carta della sincronizzazione iniziale
+				
+
+Versione 2010.001-beta05
+-----------------		
+Sincronizzazione con MASTER-GPS:
+		In fase di ricezione dell'ora di sincronizzazione (comando SYNC_DATE)
+		se la data non è programmata, non viene effettuata la copia nella data principale
+		Quessto avviene quuando si richiede la re_sincronizzazione mentre il Master-GPS 
+		sta ricevendo il segnale dai satelliti ed non è ancora agganciato in modo 3Dfix
+
+		Visualizzazione del offset per il calolo dell'ora locale		
+		
+Versione 2010.001-beta04
+-----------------		
+Sincronizzazione con MASTER-GPS
+		Introdotta la stampa del numero di serie del modulo MASTER-GPS
+		
+		Scelta di non stampare la re_sincronizzazione entrando in Setup
+		Con il tasto F4 si sceglie tra "Si STP" e "No Stp"
+		
+		In entrata delle gare in cui è abilitata la re_sincronizzazione automatica,
+		viene effettuata subito una sincronizzazione in modo da informare l'utente
+		della relativa abilitazione.
+		
+		Abilitato anche in Sci la re_sincronizzazione automatica.
+		Se si sincronizza con master-gps e si imposta un resync diverso da "never"
+		il sistema funziona in re_sync 
+		Se si imposta l'ora con un metodo diverso, oppure la re_sincronizzazione è
+		impostata in "never", viene abilitato il protocollo TAUX e disabilitato il gps
+		
+		Migliorata la richiesta di re_sincronizzazione.
+		In alcuni casi il comando di chiedi sincronizzazione inviato al master-gps
+		viene perso. Adesso viene abilitato un timeout che dopo 5 secondi, se non
+		riceve la sincronizzazione, rimanda il comando.
+		
+Versione 2010.001-beta03
+-----------------		
+Impostazione Ora:
+		Introdotta la possibilità di collegasre il cronometro con l'unita esterna MASTER_GPS
+		Questo dispositivo pewrmette di impostare l'ora del Master usando la rete GPS.
+		Collegasndo il MASTER-GPS alla LAN del Master, tramite il menu "Imposta Clock-GPS"
+		Una volta agganciata l'unità esterna al sistema GPS, tramite i tasti funzione si imposta
+		l'ora locale e si abilta l'eventuale automatismo di risincronizzazione automatica.
+		I valori programmabili della risincronizzazione automatica son : 2min, 10 min, 30 min oppure
+		mai.
+		Per confermare la sincronizzazione basta uscire da ?impostazione clock'.
+		ATTENZIONE non tutte le gare supportano la resincronizzazione automatica.
+		Attualemnte sono: 
+			LineKepeer, 
+			Contaseconsi "ora solare" o "partenza da 0"
+			Start countdown.
+		Nello sci non è stato implementato perchà il protocollo di comunicazione con il MASTER-GPS
+		è incompatibile con il protocollo usato per comunicare con le tastiere ausiliarie.
+		Si à preferito mantenere questo protocollo che quello di resincronizzazione.
+		
+		Nelle gare in cui è abilitato la resincronizzazione automatica, al momento in cui queste
+		viwene effettuate, il Master stampa l'ora di sincronizzzione per informare l'utente del avvenuto 
+		riaggancio.
+		
+Versione 2010.001-beta01
+-----------------		
+Sci: Bug
+		In tutte le specialità, con la modalità "Expert" non abilitata.
+		Impostando un concorrente in partenza ed un concorrente in traguardao,
+		il cronometro richiede di confermare quest'ultima impostazione in qunato
+		manca il tempo di partenza. 
+		Se in questa fase di attesa, arriva un evento sulla	linea di Start, 
+		il cronometro stampa correttamente l'abbinamento tempo + numero concorrente	atteso. 
+		Confermando la richiesta di impostare in traguardo il concorrente senza il tempo
+		si Start, il cronometro effettua correttamente l'impostazione ma annulla la precedente
+		battuta di start.
+		Corretto.
+		(segnalazione Ficr Pesaro)		
+		
+Versione 2009.004
+-----------------		
+Ippica Barrage: Bug
+		Con una prima manche il cui T.massimo è superiore a 60 secondi.
+		un concorrente a cui vengono assegnate delle penalita, se transita
+		sul traguardo dopo 60 secondi, produce penalità per superamento
+		del tempo massimo.
+		Corretto.
+		(segnalazione Bennardo Cosenza)		
+
+Ippica Barrage: Correzione
+		Modificati alcuni valori default.
+		Il percorso di gara viene cambiato in S-F S-F al posto di (S-I S-I)
+		Il countdown di preparazione del secondo percorso viene messo a 45 Sec. al posto di 30 Sec.
+		(richiesta Bennardo Cosenza)		
+		
+Versione 2009.003
+-----------------		
+Ippica: Bug
+		Entrando in questa "gara", la funzione di "salva eventi" viene disabiltata
+		All'uscita, rimane diaabilitata, anche entrando in altre gare.
+		Questo crea qualche problema agli utenti inesperti.
+		Da questa versione, all'uscita di ippica, il "salva eventi" viene rimesso nello
+		stesso stato di prima dell'entrata in gara
+		
+RS232 (Comandi ++):
+		Il comando ++I (chiedi stato delle linee) era gestito male poichà sporcava
+		la memoria con relativo blocco della macchina in fase di spegnimento
+		Corretto.
+		
+Contasecondi:
+		Aggiunta l'opzione PIRELLI che permette di far funzionare il Master con il
+		programma DIGITRACK prodotto da noi nel 1997.
+		Per essere completo necessita di un ulteriore release che permette di accedere e spegnere
+		il cronometetro ed entrare in contasecondi senza richieste di nessun genere
+		
+-----------------
+Versione 2009.002
+		La somma di tutte le beta
+-----------------
+Versione 2009.002-beta05
+-----------------
+LineKeeper:
+		Aggiustato lo scroll della lista tempi
+		
+Versione 2009.002-beta02
+-----------------
+LineKeeper:
+		Varianti nello scroll dei tempi. 
+		Aggiunto il tasto funzione "Ultimo", che si posiziona	sull'ultimo rilevamento
+		Introdotto l'avanzamento automatico quando si imposta un #conc oppure lo si cancella
+		
+Versione 2009.002-beta01
+-----------------
+LineKeeper:
+		posizionata l'edit dei tempi sulla seconda riga e non più sulla terza
+		(richiesta Cedrani)
+
+Versione 2009.001
+-----------------
+Equitazione-Barrage
+		Corretto il funzionamento della procedura di Autoelimina in caso di penalità.
+		Nella precedente versione, anche impostando a "Si" la funzione "Autoelimina", il Master
+		non effettuava in automatico l'eliminazione, ma attendeva la pressione del tasto "Elimina"
+		Adesso, sia nella prima che nella seconda fase, in caso di penalità, il concorrente viene
+		eliminato in automatico.
+
+Versione 2009.001-Beta03
+-----------------
+Sci- Fondo ad inseguimento:
+		In seconda manche, aggiunta la stampa del tempo netto di manche nelle varie classifiche.
+		(richiesta Santi - Modena)
+		
+Versione 2009.001-Beta02
+-----------------
+Equitazione:
+		Modificato il valore della panalità nelle fasi successive alla prima
+		Da 1 secondo per 1 penalità a 4 secondi per 1 penalità
+		(richiesta Di Pietro)
+		
+Versione 2009.001-Beta01
+-----------------
+Equitazione:
+		Creata una nuova specialità: "2 Fasi consecutive a->C"
+		Questa specialità è simile a quella "A 2 fasi consecutive" ma con la differenza
+		che nella prima fase le panalità vengono gestite con la tipologia della Tabella A,
+		mentre nella seconda con la tipologia della Tabella C
+		(richiesta Di Pietro)
+		
+Equitazione:
+		Programmato da default a "NO" il salva eventi delle linee.
+		Questo risolve il problema, in caso di linea di traguardo chiusa, di avere
+		una volta attivata la linea e confermato per errore il recupero, dei tempi antecednti 
+		alla partenza e quindi parziali enormi.
+		(richiesta Tassi )
+		
+Equitazione:
+		Implememtata la stampa dell'ora in cui viene sqaulificato manualmente il concorrente
+		La stampa viene abilitata solo se il concorrente è in gara. 
+		Nel caso di squalifica manuale fopo l'arrivo, non viene stampato nulla.
+		(richiesta Di Pietro)
+		
+Sci:
+		Scoperto un problema con la battuta #62. 
+		Da manuale, questa battuta contiene il tempo netto dalla partenza del concorrente,
+		quando viene editato un rilevemento su uno dei due intermedi. Se la modifica avviene 
+		mediante "Inserimento manuale tempi", la battuta contiene il valore tempo netto.
+		Se la modifica avviene mediente "Edit" Intermedio, la battuta contiene l'ora solare
+		del rilevamento.
+		Corretto, adesso in entrambi i casi, la battuta contiene il tempo netto.
+		(segnalazione Cedrani)
+
+Versione 2008.004
+-----------------
+Sci:
+		Al recupero di una gara, il cronometro chiede se eliminare o meno i tempi
+		incompleti:
+			tempi di start senza tempi di finish
+			tempi di finish senza tempi di start.
+		ATTENZIONE: la cosa risulta pericolosa poichè al rientro in gara dopo uno
+		spegnimento, l'attuale orologio del cronometro non ha la stessa sincroniozzazione 
+		di quella che c'era prima dello spegnimento, quindi gli attuali tempi netti non 
+		possono essere messi in paragone con i tempi netti precedenti.
+		(richieste varie)
+		
+Versione 2008.003
+-----------------
+Tabelloni Microgate:
+		Aggiunta la possibilità di scrivere in modo proporzionale sui tabelloni MicroGate.
+		Scegliendo dal menù preferenze questo tipo di scrittura, al posto dei separatori
+		intercifre fra ore-minuti e minuti-secondi, viene messo il carattere "0xFF" che sui
+		tyabelloni grafici della microgate corrisponde ad uno spazio ridotto con le stesse
+		dimensioni dei 2punti e del punto.
+		(richiesta Cedrani)
+		
+Versione 2008.002
+-----------------
+LineKeeper:
+		Corretto Bug: se dopo l'azionamento della sola linea F, viene impostato un numero di 
+		concorrente senza concludere l'operazione, dopo un certo tempo l'impostazione sparisce, 
+		lasciando un misero cursore lampeggiante.
+		Corretto
+		(segnalazione Cedrani)
+
+Sci:
+		Ripristinata la visualizzazione della scritta "Expert" sotto il tempo a correre,
+		che nelle versioni precedenti era sparita.
+		(segnalazione Moris)
+
+Nuoto:
+		Corresione Bug: Dopo l'arrivo dei concorrenti, entranto in edita "Ordine d'arrivo..." 
+		e poi in "Scambia", uscendo da questa funzione con Escape oppure scambiando due
+		corsie, il cronometro si blocca.
+		Il problema è dovuto alla mancanza di un recupero dati dallo stack del sistema,
+		mancanza prodotta nella precedente versione dopo l'introduzione del nuovo modo di 
+		visualizzare i tempi di arrivo dell'ultima vasca sui tabelloni.
+		Corretto.
+		(segnalazione Moris)
+		
+Versione 2008.001
+-----------------		
+LineKeeper:
+		Corretto il bug che permetteva d'impostare nella finestra tempi "F-Tempi"
+		il valore 0.0, ottenendo così una finestra eterna.
+
+Ippica:
+		Quando si richiesde la stampa del riepilogo, dopo l'arrivo del concorrente
+		viene generata una nuova riga di tabelloni in posizione 9, che contiene il numero
+		di concorrente e le penalità totali. 
+		Questo permette a chi usa l'uscita tabellone come fonte di dati, di capire quando 
+		vengono confermati i dati precedentemente rilevati. 
+		All'imissione di un nuovo concorrente, questa riga viene cancellata.
+		(richiesta Dariz)
+
+Tabelloni:
+		Corretto un bug che in qualche caso produceva una riga di tabellone vuota.
+		Durante l'elabirazione dei dati da visualizzare, producendo un certo carattere in un
+		determinato posto, il driver tabellone produceva una stringa vuota.
+		Il problema era molto frequente in ippica nella visualizzazione delle penalità
+		totali data dalla somma del tempo con quelle imposte. IN questo caso era molto
+		facile produrre i caratteri particolari nel posto giusto.
+		Corretto.
+		(segnalazione crono Pisa)
+
+Nuoto:
+		Introdotto un nuovo modo di visualizzare i tempi di arrivo dell'ultima vasca
+		sui tabelloni. Selezionando Si alda voce del menu "Arrivo Speciale sui Tab."
+		è possibile ottenere che il tempo di una determinata corsia venga visualizzato
+		sul corrispondente tabellone. Ad esmpio il tempo prodoto dalla corsia 3 viene
+		visualizzato sul tabellone #3, quello della corsia 8 sul tabellon #8.
+		Il tempo a correre è disponibile sul Monotabellone e sul tabellone #1
+		
+		ATTENZIONE: poichè il monotabellone è una ripetizione di un altro tabellone,
+		in questo caso il tabellone #1, per visualizare il tempo a correre, 
+		la corsia 1 viene disabilitata per non avere effetti collaterali di visualizzazione.
+		
+		La stampa dell'ordine di arrivo, produce sui tabelloni, la solita visualòizzazione 
+		della clasifica, tabellone #1 primo arrivato, tabellone #2 secondo arrivato ecc.
+		(richietsa Moris, crono Torino)
+		
+Versione 2008.001-beta01
+-----------------
+Sci:
+		Corretto il bug dell'errata impostazione dei teorici di partenza nel caso di un gruppo
+		di concorrenti già arrivati. Veniva impostato il tempo d'arrivo e non quello di partenza.
+		(segnalazione crono Udine)
+
+		Corretta la posizione del cursore in fsse di impostazione del numero di concorrente.
+		Adesso rimane alla destra della Categoria e non nella riga sottostante
+		
+LineKeeper:
+		Impostato fisso l'anno della versione software per il calcolo della chiave di abilitazione.
+		Questo permette di non dover rifare il calcolo della nuova chiave per tutti i
+		master che vengono aggiornati dall veersione 2007_xx
+		
+Versione 2007.002
+-----------------
+Start_Countdown:
+		In Edit, aggiunta la visualizzazione dell'ora solare e del conteggio del tempo
+		del concorrente in partenza.
+		(richietsa Moris, crono Torino)
+
+Start_Countdown:
+		Introdotta la possibilità di ripescare gli ultimi 100 rilevamenti prodotti e di 
+		cambiare il numero di concorrente. In questo modo, via seriale viene rimandato 
+		il tempo giusto	del concorrente XX. Indispensabile per un centro classifiche remoto.
+		La funzione viene richiamata premendo il tasto F1 ("Edit").
+		Il display visualizza la lista degli ultimi rilevamenti con anticipo o ritardo.
+		Con le frecce Sù e Giù ci si sposta per trovare il tempo da modificare.
+		Una volta posizionati sul rilevemento giusto, premendo i tasti numerici e confemando
+		con Enter, si modifica il concorrente. Il cronometro stampa una riga informativa 
+		di "annullamento" e ristampa il rilevamento e relativo anticipo/ritardo con il nuovo 
+		concorrente.
+		
+		Per segnalare l'annullamento del concorrente da un rilevemto, il cronometgro produce
+		sulla seriale la "battuta 228", contenente il numero di concorrente, l'ora del rilevamento
+		e la linea.
+		
+		Per uscire dalla fase di "Edit" basta premere F3 ("Esci") oppure Esc.
+		Con il tasto F2 ("Elimina"), si toglie il numero di concorrente al rilevamento
+		Con il tasto F1 ("Atteso") ci si posizione sulla riga "In attesa", dove è
+		possibile impostare il numero di concorrente per il prossimo rilevamento.
+		(richietsa Moris, crono Torino)
+		
+Sci:
+		Aggiunta, in "Preferenze Sci", la possibilità di abilitare la modalità "Expert".
+		Questa modalità, se attiva, permette l'impostazione di un concorrente in 
+		traguardo o intermedio, anche se non partito, senza che compaia la 
+		richiesta di conferma dell'operazione. Stessa cosa se si imposta un concorrente
+		su una linea di cui si ha già un tempo, questo rilevamento viene annullato.
+		Questo permette di accelerare i tempi di immissione di un concorrente in traguardo. 
+		Se abilita la modalità Expert, sul display, sotto il tempo a correre, compare
+		la scritta "Expert" per informare l'utente.
+		ATTENZIONE: poichè questa modalità è pericolosa, ogni volta che si entra
+		nel programma Sci, viene disabilitata.
+		(richietsa Moris, crono Torino)
+
+Sci:
+		Aggiunta la stampa del tempo netto quando si introduce il tempo di partenza
+		di un concorrente tramite il comando +K di un PC. Il tempo netto viene stampato
+		solo se è presente il rilevamento di Finish.
+		(richietsa Moris, crono Torino)
+
+
+Versione 2007.001
+-----------------
+Equitazione:
+		Corretto un bug che qualche volta produceva delle stmpe dei tempi
+		(netto, Stop, Restart, ecc) con il flag di sorgente uguale a ?.
+
+Ristampa:
+		Corretto un bug che non permetteva il corretto uso della ristampa.
+		Lo scorrere delle righe era intermittente ed alcune volte il cursore 
+		non riusciva a raggiungere le ultime stampe.
+		(segnalato da Paolucci - Cagliari)
+
+Nuoto:
+		Corretto il bug che visualizzava tempi incomprensibili sui tabelloni
+		quando si stampava l'ordine d'arrivo.
+		(segnalato da Santi - Modena)
+
+Versione 2006.009 Beta 3
+-----------------	
+Equitazione:
+		Possibilità di cambiare il numero di concorrente anche in gara,
+		con segnalazione su carta del fatto.
+		Vengono prodotte le seguenti battute:
+		010 => cambio #Conc. su tabellone
+		255 => stampa generica
+		254 => stampa generica
+		155 => penalita sui tabelloni
+		(richiesta Crono Bologna)
+
+Start Countdown:
+		Aggiunte 2 nuove sequenze:
+		"Slalom Auto 1 min"
+			-10 ROSSO
+			- 5 GIALLO
+			  0 VERDE
+			+21 TESTLINEE
+			Tutte senza suono e strip.
+		
+		"Slalom Auto 30 sec"
+			-10 ROSSO
+			- 5	GIALLO
+			  0 VERDE
+			+ 5 blanl
+			Tutte senza suono e strip.
+		
+		Modifica sequenza "Rally":
+		sostituito "+20 TESTLINEE" con "+21 TESTLINEE", per adeguamento
+		al regolamento che precede la possibilità di partire entro 20.99 Secondi
+		(richiesta Crono Sondrio)
+		
+Versione 2006.009 Beta 2
+-----------------		
+Equitazione:
+		Generata una nuova visualizzazione sul tabellone #6, delle penalità totali
+		comprensiva del numero di concorrente. 
+		Questo soddisfa la richiesta di avere sul tabellione ALGE il numero di concorrente
+		e le penalità totali, senza avere un tabellone speciale.
+		Come da accordi con Zingerle, le penalità vengono visualizzate come posizione 
+		in classifica. Valori superiori alle 99 penalità vengono mostrati, ma solo come
+		decine/unità
+		ATTENZIONE: con i tabelloni MicroGate, il valore massimo delle penalità è 9 perchà
+		su questi tabelloni si considera una sola cifra come posizione in classifica.
+		In questo caso, bisogna usare il tab 5.
+		(richiesta Zingerle (Christian)).
+
+Versione 2006.008
+-----------------		
+Equitazione:	
+		Correzione di un Bug.
+		Fasi consecutive con tempo netto e non autoelimina Conc. (20bis)
+		Nel caso di assegnazione di una correzione di tempo nella prima
+		fase, quando il concorrente passa alla seconda fase, il tempo parte dal valore
+		impostato per la correzione di tempo invece che da 0.00
+		Corretto !!!
+		(segnalato da crono Bologna)
+		
+Versione 2006.007
+-----------------
+Tabellone MICROGATE uTAB:
+		Risolto il problema della mancata visualizzazione di alcuni tempi
+		(ad esempio passaggio da 7:58 a 8:00 senza visualizzazione di 7:59)
+		Problema dovuto al risultato del checksum della stringa verso il tabellone
+		(segnalato da cronometristi Venezia)
+		
+Versione 2006.007 Beta 3
+-----------------
+Tabellone MICROGATE uTAB:
+		Indrototta la possibilità di visualizzare l'ora in modo compatto senza
+		i caratteri di intercifre tra ore-minuti e minuti-secondi. Rimane solo l'intercifra
+		tra i secondi e le frazioni di secondo nel caso di tempo fermo o freeze.
+		A seconda della risoluzione si posso ottene le seguenti visualizzazioni:
+		HMMSS.DCM -> 1/1000
+		HHMMSS.DC -> 1/100
+		-HHMMSS.D -> 1/10
+		---HHMMSS -> 1/1
+		La selezione di questa particolare visualizzazione avviene nella seconda pagina 
+		delle preferenze dei tabelloni MICROGATE (tasto SHIFT + tasto 7).
+		Sotto la voce "Formato", bisogna scegliere la voce " Ora "
+		ATTENZIONE: se viene selezionata la "Larghezza" a 18 caratteri, il formato viene
+		automaticamente impostato ad "Esteso" senza la possibilità di modificarlo.
+		(richieste varie)
+		
+Equitazione:
+		Correzione di un Bug.
+		Nella visualizzazione del tempo sul display, quando si superano i 60 secondi
+		Il formato usato è quello sessagesimale e non decimale.
+		Errore dovuto ad un uso errato del flag che abilita la visualizzazione decimale.
+		Corretto anche in countdown del contasecondi.
+		(trovato da Silvano di Pietro - Bologna)
+		
+Versione 2006.007 Beta 2
+-----------------
+RS232: comando +T:
+		La risposta al comando +T nel caso di un tempo non disponibile viene modificata
+		impostando le ore, non più a 00, ma bens' a 99.
+		Rimane inalterata la funzione di tempo buono/cattivo fatta dal primo carattere di
+		ogni tempo: 1 = tempo OK; 0 = non disponibile.
+		(richietsa Moris, crono Torino)
+
+Sci:	
+		Resa possibile l'impostazione della categoria quando viene messo un concorrente 
+		in traguardo, al quale manca il tempo di Start.
+		
+Sci:	
+		Inserimento manuale tempi:
+		Se viene immesso il tempo di start di un concorrente che ha giè il tempo di Finish,
+		il cronometro stampa il tempo tempo netto producendo la relativa battuta nel buffer
+		seriale
+		(richietsa Moris, crono Torino)
+		
+Versione 2006.007 Beta 1
+-----------------
+LineKeeper:	Aggiuntra la possibilità di disabilitare il controllo delle linee.
+		In questo modo si ottiene un prendi tempo con la possibilità di editare
+		i numeri di concorrente.
+		Questa disabilitazione viene selezionata con "Menù 5" ("Disabilta Test Linee")
+		
+Versione 2006.006
+-----------------
+Inseguimento:
+		Aggiunta la possibilità di rimettere il tempo a correrre dalla partenza
+		dopo il transito sui traguardi di tutti e due i concorrenti.
+		La ripresa viene fatta usando il tasto funzione F3. Questo tasto viene abilita
+		solo se tutti e due i concorrenti sono passati sui rispettivi traguardi.
+		
+Versione 2006.006 Beta 1
+-----------------
+LineKeeper:
+		Il programma LineKeeper è stato estratto dalla voce "Contasecondi" del menù principale
+		ed è diventato una voce dello stesso con numero di riferimento 8.
+		
+		Questa versione supporta la demo del programma LineKeeper. 
+		Questo programma può essere	usato per 10 volte in modo gratuito. 
+		Dopo il decimo utilizzo, per continuare ad usarlo, è necessario immettere
+		la chiave di attivazione fornita dalla DIGITECH.
+
+		- Aggiunto l'edit dei tempi rilevati. Ora è possibile modificare/cancellare/assegnare
+		ad un rilevamento il numero di concorrente.		
+		-Per modificare/aggiungere un numero di concorrente, è necessario posizionarsi
+		sul record con il tempo voluto, digitare il numero e confermare con Enter.
+		- Per cancellare il numero di conrrente da un rilevamento, è necessario
+		posizionarsi sul record relativo e premere il tasto funzione "Cancell".
+		- Ad ogni modifica, corrisponde una stampa di evidenziazione dell'intervento fatto.
+		- Un rilvevamento con il numero di concorrente modificato/assegnato/cancellato
+		viene evidenziato:
+		su display, aggiungendo una "m" dopo il contabattute e prima dell'ora 
+		su carta, racchiudendo tra parentesi quadre il valore del contabattute.
+		- Il numero massimo di rilevamenti editabili è di 2000.
+		Una volta raggiunto questo limite, i tempi più vecchi vengono eliminati.
+		(in questo caso caso risulta necessario scaricare il buffer su computer, per non perdere
+		i tempi più vecchi)
+		- Per non appesantire il travaso verso il computer, è stata prevista la possibilità
+		di eliminare tutte le battute di modifica/cancellazionee/assegnazione e tenere 
+		solo i rilevamenti con o senza numero di concorrente.
+
+Versione 2006.005
+-----------------
+Contasecondi-Countdown:
+		Correzione di un bug. Nella versione precedente, con il conteggio arrivato a 0.00
+		azionando la linea elettrica o il manuale del 1°intermedio, il cronometro si blocca.
+		Il problema era dovuto ad un prelievo dallo stack senza un precedente inserimento.
+		(Lanzetta - Avellino)
+		
+Versione 2006.004
+-----------------
+Start-Countdown:
+		Dopo un inserimento manuale del concorrente, aggiunta la generazione della battuta #152
+		con l'ora teorica di partenza dello stesso
+		(richiesta Moris, crono Torino)
+
+Tutte:
+		Sincronizzato "l'orologio continuo" quando si conferma l'ora impostata.
+		Questo permette al cronometro di recuperare l'ora "corretta" anche in caso di
+		"Crash" delle batterie. L'importante è riaccendere il Master entro poco tempo, in modo
+		che l'orologio continuo non scivoli di molto rispetto all'ora ufficiale.
+		Se l'interruzione è inferiore al minuto, l'errore rientra in alcuni millisecondi.
+		(richiesta Dariz Francesco)
+		
+Sci:		(beta 3)
+		Introdotta la possibilità di generare in automatico l'ora di partenza partendo dal
+		concorrente con il numero più alto fino a quello con il numero più basso.
+		Per fare questo, prima di premere "start teorico", à necessario immettere il range
+		di concorrenti impostando prima il numero più alto e poi quello più basso (Es: "10..1").
+		Se si immette come range, prima il numero più basso e poi quello più alto, si ottiene
+		la normale generazione automatica dell'ora di partenza.
+		(richiesta cronometristi Sondrio)
+
+Equitazione: 	(beta 2)
+		Fasi consecutive, non autoeliminazione:
+		Nella specialita a fasi consecutive, scegliendo dal menu la non autoeliminazione del
+		concorrente in caso di penalità, sia imposte che per superamento tempo massimo,
+		quando si passa alla fase successiva, le penalità per il superamento del tempo massimo
+		della fase precedente non vengono azzerate. 
+		In questo modo vengono riportate nella fase successiva, e sommate a quelle eventualmente
+		prodotte dal superamento del tempo massimo della stessa.
+		Stampa del tipo e quantità delle penalità per ogni singola fase, nel caso di cambio 
+		con penalità.
+		(richiesta Patrizio Tassi - Prato)
+
+Contasecondi: 	(beta 1)
+		Creata una nuova specialità: CountDown.
+		Questo programma gestisce un semplice conta indietro programmabile con Start,
+		Stop e Sdoppiamento.
+		Le principali caratteristiche sono:
+			Impostazione della durata del ciclo sia prima di entrare che durate la gara
+			Il conteggio quando arriva a 0.00, si ferma. Per farlo ripartire bisogna agire sul tasto "Reset"
+			La linea S e il tasto "#" fanno da START, RESTYART e SDOPPIANTE con stampa del tempo rimanente
+			La linea F e il tasto "Stop" fermano il countdown
+			Linea I intermedio toggle tra START e STOP
+			Linea II intermedio sdoppia il tempo, come #
+			Il tasto "Reset" ferma e rimette in partenza il countdown
+			Se abilitato nelle preferenze, l'azionamento della linea S, II intermedio e tasto "#"
+			quando il countdown è in modo RUN, agisce sul numero di concorrente/giro
+			Lo stato del CountDown viene Visualizzato sul display con le scritte: Ready, Run, Stop, End
+			Il countdown viene visualizzato sul tabellone 0 o sul Monotabellone.
+		(richiesta Arezzo)
+		
+Versione 2006.003
+-----------------
+Nuoto:
+		A batteria iniziata, azionando la linea S, viene la stampato il tempo trascorso 
+		dalla partenza. La stampa avviene con la risoluzione selezionata e non
+		modifica la visualizzazione sui tabelloni. Sulla seriale viene inviata un unica 
+		battuta con il tempo rilevato.
+		(richiesta Terni)
+		
+Sci-Tutte:
+		Correzione di un bug. Risolto il problema di un concorrente messo in partenza con
+		categoria 0 che all'arrivo aveva invece come categoria quella attuale.
+		Adesso il concorrente con categoria 0 messo in partenza, mantiene la stessa
+		categoria anche quando viene messo in traguardo.
+		(cronometristi Como)
+
+Sci_Tutte		
+		Correzione di un bug. Risolto il problema della mancata cancellazione dei tabelloni
+		quando veniva tolto il concorrente in attesa.
+		(cronometristi Como)
+
+Versione 2006.002
+-----------------
+Sci-Tutte:
+		Correzione di un bug. Nella versione precedente, per correggere il problema del mancato
+		annullamento del rilevamento sugli intermedi e traguardo in caso di un concorrente senza
+		il tempo di Start, è stato introdotto un bug che imposta, in arrivo, la categoria attuale
+		invece di quella impostata alla partenza.
+		(Vuillermoz - Aosta)
+
+Versione 2006.001-Beta 1
+-----------------
+Tabellone MICROGATE uTAB:
+		Introdotta la possibilità, nel caso si utilizzi un singolo tabellone a 9 cifre,
+		di scegliere un formato di visualizzazione "esteso" oppure "compatto"
+		Esteso:
+			il modo di visualizzazione fino ad ora usato.
+			Viene visualizzato il tempo con l'interposizione dei punti separatori tra
+			ore, minuti, secondi e millesimi. Non viene mostrato il numero di concorrente
+		Compatto:
+			Vengono visualizzati il numero di concorrente e il tempo senza nessuna interposizione
+			di caratteri. A seonda della risoluzione scelta si possono ottenere le seguenti
+			visualizzazioni:
+			Risoluzione al Secondo:		-> N N N H H M M S S
+			Risoluzione al decimo:		-> N N N H M M S S C
+			Risoluzione al centesimo:	-> N N N M M S S C C
+			Risoluzione al millesimo:	-> N N N M S S C C C
+			Dove 
+			N = numero concorrente
+			H = ore 		(decine unita)
+			M = minuti 		(decine unita)
+			S = secondi		(decine unita)
+			C = frazioni	(decimi centesimi millesimi)
+		La selezione del formato avviene nella seconda pagina delle preferenze dei 
+		tabelloni (tasto SHIFT + tasto 7), sotto la voce "Formato".
+		ATTENZIONE: se viene selezionata la "Larghezza" a 18 caratteri, il formato viene
+		automaticamente impostato ad "Esteso" senza la possibilità di modificarlo.
+		(richieste varie)
+
+Versione 2005.002-Beta 6
+-----------------		
+Sci-Tutte:
+		Correzione di un bug. Nelle versioni precedenti non era possibile annullare il rilevamento
+		degli intermedi e del traguardo in caso di un concorrente senza il tempo di Start.
+	
+Versione 2005.002-Beta 5
+-----------------		
+Sci-Fondo ad Inseguimento:
+		Nella seconda manche, è stata aggiunta la possibilità di generare i tempi teorici di 
+		partenza usando i distacchi prodotti nella prima manche per tutte le categorie usate.
+		Per lanciare questa procedura, è sufficiente premere il tasto "St.Teor" senza nessun
+		numero di concorrente impostato. 
+			Confermando la richiesta, viene chiesta l'ora teorica di partenza per ogni primo 
+			concorrente di ogni categoria.
+		Premendo il tasto "Esc" durante la fase d'impostazione dell'ora teorica di partenza,
+		si esce da questa procedura, mantenendo però le eventuali ore prodotte per le categorie
+		precedenti.
+		(richiesta Modena)
+       
+Versione 2005.002-Beta 4
+-----------------        
+Tabellone ALGE:
+		Creato un nuovo driver per tabelloni ALGE speciali.
+		Il monotabellone esce con la lettera E, mentre il tabellone della riga 5 esce 
+		come monotabellone. Per abilitare questo driver, bisogna usare un cavo tabellone speciale.
+		(richiesta Bologna)
+
+Generale:
+		In tutte le gare dove non viene usato il portalinee, abilitata la funzione di aggancio
+		ad un impulso esterno di 1 secondo: il PPS di un GPS. Serve un hardware esterno collegato
+		alla presa portalinee che simula un singolo portalinee. Questa funzione deve essere abilitata
+		dal menu del Master.
+		(richiesta Interna)
+
+Equitazione:
+		Trovato Bug (Francesco Dariz):
+		Nelle specialità a fasi consecutive con eliminazione del concorrente in caso di penalità, 
+		se si superano i 60 secondi, al transito sull'intermedio, il tabellone non visualizza
+		il tempo impiegato in formato centesimale bensi in formato sessagesimale.
+		Corretto
+
+Inseguimento:
+		Introdotta la possibilità, nel caso di "Falsa Partenza", di scegliere se continuare oppure
+		azzerare il cronometraggio.
+		(richiesta Novara)
+		
+ContaSecondi:
+		"Progressivi da zero"
+		Introdotta la possibilità di visualizzare sul tabellone il tempo settoriale, cioè il tempo
+		giro prodotto dall'azionamento degli intermedi.
+		Per abilitare questa funzione, bisogna entrare in "Preferenze Contasecondi" e sotto il campo
+		"Linea I" oppure "Linea II" selezionare la voce "Lap S". Con questa funzione abilita, i tempi
+		vengono stampati sulla carta nel modo normale, mentre sul tabellone 0 oppure sul Monotabellone
+		viene mostrato un tempo che riparte da 0:00 ad ogni azionamento del intermedio.
+		(richiesta Modena)
+		
+Comunicazioni RS232:
+		Introdotto un nuovo comando: +F
+		Questo comando permette di rimettere il pointer dei dati trasmessi all'inizio della serie
+		prodotta nella gara attuale, in modo da rendere possibile lo scarico dei dati più volte.
+		ATTENZIONE: se i dati prodotti sono maggiori del buffer disponibile (10000 battute), questo
+		comando rimette il pointer al dato più vecchio disponibile.
+		(richiesta Pistoia)
+
+Versione 2005.001
+-----------------
+
+Nuoto:
+		Possibilità di ripetere Lo Start della gara senza prima azzerare il tutto con Reset
+		In questo modo si può far ripartire la gara anche senza essere nello stato di "Pronto a Start"
+		Funzione selezionabile da menù.
+		ATTENZIONE: non esiste la possibilità di recuperare il precedente inizio della gara
+		(richiesta Roma)
+		
+Nuoto:
+		Dopo l'arrivo dell'ultima vasca, possibilità di scambiare i tempi tra le corsie, in modo
+		da rendere la stampa della classifica consona con quella rilevata dai giudici.
+		(richiesta Modena)
+
+Inseguimento:
+		Possibilità di programmare il tempo di accensione del semaforo dopo
+		l'arrivo del primo concorrente
+		Questo periodo viene impostato mediante una voce del Menu.
+		I valore programmabile va da un minimo di 1 secondo ad un massimo di 25 secondi
+		con passo 1 secondo.
+		(richiesta Modena)
+
+Contasecondi:
+		In "Progressivi da zero", possibile la selezionare di abilitare o meno, la partenza del
+		conteggio del tempo solo con la linea S.
+		Questa selezione si trova nel menu "Preferenze Contasecondi" e e il tipo scelto
+		viene visualizzata sotto il tempo a correre in alto a destra.
+		Con il cronometro a 0.000 e questa funzione abilitata, il conteggio del tempo inizia
+		solo azionando la linea S. Le altre linee e il portalinee sono inattivi.
+		Una volta iniziato il conteggio del tempo, il tutto ritorna normale.
+		Con il cronometro in STOP, un azionamento di una qualsiasi linea fa ripartire il conteggio.
+		(richiesta Roma)
+		
+Countdown:
+		Possibilità di scegliere se mostrare ROSSO o BLANK quando il conteggio è in STOP
+		Funziona selezionabile dal menù "Preferenze Countdown", in tutte le sequenze.
+		(richiesta Roma)
+
+Sci:
+        Nella "Stampa Cronologici", aggiunta la possibilità di scegliere se stampare o meno
+		i tempi non rilevati, evitando di mettere la riga di "Non Disp" (risparmio carta).
+		Funzione selezionabile in "Stampa dettagli cronologici"
+		(richiesta Belluno)
+		
+Sci:
+        Spostato il buffer "msg_undo", dove vengono memorizzate le scritte di richiesta annullamento
+	    rilevamento, dal banco CDATA al banco DATA (più grande). 
+	    Risolve il problema della mancata visualizzazione della conferma dell'annullamento del rilevamento
+	    (bug software della versione precedente)
+        
+Versione 2004.013
+-----------------
+Generale:
+		Aggiunta la chiave di attivazione per i programmi a pagamento, ad esempio il Line Keeper
+		La chiave è composta da cinque caratteri che vengono generati dalla Digitech
+		in funzione del numero di Serie del cronometro e della versione del software
+		
+Nuoto:
+        Corretto un bug nell'uso con risoluzione al decimo, continuando la gara dopo uno spegnimento
+		del cronometro.
+		(segnalazione Milano)
+
+Contasecondi:
+	    Aggiunta la voce MasterClub, che permette l'uso del cronometro con il nostro
+		software MasterClub, impostando automaticamente i parametri corretti.
+		
+Equitazione:
+		Aggiunta la specialita "Barrage consecutivi". Si tratta di una competizione nella quale il
+		concorrente	effettua un primo percorso come in una singola-fase. Al termine, a discrezione
+		della giuria, effettua un altro percorso oppure lo stesso con diversi il tempo di partenza
+		e il tempo massimo.
+		In questa specialità sono stati introdotti quindi:
+		- la possibilità di impostare singolarmente i due tempi di partenza, massimi e limite
+		- Al termine della prima prova, dopo la stampa dei risultati, il cronometro passa alla
+		  seconda fase utilizzando la seconda impostazione del tempo di partenza.
+		- l'impostazione di un diverso numero di concorrente in "Pronto a Start" della seconda fase,
+		  produce un'eliminazione del concorrente precedente e riporta il cronometro alla partenza 
+		  della prima fase.
+
+		Nelle specialità a fasi multiple, Introdotta la possibilità di scegliere se eliminare automaticamente
+		o no il concorrente nel caso abbia delle penalità alla fine delle fasi intermedie.
+
+Versione 2004.012
+-----------------
+Equitazione:
+        Eliminazione concorrente
+		Introdotto il tasto "Elimina" anche durante lo svolgimento della gara.
+		Non serve più fermare il conteggio del tempo per eliminare il concorrente.
+		Azionando il tasto "ELIMINA" viene richiesto di confermare l'eliminazione del concorrente.
+		Il tasto Elimina funziona così
+
+	  	   Singola Fase - Concorrente senza penalità aggiunte
+	  	   Se il concorrente è in gara senza nessuna penalità, il cronometro stampa:
+		   "ELIMINATO dalla Giuria" e si rimette a "Pronto a Start", azzerando i tabelloni
+
+	  	   Singola Fase - Concorrente con penalità aggiunte
+	  	   Se il concorrente è in gara con delle penalità imposte a mano, il cronometro stampa:
+	  	   "ELIMINATO dalla Giuria: per Penalità imposte" e si rimette a "Pronto a Start",
+	  	   azzerando i tabelloni
+
+	  	   Singola Fase - Concorrente con superamento del tempo massimo
+	  	   Se il concorrente è in gara con delle penalità per superamento del Tempo Massimo,
+	  	   il cronometro stampa:
+	  	   "ELIMINATO dalla Giuria: oltre Tempo massimo" e si rimette a "Pronto a Start",
+	  	   azzerando i tabelloni
+
+	  	   Singola Fase - Concorrente arrivato
+	 	   Se il concorrente ha terminato il percorso ("Arrivato"), il cronometro stampa:
+	  	   "ELIMINATO dalla Giuria" e si rimette a "Pronto a Start", azzerando i tabelloni
+	
+		   Fasi consecutive
+	  	   All'interno di ogni singola fase, il funzionamento è lo stesso della precedente
+	  	   Singola Fase.
+
+
+		Fasi consecutive - Transito del concorrente all'intermedio con penalità
+	  	Se il concorrente transita all'intermedio con delle penalità, il cronometro passa
+	  	alla fase successiva, ma sui tabelloni rimane congelato il tempo e le penalità della
+	  	fase precedente.
+		Dopo 10 secondi, in automatico, la visualizzazione dei tabelloni passa a mostrare il
+		tempo e le penalità dell'attuale fase.
+	  	Azionando "ELIMINA" nel periodo dei 10 secondi di congelamento dei tabelloni,
+		il cronometro stampa il riepilogo della fase precedente con la dicitura "ELIMINATO dalla Giuria",
+	  	lasciando invariato il contenuto dei tabelloni (il tempo e le penalità della fase
+	  	precedente), e si rimette a "Pronto a Start".
+	  	Le informazioni sui tabelloni rimangono fino al prossimo inserimento di concorrente
+	  	nella fase di "Pronto a Start"
+		NOTA BENE	  	
+		Non esiste più l'eliminazione automatica da parte del cronometro.
+
+		Fasi Consecutive - Penalità
+		Nelle fasi consecutive, viene stampata la "segnalazione di penalità" solo dopo la fine della
+		fase nella quali sono state ottenute.
+		Nelle fasi successive, se la gara continua, non viene stampato nulla, considerando
+		inesistenti le penalità precedenti (altrimenti dovrebbe essere eliminato).
+
+		Azionamenti delle linee
+		vengono stampati i tempi solari degli impulsi elettrici (Start e Finish)
+		non vengono stampati i tempi solari dei rilevamenti manuali (Stop/Restart conteggio)
+
+		Annullare errati impulsi di Start / Traguardo
+		Aggiunta la richiesta di conferma in caso di annullamento di un rilevamento, sia 
+		di Start che Traguardo
+
+		CountDown iniziale
+		possibilità di START / STOP del conteggio.
+		Default durata CD= 45 secondi.
+		Lo START e STOP sono gestiti dalla tastiera del Master oppure
+		tramite la consolle CN802:
+		Linea 1: start CD
+		linea 2: stop  CD
+		linea 3: reset CD
+		linea 4: start/stop CD
+
+		CountDown iniziale
+		possibilità di START senza numero di concorrente.
+	
+		CountDown iniziale
+		possibilità di modificare il numero di concorrente.
+	
+		CountDown iniziale
+		una volta scaduto, il tempo a salire parte in automatico
+		(come fosse uno START).
+
+		Falsa partenza
+		se durante il countdown, un impulso di partenza errato fa partite
+		il tempo a salire, premendo il tasto S (in alto a destra) si riprende
+		il countdown iniziale.
+			
+		Penalità Tabella A per superamento del tempo Massimo
+		possibilità di programmare quanti secondi per un punto di penalità.
+		Default= 4 secondi prima fase, 1 secondo nelle successive.
+	
+		Superamento tempo Limite
+		il superamento del tempo limite viene segnalato su carta, ma il conteggio 
+		continua fino all'arrivo del concorrente oppure allo stop da parte della giuria
+	
+		Concorrente arrivato
+		aggiunto un tasto funzione che permette di passare all'impostazione
+		di un nuovo concorrente	senza la necessità di stampare i risultati oppure 
+		di eliminare l'attuale concorrente
+
+		Concorrente arrivato
+		Stampando i risultati finali, passando all'impostazione di un nuovo concorrente,
+		non cancello i tabelloni (rimangono i dati dell'ultimo concorrente).
+		I tabelloni vengono cancellati quando imposto il numero del prossimo concorrente,
+		oppure se faccio partire il CountDown
+
+		NOTA SUL NUMERO DI CONCORRENTE:
+		la possibilità di modificare il numero di concorrente è abilitata solo
+		nel countdown iniziale.
+		Una volta iniziato il conteggio a salire del tempo, il numero del 
+		concorrente non può essere modificato.
+		Quando scade il countdown senza il numero di concorrente impostato,
+		viene impostato automaticamente il concorrente 0.
+	
+		NOTE PER IL PROGRAMMATORE
+		sono state aggiunte alcune nuove stringhe disponibili sulla seriale RS232
+
+			210: STOP CD con N°Conc
+			211: STOP CD senza N°Conc
+			212: Cambio N°Conc con CD in moto
+			213: Cambio N°Conc con CD fermo
+			214: RESTART CD con N°Conc
+			215: RESTART CD senza N°Conc
+			216: Traguardo ippica, quando stampa l'ora solare
+			217: Tempo complessivo nel riepilogo dei risultati
+			218: FALSA PARTENZA, Ripristino CD con N°Conc
+			219: FALSA PARTENZA, Ripristino CD senza N°Conc
+
+Versione 2004.011
+-----------------
+Line Keeper: versione a pagamento
+       Implementato l'utilizzo del semaforo:
+	   al passaggio su una qualsiasi linea, viene acceso il colore Rosso
+	   Tale colore può essere cambiato in Verde manualmente, mediante un tasto funzione, 
+	   oppure in automatico, dopo un transito sulla linea Finish.
+	   Il tempo in cui rimane acceso il Rosso dopo il transito sul Finish è programmabile
+	   da 1 a 25 secondi.
+	   Impostando 0 secondi, si  toglie l'automatismo abilitando solo la funzione manuale.
+	   L'accensione in automatico del colore verde, produce una segnalazione acustica
+	   da parte del semaforo.
+       Corretto un bug relativo al timer di verifica per il secondo impulso. Si evita che
+	   nel caso arrivi un impulso quando scade il timer, il sistema non funzioni perchè
+	   il timer è 0.
+
+Sci:   
+       Corretto il problema riguardante la visualizzazione sul tabellone ALGE:
+       (segnalazione Modena)
+       In Speciale ed in Gigante, all'arrivo del concorrente sul traguardo, alcune volte
+       il tempo realizzato veniva sostituito, dopo un attimo, da una serie di caratteri
+       non visualizzabili dal tabellone, ottenendo la cancellazione del medesimo.
+
+Tutto:
+       Aggiornato il Logo d'apertura e in Nuoto
+
+Versione 2003.011
+-----------------
+Contasecondi-Line Keeper:  versione a pagamento
+       Verifica funzionamento pressostato
+	   Aggiunta la nuova specialità Line Keeper. Questo programma permette di  verificare
+	   il corretto funzionamento dei pressostati collegati alle linee principali.
+	   il funzionamento corretto o meno viene segnalato mettendo una scritta sotto al tempo
+       rilevato. Se il rilevamento è corretto, viene scritto "OK", oppure se dubbio "********".
+       Molto utile per determinare se un pressostato funziona bene oppure se prende le ruote
+       posteriori.
+       Il tempo rilevato è disponibile sulla seriale, evidenziato da battute diverse a seconda
+       se corretto o no.
+       Numero concorrente
+       Viene implementata la possibilità di modifica automatica del numero di concorrete
+       impostato al rilevamento di un impulso su una linea qualsiasi o solo sulla linea Finish.
+       Utile nel caso di passaggi su più linee consecutivi di un unica vettura,
+       il numero s'incrementa solo al passaggio sulla linea Finish e non sulle altre 3 linee.
+			   
+
+Versione 2003.010
+-----------------
+Start          Adeguati i tempi di accensione del verde alle variazioni 
+countdown:     regolamentari (in "Rally").
+
+Nuoto:		   Aggiunto l'arrotondamento matematico alla risoluzione di 1/10
+			   in modo da essere in regola con le nuove normative
+
+Tabellone	   Aggiunta la visualizzazione del nome del concorrente corrispondente al numero visualizzato 
+PC 19200	   all'inizio riga di ogni tabellone. Il nome viene posto, se stato inserito via seriale,
+			   subito dopo la visualizzazione del tempo
+			   
+Sci:		   Aggiunto alla seriale il comando +K
+			   per impostare un tempo e la categoria di un concorrente sulle quattro linee.
+               Il comando funziona così:
+               +KLn[,c]=t
+               dove
+               L = linea (obbligatorio): 
+               	   "A"= start
+               	   "B"= primo intermedio
+               	   "C"= secondo intermedio
+               	   "D"= finish
+               n = numero concorrente (max 999)
+               c = categoria (max 99) opzionale
+               t = tempo ora solare composto da 9 cifre consecutive: hhmmssdcm
+                   le cifre in eccesso non vengono utilizzate
+               Se non c'è la categoria, viene usata quella attualmente impostata sul cronometro
+               L'immissione della categoria non modifica quella attuale del cronometro
+               Il comando fallisce quando:
+                 concorrente maggiore di 999
+                 categoria   maggiore di  99
+                 lunghezza tempo minore di 9 caratteri
+                 valore delle ore maggiore di 23
+                 valore dei minuti maggiore di 59
+                 valore dei secondi maggiore di 59
+
+               Il tempo così impostato viene caratterizzato dall' identificatore  "c"
+               	 (vedi versione precedente).
+               Questo comando produce una stampa simile a quella prodotta dall'azionamento
+               della linea elettrica e sulla seriale le stesse battute (tempo di partenza, tempo da battere, ecc).
+               Se il concorrente ha già un tempo su quella linea, viene prodotta la stampa dell'annullamento dell tempo precedente (anche sulla seriale) e poi la stampa del nuovo tempo (anche sulla seriale).
+               
+               Ulteriore funzione del comando +K e quella di annullare l'eventuale tempo che il concorrente ha sulla linea. Il comando si usa così:
+               +Kln=D
+               dove:
+			   l = linea (obbligatorio): 
+               	   "A"= start
+               	   "B"= primo intermedio
+               	   "C"= secondo intermedio
+               	   "D"= finish
+               n = numero concorrente (max 999)               
+			   "D"=comando di delete
+			   
+               NOTA: bisogna fare attenzione, su questo comando non vengono effettuati controli
+               su concorrenti: verifica se in gara o già arrivati.
+               Impostazioni di tempi di partenza su concorrenti già arrivati possono produrre
+               una classifica sbagliata
+
+Sci:	       Aggiunta la richiesta di conferma all'annullamento del rilevamento su una linea
+			   quando si preme il corrispondente tasto (S,i,II e T) di destra.
+
+Sci:           Cambiata la temporizzazione default delle linee da 0.5 Sec a 0.2 Sec
+
+Sci:           Aggiunta una "mezza spaziatura" dopo la stampa della tempo del passaggio di
+               un concorrente sulla linea  Finish )utile per evidenziare tale passaggio quando
+               viene impostata a nessuna la spaziatura della stampante.
+
+
+Versione 2001.020
+-----------------
+Start          Adeguati i tempi di accensione del verde alle variazioni 
+countdown:     regolamentari (in "Rally" e "Cronoscalata").
+
+In tutte       Aggiunti nuovi identificatori di sorgente di linea
+le gare:       ai cronologici. Oltre al ben noto "#", per i tempi
+               rilevati dalle linee manuali, sono stati introdotti questi
+               identificatori:
+               "m" - Tempi digitati manualmente da tastiera
+               "a" - Tempi generati automaticamente (teorici)
+               "d" - Tempi ricevuti da DCF77
+               "#" - Tempi "manuali" (da "Manual input", non digitati)
+               " " - Tempi elettrici (dalle linee)
+               "c" - Tempi ricevuti da computer (partenze teoriche)
+
+In tutte       Ora è possibile, dopo la scelta della risoluzione,
+le gare:       impostare una modalità di arrotondamento dei tempi netti.
+               Le tre possibilità sono:
+               1) Tronca (identico alle versioni precedenti)
+               2) Arrotonda (cioè 10.0000...10.4999 diventa 10, e
+                  10.5000..10.9999 diventa 11)
+               3) Arrotondamento IAAF (per l'atletica leggera, come da
+                  RULE 165, punto 25, delle "IAAF TECHNICAL RULES").
+
+Contasecondi:  Introdotta la possibilità di scegliere la risoluzione con
+               cui vengono visualizzati e stampati i tempi netti. E'
+               importante notare che il suo utilizzo prevalente è nel 
+               cronometraggio con "partenza da zero", poiché in quello
+               "ad ora solare" l'effettivo utilizzo della risoluzione 
+               scelta è limitato al solo calcolo dei tempi giro.
+
+
+Versione 2001.000
+-----------------
+               Introdotto il supporto multi-lingue. In futuro verranno 
+               distribuiti file aggiuntivi per la nazionalizzazione del 
+               Master in altre lingue.
+
+Equitazione:   Corretta la stampa dell'assegnazione di penalità (stampava 
+               "sec" anziché "pti" e viceversa).
+
+
+Versione 99.024
+---------------
+Tabellone      Il tabellone Alge non sembra essere in grado di 
+Alge:          visualizzare in modo corretto i tempi segnati (cioè 
+               preceduti da "+" o "-") se compresi tra tra -59" e -10". 
+               Per ovviare all'inconveniente, il segno meno è stato 
+               spostato di una cifra a sinistra.
+
+
+Versione 99.022
+---------------
+Sci:           E' stato corretto l'ordine di inserimento in classifica 
+               dei concorrenti parimerito, relativamente alle specialità 
+               "Slalom gigante" e "Fondo ad inseguimento". Le altre 
+               specialità si comportavano già in modo corretto.
+
+
+Versione 99.021
+---------------
+Interfaccia    E' stato risolto un problema relativo al comando +P
+seriale:       (stampa da PC), che, se utilizzato dopo un +S (tempo a
+               correre), sporcava l'ora di quest' ultimo.
+
+Sci, fondo ad  E' stata corretto un problema che non consentiva
+inseguimento:  la corretta gestione delle partenze di intere categorie
+               nella seconda fase di gara.
+
+Inseguimento   E' stata introdotta la possibilità di gestire con modalità
+su pista:      diverse le false partenze. Ora si può scegliere tra:
+               1) Blocca la gara in caso di falsa partenza (come prima).
+               2) Ignora la falsa partenza. L'impulso viene stampato con
+                  l'indicazione "Falsa partenza", ma la gara può 
+                  proseguire normalmente (il passaggio del concorrente 
+                  NON fa partire il conteggio del tempo). Utile nei casi
+                  in cui la falsa partenza venga penalizzata in altro 
+                  modo (penalità aggiuntive, Stop & Go, ecc.).
+               3) Autostart; il primo dei due concorrenti che transita
+                  sulla partenza (o arrivo) fa partire il conteggio del 
+                  tempo. Con questa modalità è quindi possibile gestire 
+                  gare di slalom parallelo senza un vero impulso di start 
+                  (cioè senza tempo di gara). La partenza del tempo a 
+                  correre avviene quando il primo dei due concorrenti 
+                  taglia il rispettivo traguardo, per fermarsi all'arrivo 
+                  del secondo.
+
+Sci,           Ora il tempo di un concorrente appare sui tabelloni 
+tabelloni:     anche quando viene messo in Finish prima che sia partito.
+
+Ricezione      Corretto un problema che causava l'errata impostazione
+da Syncro:     dell'anno.
+
+
+Nuove funzionalità della versione 99.020
+----------------------------------------
+               E' stato introdotto un nuovo programma, denominato "Start 
+               countdown" specificamente progettato per gestire il nuovo 
+               semaforo di partenza SL306. Le sequenze di colori e suoni 
+               sono completamente programmabili dall'operatore. Il 
+               programma può essere utilizzato anche con i vecchi 
+               semafori Digicron SD1, utilizzando l'apposita interfaccia 
+               mod. *MASTER-SD1.
+
+
+Versione 99.011
+---------------
+Sci:           All'inizio di una nuova gara viene richiesto, quando 
+               necessario, se si vogliono cancellare o mantenere i nomi 
+               dei concorrenti eventualmente già scaricati nel cronometro 
+               dal PC.
+
+Sci, biathlon: Nel dettaglio cronologici è stata aggiunta la stampa delle 
+               penalità dei concorrenti. 
+
+Sci:           Nelle partenze a gruppi del "fondo" appariva a display la 
+               scritta "100" anziché "GRP". Corretto.
+
+Sci:           Il protocollo di rete è stato leggermente variato rispetto 
+               alla versione 99.010. La nuova versione NON è compatibile 
+               con la precedente (si raccomanda quindi di aggiornare 
+               tutti i Master, in modo da minimizzare i rischi di 
+               incompatibilità).
+
+Contasecondi:  Il numero di concorrente sui tabelloni talvolta non veniva 
+               immediatamente aggiornato. Corretto.
+
+Tutte le gare: risolto un problema relativo alle ristampe effettuate a 
+               stampante spenta. Ora è possibile spegnere la stampante e 
+               stampare solo le parti d'interesse senza dover prima 
+               riaccenderla.
+
+
+Nuove funzionalità della versione 99.010
+----------------------------------------
+Sci:	        E' operativa la rete locale. Si possono collegare fino a 
+               sei terminali remoti per co-gestire la stessa gara. La 
+               connessione va effettuata con i cavi di collegamento 
+               "*MASTER LAN", lunghi 3 metri. Se necessario la rete può 
+               essere estesa a distanze maggiori (vedi note tecniche 
+               specifiche). E' possibile assegnare ad ogni macchina un 
+               "nome" (tramite Shift 4, F3).
+
+Sci:           E' stata rivista la modalità di gestione dei parimerito;
+               ora è pienamente conforme ai regolamenti FISI/FIS.
+
+Sci:	        Le azioni che prevedono una forzatura (ad esempio: mettere 
+               in arrivo un concorrente già arrivato) annullano 
+               immediatamente il tempo precedente, in modo da consentire 
+               la visualizzazione dei tempi a correre sul display, sui 
+               tabelloni, ecc.
+
+Tabelloni,     Ulteriori variazioni nella gestione, per permettere, sui
+sci:	        modelli di tabelloni che lo consentono, la visualizzazione
+               dei tempi "anticipo" e "ritardo" sul primo in classifica. 
+               Tali tempi sono preceduti da un "-" o da un "+". Sui 
+               tabelloni Digicron, che non sono in grado di visualizzare 
+               caratteri alfanumerici, appare solo il ritardo; l'anticipo 
+               non viene visualizzato in alcun modo (perché sarebbe 
+               indistinguibile da un ritardo di pari entità).
+
+Sci:           Il comando "numero"+ENTER (che permette di visualizzare lo
+               stato di un concorrente) ora visualizza correttamente il 
+               suo tempo netto.
+
+Contasecondi:  E' possibile definire, separatamente per ogni linea, il
+               comportamento degli intermedi, per utilizzarli come Split 
+               (solo tempo progressivo) o come Lap (anche tempo giro). E' 
+               inoltre disponibile anche l'impostazione "Ignora", che 
+               stampa un tempo su carta ma lascia inalterato lo scorrere 
+               del tempo sui tabelloni. Tutte le impostazioni sono 
+               accessibili con "Menù 1".
+
+Contasecondi:  Il numero di concorrente impostato veniva salvato anche
+               premendo CLR o ESC. Corretto.
+
+
+Nuove funzionalità della versione 005
+-------------------------------------
+Tabellone Alge,   corretto un problema della versione 98.004,
+tutte le gare:    relativo alla mancata visualizzazione dei decimi di 
+                  secondo sui tempi sdoppiati sui tabelloni.
+                  NOTA BENE: il problema era circoscritto al solo formato 
+                  Alge. Se non utilizzate tali tabelloni, le versioni 
+                  98.004 e 98.005 sono da considerarsi equivalenti.
+
+
+Nuove funzionalità della versione 004
+-------------------------------------
+Sci:           Tramite MENU' 1 ora è possibile sopprimere i tempi 
+               "ritardo dal primo" nella stampa delle classifiche.
+               Allo stesso modo, è possibile sopprimere la stampa dei 
+               nomi dei concorrenti, sempre che siano stati caricati da 
+               PC. La posizione in classifica è stata quindi spostata 
+               sulla riga del tempo netto.
+
+Sci:           E' stato corretto un problema nella stampa delle 
+               classifiche per categoria. Tali classifiche venivano 
+               stampate in modo errato.
+
+Nuoto:         L'intestazione Fase/Batteria ora viene scritta centrata.
+
+
+Nuove funzionalità della versione 003
+-------------------------------------
+Acquisizione   E' stato introdotto un meccanismo che permette di 
+               recuperare eventi avvenuti a linee disattivate (cioè su 
+               OFF). Quando le linee vengono poste in OFF, tutti gli 
+               impulsi ricevuti vengono memorizzati. Alla riattivazione 
+               della linea viene richiesto se eliminarli definitivamente 
+               o se recuperarli. La funzione "salva eventi" è 
+               disattivabile tramite SHIFT 3.
+
+Sci:           In "dettaglio cronologici" (MENU 3) i tempi N (Netto) ed R
+               (Ritardo) ora vengono riportati sempre
+               (talvolta veniva stampato "<non disp.>").
+
+Sci:           Nella specialità "Biathlon", la funzione NUMERO + ENTER
+               (che fornisce a display i tempi e la pos. in classifica di
+               un concorrente) ora visualizza anche le penalità.
+
+Sci:           Fondo ad inseguimento - alla fine della prima fase i tempi
+               netti di gara vengono troncati al secondo intero, come
+               previsto dal regolamento FISI 98-99 (i regolamenti
+               precedenti prevedevano che il troncamento venisse fatto
+               sul distacco dal primo). In questo modo la fase ad 
+               inseguimento è veramente tale (nel caso di distacchi 
+               minimi, applicando il regolamento precedente esisteva la 
+               possibilità che risultasse in testa alla classifica chi di 
+               fatto arrivava per secondo).
+
+Nuoto:         La gara è stata estesa per la gestione di 10 corsie.
+               Le prime 8 sono quelle della consolle, la 9 corrisponde
+               al primo intermedio, la 1° al 2° intermedio.
+               Le temporizzazioni delle linee intermedio sono separate da
+               quelle della consolle. In caso di variazione vanno quindi
+               impostate separatamente.
+
+Nuoto:         E' stata introdotta la possibilità di ignorare le false
+               partenze (impulsi ricevuti dalle piastre prima dello
+               START) per poter gestire le partenze a dorso.
+               L'impostazione predefinita è "ignora gli impulsi", che va
+               quindi cambiata solamente se si dispone dei blocchi
+               di partenza con il contatto elettrico atto a rilevare le
+               false partenze.
+
+Interfaccia    E' stato introdotto il comando +E per cancellare i nomi di
+RS-232:        tutti i concorrenti o di tutte le categorie.
+
+Tabelloni:     Il formato di scrittura nell'array di tabelloni è stato
+               reso più "generico". Ora le limitazioni su cosa il
+               tabellone può visualizzare dipendono solamente dallo
+               specifico driver.
+               E' ad esempio possibile visualizzare i tempi al millesimo
+               se il tabellone in uso lo prevede. Allo stesso modo il
+               numero di cifre della posizione in classifica dipende
+               solamente dal tabellone (ad esempio: fino al 9° posto per
+               i tabelloni Digicron e fino al 99° per quelli Alge).
+
+Tabelloni:     In SETUP 7 (impostazioni tabelloni) è stato introdotto un
+               nuovo tasto che permette di effettuare delle impostazioni
+               specifiche per ogni driver. Il nuovo tasto (F5) appare
+               _solamente_ quando è attivo un driver che ne preveda
+               l'uso.
+
+Tabelloni:     Nel formato Microgate è possibile selezionare (tramite
+               SETUP 7 F5) la larghezza del tabellone collegato
+               (9 caratteri o 18).
+
+Tabelloni:     E' stato migliorato il supporto dei tabelloni Alge.
+               Il conteggio dei secondi ora è "regolare", anche nel caso
+               di utilizzo di un array di tabelloni.
+
+Contasecondi:  I tabelloni visualizzano un tempo corretto anche appena
+               entrati in gara (0.00 se nel modo "Progressivi da zero",
+               oppure l'ora solare a correre nel modo "Ora solare").
+
+
