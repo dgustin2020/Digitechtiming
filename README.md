@@ -1,2 +1,2 @@
 # Digitechtiming
-Firmware for Digitech Timitng Chronometers
+Firmware & Manuals for Digitech Timitng Chronometers
